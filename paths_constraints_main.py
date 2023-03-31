@@ -392,22 +392,42 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
 
 
 def main():
+
+    """
+    The script first sets the logging level of the angr library to CRITICAL to silence its output.
+    It then constructs a list of binary files to analyze, sorted by filename,
+    by concatenating the dataset directory path with the list of binary filenames in the directory.
+
+    It prints the path of the binary file specified by the --binary_idx argument,
+    and then generates a dataset for that binary using the generate_dataset() function
+
+    """
+
     parser = argparse.ArgumentParser()
+    # binary_idx: an integer specifying the index of the binary to analyze
     parser.add_argument("--binary_idx", type=int, required=True)
+
+    # dataset: a string specifying the name of the dataset directory containing the binary files to analyze
     parser.add_argument("--dataset", type=str, required=True)
+
+    # output: a string specifying the name of the output file that will contain the generated dataset
     parser.add_argument("--output", type=str, required=True)
+
+    # mem_limit: an integer specifying the memory limit in gigabytes for the binary analysis process
     parser.add_argument("--mem_limit", type=int, required=True)
+
+    # no_usables_file: a flag indicating whether or not to generate a file containing the usables set
+    # (i.e., the set of addresses in the binary that are reachable from the entry point)
+
     parser.add_argument("--no_usables_file", dest="no_usables_file", action="store_true")
     args = parser.parse_args()
 
     logging.getLogger('angr').setLevel('CRITICAL')  # Silence angr
+
     # heap_resource = resource.RLIMIT_DATA  # Limit data capture
     # soft_l, hard_l = resource.getrlimit(heap_resource)
     # resource.setrlimit(heap_resource, (args.mem_limit*2**30, (args.mem_limit+5)*2**30))
     # sys.setrecursionlimit(10**6)  # Limit stack
-
-    
-
 
     binaries = os.listdir("our_dataset/" + args.dataset)
     binaries.sort()
