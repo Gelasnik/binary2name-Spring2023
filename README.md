@@ -2,7 +2,9 @@
 ## Automatic Detection for Binary Code Functionality
 
 This project was developed by [Ittay Alfassi](https://github.com/ittay-alfassi) and [Itamar Juwiler](https://github.com/itamar1208) as a part of the [Project in Computer Security](https://webcourse.cs.technion.ac.il/236349/Spring2021/) course at Technion - Israel Institute of Technology. 
-Project Advisors: Dr. Gabi Nakibly and Dr. Yaniv David. 
+Project Advisors: Dr. Gabi Nakibly and Dr. Yaniv David.
+
+In spring of 2023 this project was continued by Alexey Gerbreder and Oren Smirnov
 
 ## Introduction:
 The main motivation for this project is to be a helpful tool for researchers of binary code.
