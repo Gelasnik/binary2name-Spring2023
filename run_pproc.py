@@ -107,6 +107,7 @@ def main():
 
     logging.getLogger().setLevel('DEBUG')
     print('STARTING!!!!!!!')
+    # TODO maybe add try/finally?
     run_preprocess(args)
     print('DONEDONEDONE!!!!!!!')
 

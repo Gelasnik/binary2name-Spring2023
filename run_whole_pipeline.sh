@@ -17,8 +17,10 @@ python3 output_converter.py --dataset_name nero
 echo "Removing empty lines (feel free to find a better way)"
 grep . ready_data/ready_nero/train.json > ready_data/ready_nero/train.json_
 mv ready_data/ready_nero/train.json_ ready_data/ready_nero/train.json
+
 grep . ready_data/ready_nero/validation.json > ready_data/ready_nero/validation.json_
 mv ready_data/ready_nero/validation.json_ ready_data/ready_nero/validation.json
+
 grep . ready_data/ready_nero/test.json > ready_data/ready_nero/test.json_
 mv ready_data/ready_nero/test.json_ ready_data/ready_nero/test.json
 
@@ -29,6 +31,8 @@ cp ready_data/ready_nero/validation.json nero/procedure_representations/raw/bin2
 cp ready_data/ready_nero/test.json nero/procedure_representations/raw/bin2name/test.json
 
 echo "Running Nero's preprocessing"
+# FIXME
+#  shellcheck disable=SC2164
 cd nero
 python3 preprocess.py -trd procedure_representations/raw/bin2name/train.json -ted procedure_representations/raw/bin2name/test.json -vd procedure_representations/raw/bin2name/validation.json -o data
 

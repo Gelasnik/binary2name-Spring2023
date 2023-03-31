@@ -394,6 +394,7 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
 def main():
 
     """
+
     The script first sets the logging level of the angr library to CRITICAL to silence its output.
     It then constructs a list of binary files to analyze, sorted by filename,
     by concatenating the dataset directory path with the list of binary filenames in the directory.
@@ -401,6 +402,7 @@ def main():
     It prints the path of the binary file specified by the --binary_idx argument,
     and then generates a dataset for that binary using the generate_dataset() function
 
+    TODO created by chatGPT
     """
 
     parser = argparse.ArgumentParser()
