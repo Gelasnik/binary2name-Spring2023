@@ -60,21 +60,21 @@ def collect_to_file(file_list: List[str], filename: str) -> None:
             #with open(function_file, 'r') as file:
                 #collective_files += file.read() + '\n'
     
-    if 'train.json' in filename:
-        binaries = [b for b in os.listdir('../nero_dataset_binaries/TRAIN') if os.path.isfile(os.path.join('../nero_dataset_binaries/TRAIN', b))]
-    if 'test.json' in filename:
-        binaries = [b for b in os.listdir('../nero_dataset_binaries/TEST') if os.path.isfile(os.path.join('../nero_dataset_binaries/TEST', b))]
-    if 'validation.json' in filename:
-        binaries = [b for b in os.listdir('../nero_dataset_binaries/VALIDATE') if os.path.isfile(os.path.join('../nero_dataset_binaries/VALIDATE', b))]
-    for function_file in file_list:
-        binary_name = function_file.split('/')[1]
-        if binary_name in binaries:
-            with open(function_file, 'r') as file:
-                collective_files += file.read() + '\n'
+    # if 'train.json' in filename:
+    #     binaries = [b for b in os.listdir('../nero_dataset_binaries/TRAIN') if os.path.isfile(os.path.join('../nero_dataset_binaries/TRAIN', b))]
+    # if 'test.json' in filename:
+    #     binaries = [b for b in os.listdir('../nero_dataset_binaries/TEST') if os.path.isfile(os.path.join('../nero_dataset_binaries/TEST', b))]
+    # if 'validation.json' in filename:
+    #     binaries = [b for b in os.listdir('../nero_dataset_binaries/VALIDATE') if os.path.isfile(os.path.join('../nero_dataset_binaries/VALIDATE', b))]
+    # for function_file in file_list:
+    #     binary_name = function_file.split('/')[1]
+    #     if binary_name in binaries:
+    #         with open(function_file, 'r') as file:
+    #             collective_files += file.read() + '\n'
     # --------------------- TAL'S CODE END---------------------#
-    #for function_file in file_list:
-        #with open(function_file, 'r') as file:
-            #collective_files += file.read() + '\n'
+    for function_file in file_list:
+        with open(function_file, 'r') as file:
+            collective_files += file.read() + '\n'
 
     with open(os.path.join('../ready_data', filename), 'w') as file:
         file.write(collective_files)
@@ -554,7 +554,12 @@ class OutputConvertor:
         # _, result = self.get_stats_json(filename)
         # if result["precent_block_constraints"] < 0.3: # Check if there too few blocks with constraints. In the nero DS this should remove about 15% of the functions
         #     return False, None
-        
+
+        # filename in format:
+        # data_set\folder\file.json
+        # for example:
+        # nero\gcc-5__Ou__xorriso__make_xorriso_1\Mx1_rewrap.json
+
         with open(filename, 'r') as function_file:
             initial_data = json.load(function_file)
 
@@ -564,6 +569,8 @@ class OutputConvertor:
         function_name = filename.split(os.sep)[-1][:-5]
         exe_name_split = list(filter(None, exe_name.split('_')))
         if len(exe_name_split) > 1:
+            # saves exe_name and package name to converted_file
+
             exe_name = exe_name_split[-1]
             package_name = exe_name_split[-2]
         
@@ -588,7 +595,11 @@ class OutputConvertor:
             #return False, None
             
         #converted_data['GNN_data']['edges'], converted_data['GNN_data']['nodes'] = self.reduce_graph(converted_data['GNN_data']['edges'], converted_data['GNN_data']['nodes'])
+
         converted_filename = CONVERTED_DS_PREFIX + filename
+        # makes sure you have where to save file e.g
+        # for nero\gcc-5__Ou__xorriso__make_xorriso_1\Mx1_rewrap.json
+        # creates folders: Converted_nero\gcc-5__Ou__xorriso__make_xorriso_1\
         os.makedirs(os.path.dirname(converted_filename), exist_ok=True)
         with open(converted_filename, 'w') as function_file:
             jp_obj = str(encode(converted_data))
@@ -667,34 +678,35 @@ class OrganizeOutput:
         """
         Aggregate all training, testing and validation files into single files.
         """
-        #train_length = int(len(self.file_locations) * self.train_percentage)
-        #test_length = int(len(self.file_locations) * self.test_percentage)
-        #validate_length = len(self.file_locations) - train_length - test_length
+        train_length = int(len(self.file_locations) * self.train_percentage)
+        test_length = int(len(self.file_locations) * self.test_percentage)
+        validate_length = len(self.file_locations) - train_length - test_length
 
-        #print('num of train files: {}'.format(train_length))
-        #print('num of test files: {}'.format(test_length))
-        #print('num of validate files: {}'.format(validate_length))
+        print('num of train files: {}'.format(train_length))
+        print('num of test files: {}'.format(test_length))
+        print('num of validate files: {}'.format(validate_length))
 
-        #random.shuffle(self.file_locations)
+        random.shuffle(self.file_locations)
 
-        #training_files = self.file_locations[:train_length]
-        #testing_files = self.file_locations[train_length:train_length + test_length]
-        #validating_files = self.file_locations[train_length + test_length:]
+        training_files = self.file_locations[:train_length]
+        testing_files = self.file_locations[train_length:train_length + test_length]
+        validating_files = self.file_locations[train_length + test_length:]
 
+        # ready_dir = ready_nero
         ready_dir = 'ready_' + self.dataset_name
 
         if not os.path.exists(os.path.join('../ready_data', ready_dir)):
             os.mkdir(os.path.join('../ready_data', ready_dir))
         
         # --------------------- TAL'S CODE START---------------------#
-        collect_to_file(self.file_locations, os.path.join(ready_dir, 'train.json'))
-        collect_to_file(self.file_locations, os.path.join(ready_dir, 'test.json'))
-        collect_to_file(self.file_locations, os.path.join(ready_dir, 'validation.json'))
+        # collect_to_file(self.file_locations, os.path.join(ready_dir, 'train.json'))
+        # collect_to_file(self.file_locations, os.path.join(ready_dir, 'test.json'))
+        # collect_to_file(self.file_locations, os.path.join(ready_dir, 'validation.json'))
         # --------------------- TAL'S CODE END---------------------#
         
-        #collect_to_file(training_files, os.path.join(ready_dir, 'train.json'))
-        #collect_to_file(testing_files, os.path.join(ready_dir, 'test.json'))
-        #collect_to_file(validating_files, os.path.join(ready_dir, 'validation.json'))
+        collect_to_file(training_files, os.path.join(ready_dir, 'train.json'))
+        collect_to_file(testing_files, os.path.join(ready_dir, 'test.json'))
+        collect_to_file(validating_files, os.path.join(ready_dir, 'validation.json'))
 
 
 def main():

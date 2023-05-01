@@ -59,7 +59,10 @@ def run_preprocess(args: argparse.Namespace, base_dataset_dir:str = "our_dataset
         start_of_bin = -1 * bin_count    # [-bin_count, -bin_count+1, -bin_count+2, ..., 0]
     else:
         start_of_bin = 0                 # [0, 1, 2, ..., bin_count]
+
+    print(f'Total files for processing: {bin_count}')
     end_of_bin = start_of_bin + bin_count
+    print(f'end of bin: {bin_count}')
     # Fill CPUs with jobs
     curr_bin = start_of_bin
     for _ in range(min(args.cpu_no, bin_count)):
@@ -68,7 +71,6 @@ def run_preprocess(args: argparse.Namespace, base_dataset_dir:str = "our_dataset
 
     while curr_bin < end_of_bin:
         collect_process(processes)
-
         # Build and run a new process
         try:
             processes = dispatch_process(args, curr_bin, processes)
@@ -84,6 +86,7 @@ def run_preprocess(args: argparse.Namespace, base_dataset_dir:str = "our_dataset
 
     # Wait for all remaining processes
     while processes:
+        print(f'waiting for all remaining processes')
         collect_process(processes)
 
 
