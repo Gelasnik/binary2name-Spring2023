@@ -29,7 +29,7 @@ cp ready_data/ready_nero/validation.json nero/procedure_representations/raw/bin2
 cp ready_data/ready_nero/test.json nero/procedure_representations/raw/bin2name/test.json
 
 echo "Running Nero's preprocessing"
-cd nero
+cd nero/nero
 python3 preprocess.py -trd procedure_representations/raw/bin2name/train.json -ted procedure_representations/raw/bin2name/test.json -vd procedure_representations/raw/bin2name/validation.json -o data
 
 echo "Copying to nero's internal preprocessed directory"
