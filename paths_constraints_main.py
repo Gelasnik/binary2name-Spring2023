@@ -47,6 +47,8 @@ def analyze_func(proj, bin_func_name, bin_func_addr, cfg):
         'CALLLESS': True, 'NO_SYMBOLIC_SYSCALL_RESOLUTION': True
     })
     sm = proj.factory.simulation_manager(call_state)  # Creates a simulation manager, ready to start from the specific function
+
+    # This technique is used to detect loops in the program and limit the number of times they can be executed.
     sm.use_technique(LoopSeer(cfg=cfg, bound=1))
     # sm.use_technique(LengthLimiter(100))
     
@@ -188,12 +190,13 @@ def generate_dataset(train_binary: str, output_dir: str, dataset_name: str, no_u
         is_function_usable = (lambda x: x in usable_functions)
     
     # Check which functions have already been analyzed
+    # THIS CHECK IS DISABLED, SEE COMMENT BELOW
     output_dir = f"preprocessed_data/{output_dir}"
     os.makedirs(output_dir, exist_ok=True)
 
     # Disabling this part of the algorithm, since it eats up memory and is not implemented well
     # analyzed_funcs = get_analyzed_funcs(output_dir)
-    analyzed_funcs = set()
+    analyzed_funcs = set() # EMPTY
     analyze_binary(analyzed_funcs, train_binary, output_dir, is_function_usable)
 
 
@@ -232,19 +235,25 @@ def analyze_binaryOLD(analyzed_funcs: Set[str], binary_name: str, output_dir: st
     return True
 
 def analyze_binary(analyzed_funcs: Set[str], binary_name: str, output_dir: str, is_function_usable: Callable[[str], bool]):
+    # Currently
     excluded = {'main', 'usage', 'exit'}.union(analyzed_funcs)
 
+    # Project is from angr package
+    # TODO improve?
     proj = Project(binary_name, auto_load_libs=False) # Load angr project and calculate CFG
     cfg = proj.analyses.CFGFast()  # cfg is the ACTUAL control-flow graph   
-    
+
     binary_name_base = os.path.basename(binary_name) # Make the output directory for this binary
     binary_output_dir = os.path.join(output_dir, f"{binary_name_base}")
     os.makedirs(binary_output_dir, exist_ok=True)
 
+    # This function filters the function list and returns list of tuples (name, address)
     funcs = get_cfg_funcs(proj, binary_name_base, excluded)
     
     print(f"{binary_name_base} have {len(funcs)} funcs")
+    # Why tho?
     time.sleep(10)
+    # Why?
     with Pool(1, maxtasksperchild=2) as p:
         args = zip(funcs, repeat(binary_name), repeat(output_dir))
         p.map(analyze_binary_func, args)
@@ -320,6 +329,11 @@ def address_to_content_raw(proj: Project, baddr: int):
 
 
 def address_to_content(proj: Project, baddr: int):
+    """
+    This function accepts function start address and returns pseudo-assembly code which is like real assembly but
+    part of registers (xmmN an rN) are simplified and jump addresses are replaced with simple integer target value
+    (for example jmp 0x1234 may be replaced with jmp target_1)
+    """
     raw_instructions = address_to_content_raw(proj, baddr)
     instructions = re.sub("r[0-9]+", "reg", raw_instructions)
     instructions = re.sub("r[0-9]+", "reg", instructions)
@@ -340,6 +354,11 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
     eax_val = []
     for state in final_states:
         eax_val.append(state.regs.eax)
+
+        # History attribute of a State object in angr is a list of SimProcedure objects that represent the steps that
+        # were taken to reach that state. Each SimProcedure object represents a single step, such as executing an
+        # instruction or calling a function. By examining the history of a State object, we can trace the path that
+        # led to that state.
         current_node = state.history
         state_path = [("loopSeerDum", current_node.recent_constraints)]
         
@@ -413,7 +432,7 @@ def main():
     parser.add_argument("--dataset", type=str, required=True)
 
     # output: a string specifying the name of the output file that will contain the generated dataset
-    parser.add_argument("--output", type=str, required=True)
+    parser.add_argument("--output", type=str, required=True) #nero
 
     # mem_limit: an integer specifying the memory limit in gigabytes for the binary analysis process
     parser.add_argument("--mem_limit", type=int, required=True)
@@ -430,9 +449,10 @@ def main():
     # soft_l, hard_l = resource.getrlimit(heap_resource)
     # resource.setrlimit(heap_resource, (args.mem_limit*2**30, (args.mem_limit+5)*2**30))
     # sys.setrecursionlimit(10**6)  # Limit stack
-
+    # TODO too much work?
     binaries = os.listdir("our_dataset/" + args.dataset)
     binaries.sort()
+    # this process run only one binary. Why do we need to create array?
     binaries = [f"our_dataset/{args.dataset}/{binary}" for binary in binaries]
     print(binaries[args.binary_idx])
     generate_dataset(binaries[args.binary_idx], args.output, args.dataset, args.no_usables_file)

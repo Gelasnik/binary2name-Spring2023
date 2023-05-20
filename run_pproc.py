@@ -17,7 +17,7 @@ from typing import Dict, Tuple
 
 def run_single_bin(args: argparse.Namespace, bin_idx: int):
     """Run an instance of the preprocessing script on a single binary."""
-
+    # This function (process) run paths_constraints_main.py
     usables_flag = "--no_usables_file " if args.no_usables_file else ""
     out_log = os.path.join(args.log_dir, f"{bin_idx}_out.log")
     err_log = os.path.join(args.log_dir, f"{bin_idx}_err.log")
@@ -30,13 +30,19 @@ def dispatch_process(args: argparse.Namespace, bin_idx:int, processes: Dict[int,
     """Dispatch a process to analyze a single binary."""
     bin_idx = abs(bin_idx)
     print(f'dispatching idx {bin_idx} at {datetime.today()}')
+    # This function (process) run paths_constraints_main.py
     proc = Process(target=run_single_bin, args=(args, bin_idx))
     proc.start()
+    # sentinel - Return a file descriptor (Unix) or handle (Windows) suitable for
+    #         waiting for process termination.
     processes[proc.sentinel] = (bin_idx, proc)
     return processes
 
 
 def collect_process(processes: Dict[int, Tuple[int, Process]]):
+    '''
+    Delete processes that ended their work from list
+    '''
     # Wait for tick from finished sentinel
     finished_procs, _, _ = select(processes.keys(), [], [])
 
@@ -52,7 +58,9 @@ def run_preprocess(args: argparse.Namespace, base_dataset_dir:str = "our_dataset
     processes: Dict[int, Tuple[int, Process]] = {}
 
     # Calculate number of binaries
-    full_dataset_dir = os.path.join(base_dataset_dir, args.dataset_dir)
+    # os.path.join() - It takes one or more arguments and concatenates them into a single path, using the appropriate separator for the underlying operating system.
+    full_dataset_dir = os.path.join(base_dataset_dir, args.dataset_dir) # our_dataset/nero_ds
+    # os.listdir() is a method in Python's os module that returns a list of all the files and directories in the specified path.
     bin_count = len(os.listdir(full_dataset_dir))
     
     if args.reverse_order:
@@ -60,13 +68,16 @@ def run_preprocess(args: argparse.Namespace, base_dataset_dir:str = "our_dataset
     else:
         start_of_bin = 0                 # [0, 1, 2, ..., bin_count]
     end_of_bin = start_of_bin + bin_count
+
     # Fill CPUs with jobs
     curr_bin = start_of_bin
     for _ in range(min(args.cpu_no, bin_count)):
+        # From here paths_constraints_main.py is started. It runs processes. Each process run the function
         processes = dispatch_process(args, curr_bin, processes)
         curr_bin += 1
 
     while curr_bin < end_of_bin:
+        # Delete processes that ended their work from list
         collect_process(processes)
 
         # Build and run a new process
@@ -89,9 +100,10 @@ def run_preprocess(args: argparse.Namespace, base_dataset_dir:str = "our_dataset
 
 
 def main():
+    # Current parameters --output_dir nero --dataset_dir nero_ds --log_dir nero_logs --cpu_no 30 --mem_limit 45 --no_usables_file
     parser = argparse.ArgumentParser()
-    parser.add_argument('--output_dir', type=str, required=True)
-    parser.add_argument('--dataset_dir', type=str, required=True)
+    parser.add_argument('--output_dir', type=str, required=True) # nero
+    parser.add_argument('--dataset_dir', type=str, required=True) # nero_ds
     parser.add_argument("--log_dir", type=str, required=True)
     parser.add_argument('--cpu_no', type=int, default=40)
     parser.add_argument("--mem_limit", type=int, default=20)
