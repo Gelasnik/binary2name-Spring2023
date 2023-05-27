@@ -561,33 +561,33 @@ class OutputConvertor:
 
                 # test chamber#######
                 # test 2:  num xor, or,and assembly instructions]
-                critical_instructions = {'and': 0,
-                              'or': 0,
-                              'xor': 0
-                              }
-                assembly_instructions = node['instructions'].split('    ')
-                for instruction in assembly_instructions:
-
-                    instruction = instruction.strip('|')
-                    instruction = instruction[:instruction.find('|')]
-
-                    if instruction in critical_instructions:
-                        critical_instructions[instruction] += 1
-
-                for instr_name, instruction_counter in critical_instructions:
-                    critical_instruction_constraint = f"<BV32 {instr_name}({str(hex(instruction_counter))})>"
-                    node['constraints'].append(critical_instruction_constraint)
+                # critical_instructions = {'and': 0,
+                #               'or': 0,
+                #               'xor': 0
+                #               }
+                # assembly_instructions = node['instructions'].split('    ')
+                # for instruction in assembly_instructions:
+                #
+                #     instruction = instruction.strip('|')
+                #     instruction = instruction[:instruction.find('|')]
+                #
+                #     if instruction in critical_instructions:
+                #         critical_instructions[instruction] += 1
+                #
+                # for instr_name, instruction_counter in critical_instructions.items():
+                #     critical_instruction_constraint = f"<BV32 {instr_name}({str(hex(instruction_counter))})>"
+                #     node['constraints'].append(critical_instruction_constraint)
                 #######################
 
                 # test 1: num all assembly  instructions test"
 
-                inst_num = len(node['instructions'].split('    '))
-                if node['instructions'] == 'no_instructions':
-                    inst_num = 0
-
-                amount_of_instructions_constraint = "<BV32 __num_instructions_assembly__(" + str(hex(inst_num)) + ")>"
-
-                node['constraints'].append(amount_of_instructions_constraint)
+                # inst_num = len(node['instructions'].split('    '))
+                # if node['instructions'] == 'no_instructions':
+                #     inst_num = 0
+                #
+                # amount_of_instructions_constraint = "<BV32 __num_instructions_assembly__(" + str(hex(inst_num)) + ")>"
+                #
+                # node['constraints'].append(amount_of_instructions_constraint)
                 # print(node['constraints'])
 
                 #########################
@@ -607,10 +607,18 @@ class OutputConvertor:
                 for constraint_ast in filtered_constraint_asts:
                     converted_constraints += constraint_ast.convert_list_to_nero_format()
 
-            if not converted_constraints:
-                converted_nodes[node['block_addr']] = []
-            else:
+            ### Test ###
+            #origin:
+            # if not converted_constraints:
+            #     converted_nodes[node['block_addr']] = []
+            # else:
+            #     converted_nodes[node['block_addr']] = converted_constraints
+            #new (Test3: removing empty string):
+
+            if converted_constraints:
                 converted_nodes[node['block_addr']] = converted_constraints
+            #########
+
 
         return converted_nodes
 
