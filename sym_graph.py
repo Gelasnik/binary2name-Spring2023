@@ -2,12 +2,13 @@ from random import sample
 
 class Vertex:
     # --------------------- TAL'S CODE START---------------------#
-    def __init__(self, baddr: int, instructions: str, path_len: int, constraint: list = []):
+    def __init__(self, baddr: int, instructions: str, path_len: int, path_num: int, constraint: list = []):
         self.baddr = baddr
         self.instructions = instructions
         self.constraint = constraint
         self.paths_constraints = []
-        self.path_len = path_len # added this vertex param to indicate path length to the vertex 
+        self.path_len = path_len # added this vertex param to indicate path length to the vertex
+        self.path_num = path_num # added this vertex param to indicate baddr is from deifferent path
     # --------------------- TAL'S CODE END---------------------#
     
     # we define uniqueness by address only
@@ -19,7 +20,7 @@ class Vertex:
         return f'{{ "block_addr": {self.baddr}, "instructions": "{self.instructions}", "constraints": {self.constraint} }}'
 
 class Edge:
-    def __init__(self, source: int, dest: int):
+    def __init__(self, source: (int, int), dest: (int, int)):
         self.source = source
         self.dest = dest
 
@@ -56,15 +57,12 @@ class SymGraph: # TODO: sanity check, when graph is done, vertices.keys() length
             sum_c = sum_c + len(c)
         if sum_c > self.path_constraints_len_limit:
             return
-        len_and_contraint = [vertex.path_len, vertex.constraint]
-        if vertex.baddr in self.vertices:
-            self.vertices[vertex.baddr].constraint.append(len_and_contraint)
-        else:
-            self.vertices[vertex.baddr] = vertex
-            self.vertices[vertex.baddr].constraint = [len_and_contraint]
+        len_and_constraint = [vertex.path_len, vertex.constraint]
+        self.vertices[(vertex.baddr, vertex.path_num)] = vertex
+        self.vertices[(vertex.baddr, vertex.path_num)].constraint = [len_and_constraint]
 
-        if (vertex.baddr not in self.edges.keys()):
-            self.edges[vertex.baddr] = []
+        if ((vertex.baddr, vertex.path_num) not in self.edges.keys()):
+            self.edges[(vertex.baddr, vertex.path_num)] = []
     # --------------------- TAL'S CODE END---------------------#
 
     def addEdge(self, edge: Edge):
