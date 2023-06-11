@@ -1,7 +1,7 @@
 import os
 import shutil
 import json
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Any
 from jsonpickle import encode
 import argparse
 from tqdm import tqdm
@@ -289,8 +289,13 @@ def get_constraint_ast(constraint: str, curr_depth: int, max_depth: int) -> Cons
     return constraint_ast
 
 
+
+
+
 class OutputConvertor:
     def __init__(self, dataset_name: str, sample_path: int, sample_constraint: int):
+        self.constrains_by_path = {}
+        self.distances_dict: Dict = {}
         self.filenames = []
         self.converted_filenames = []
         self.src = dataset_name  # Pipeline sends Nero
@@ -415,6 +420,7 @@ class OutputConvertor:
     def __convert_edges(self, edges: List) -> List:
         converted_edges = []
         for edge in edges:
+            # new_edge = (self.distances_dict[edge['src']], self.distances_dict[edge['dst']])
             new_edge = (edge['src'], edge['dst'])
             converted_edges.append(new_edge)
         return converted_edges
@@ -479,7 +485,9 @@ class OutputConvertor:
             return ['']
         # print("block_constraints", len(block_constraints), block_constraints)
         paths_len_and_constraints = random.sample(filtered_block_constraints,
+
                                                   min(len(filtered_block_constraints), self.sample_path))
+
         # print("paths_len_and_constraints", len(paths_len_and_constraints), paths_len_and_constraints)
         for path_len, path_constraints in paths_len_and_constraints:  # path_len is the length of the execution path (until the current block) that contibuted these
             selected_path_constraints = random.sample(path_constraints,
@@ -545,6 +553,118 @@ class OutputConvertor:
                 i += 1
         return constraint_asts
 
+    # def enumerate_nodes(self, edges):
+        # self.distances_dict = {}
+        # def get_distance(graph, start_node, target_node, _visited_nodes):
+            # if start_node in _visited_nodes:
+                # return None
+            # else:
+                # _visited_nodes.append(start_node)
+
+            # if start_node == target_node:
+                # return 0
+
+            # _edges = [cur_edge for cur_edge in graph if cur_edge['src'] == start_node]
+            # cur_min_dist = None
+
+            # for _edge in _edges:
+                # _dst_node = _edge['dst']
+                # res = get_distance(graph, _dst_node, target_node,
+                                   # _visited_nodes[:])  # Create a local copy of visited_nodes
+                # if res is not None:
+                    # new_distance = res + 1
+                    # if cur_min_dist is None or new_distance < cur_min_dist:
+                        # cur_min_dist = new_distance
+
+            # if cur_min_dist is not None:
+                # return cur_min_dist
+            # return None
+
+
+        # loop_seer_dum = 'loopSeerDum'
+
+        # for edge in edges:
+            # dst_node = edge['src']
+            # if dst_node not in self.distances_dict:
+                # visited_nodes = []
+                # distance = get_distance(edges, dst_node, loop_seer_dum, visited_nodes)
+                # if distance is not None:
+                    # self.distances_dict[dst_node] = distance
+
+        # unvisited_nodes = {edge['dst'] for edge in edges} - set(self.distances_dict.keys())
+        # for node in unvisited_nodes:
+            # self.distances_dict[node] = node
+    # START <-------------------------------------------------------------------------------
+    def find_start_nodes(self, _edges):
+        not_roots = set()
+        src_nodes = set()
+        smallest_node = float('inf')
+        for _edge in _edges:
+            scr_node = _edge['src']
+            not_roots.add(_edge['dst'])
+            src_nodes.add(scr_node)
+            if scr_node < smallest_node:
+                smallest_node = scr_node
+        root_nodes = src_nodes - not_roots
+        if len(root_nodes) > 0:
+            if len(root_nodes) > 1:
+                print("There is more than 1 root!")
+            result = root_nodes
+        else:
+            print("No roots detected, picking node with smallest address")
+            result = [smallest_node]
+        return result
+
+    def enumerate_nodes(self, edges):
+        from collections import deque
+        self.distances_dict = {}
+        generation_dict = {}
+        start_index = 0
+        generation = 0
+        loop_seer_dum = 'loopSeerDum'
+
+        def enumerate_nodes_from(queue, graph, source_number=0, _generation = 0):
+            if not queue:
+                return source_number
+
+            cur_node = queue.popleft()
+
+            if cur_node == loop_seer_dum:
+                last_num = enumerate_nodes_from(queue, graph, source_number)
+                return last_num
+
+            out_edges = [cur_edge for cur_edge in graph if cur_edge['src'] == cur_node]
+            cur_number = source_number
+            for _edge in out_edges:
+                _dst_node = _edge['dst']
+                if _dst_node not in self.distances_dict or generation_dict[_dst_node] < _generation:
+                    generation_dict[_dst_node] = _generation
+                    if _dst_node == loop_seer_dum:
+                        self.distances_dict[loop_seer_dum] = loop_seer_dum
+                    else:
+                        cur_number += 1
+                        self.distances_dict[_dst_node] = cur_number
+                    queue.append(_dst_node)
+
+
+            last_num = enumerate_nodes_from(queue, graph, cur_number, generation)
+            return last_num
+
+        root_nods = self.find_start_nodes(edges)
+
+        for edge in edges:
+            if edge['src'] in root_nods:
+                queue = deque([edge['src']])
+                self.distances_dict[edge['src']] = start_index
+                generation_dict[edge['src']] = generation
+                start_index = enumerate_nodes_from(queue, edges, start_index, generation)
+                generation+=1
+                start_index+=1
+                root_nods.remove(edge['src'])
+                if len(root_nods) == 0:
+                    return
+        raise Exception('Source node not found')
+    # END <-------------------------------------------------------------------------------
     def __convert_nodes(self, nodes: List) -> Dict:
         # TODO Delete this? No usage
         with open('conversion_config.json', 'r') as config_file:
@@ -552,14 +672,26 @@ class OutputConvertor:
             MAX_TOKENS_PER_CONSTRAINT = data['MAX_TOKENS_PER_CONSTRAINT']
 
         converted_nodes = {}
+        #####
         for node in nodes:
+            # call function that builds constraints by path
+            # Test Alek_Oren test for reducing num of constraints
+            if node['block_addr'] in self.constrains_by_path:
+                node['constraints'] = self.constrains_by_path[node['block_addr']]
+            else:
+                node['constraints'] = ['']
+            # TODO: if Test fails, comment the next section in.
             # reduce the number of constraints
-            node['constraints'] = self.__reduce_constraints(node['constraints'])
+            # node['constraints'] = self.__reduce_constraints(node['constraints'])
+            # End Test
             converted_constraints = []
             if node['constraints'] != ['']:
                 # Remove "junk symbols"
 
                 # test chamber#######
+
+
+
                 # test 2:  num xor, or,and assembly instructions]
                 # critical_instructions = {'and': 0,
                 #               'or': 0,
@@ -609,14 +741,14 @@ class OutputConvertor:
 
             ### Test ###
             #origin:
-            # if not converted_constraints:
-            #     converted_nodes[node['block_addr']] = []
-            # else:
-            #     converted_nodes[node['block_addr']] = converted_constraints
+            if not converted_constraints:
+                converted_nodes[node['block_addr']] = []
+            else:
+                converted_nodes[node['block_addr']] = converted_constraints
             #new (Test3: removing empty string):
 
-            if converted_constraints:
-                converted_nodes[node['block_addr']] = converted_constraints
+            # if converted_constraints:
+            #     converted_nodes[node['block_addr']] = converted_constraints
             #########
 
 
@@ -650,6 +782,12 @@ class OutputConvertor:
         # converted_data = {'func_name': OUR_API_TYPE + function_name, 'GNN_data': {}, 'exe_name': exe_name, 'package': package_name}
         converted_data = {'func_name': function_name, 'GNN_data': {}, 'exe_name': exe_name, 'package': package_name}
         # try:
+        ### Test 4 ###
+        # print("Started enumeration for",  initial_data['func_name'], "from", filename)
+        # self.enumerate_nodes(initial_data['GNN_DATA']['edges'])
+        # print("Done enumeration for",  initial_data['func_name'])
+        #########
+        self.test_build_constraints_by_path(initial_data['GNN_DATA'])
         converted_data['GNN_data']['edges'] = self.__convert_edges(initial_data['GNN_DATA']['edges'])
         converted_data['GNN_data']['nodes'] = self.__convert_nodes(initial_data['GNN_DATA']['nodes'])
         # except Exception as e:
@@ -662,7 +800,6 @@ class OutputConvertor:
         if self.nodes_total_num_constraints(converted_data['GNN_data']['nodes']) < 5:
             return False, None
 
-        # TODO maybe add here constraint with block size...
 
         # if self.portion_nodes_has_constraints(converted_data['GNN_data']['nodes']) < 0.15:
         # return False, None
@@ -726,6 +863,117 @@ class OutputConvertor:
             total_num_constraints = total_num_constraints + len(constraints)
         return total_num_constraints
 
+    def fill_block_constraints_in_path(self, random_path: List, samples_remaining_dict: Dict, nodes: Dict):
+        for cur_path_len, current_node_addr in enumerate(random_path):
+            if cur_path_len == 0:
+                # We don't want to declare constraints for root node nor reduce its sample path
+                if current_node_addr not in self.constrains_by_path:
+                    self.constrains_by_path[current_node_addr] = ['']
+                continue
+
+            if samples_remaining_dict[current_node_addr] > 0:
+                constraints = self.get_current_node_constraints(current_node_addr, cur_path_len, nodes)
+                self.constrains_by_path[current_node_addr] = constraints
+                samples_remaining_dict[current_node_addr] -= 1
+
+
+
+    def test_build_constraints_by_path(self, graph):
+        """
+            goals: reduce the number of constraints by iterating over paths and selecting a maximum of constraints for
+            each block
+        """
+
+        nodes = graph['nodes']
+        edges = graph['edges']
+        root = nodes[0]
+
+        paths = self.test_build_all_paths(root, edges)
+
+        samples_remaining_dict = {}
+        for node in nodes:
+            samples_remaining_dict[node['block_addr']] = self.sample_path
+
+        while paths:
+
+            random_path = random.choice(paths)
+            paths.remove(random_path)
+
+            self.fill_block_constraints_in_path(random_path, samples_remaining_dict, nodes)
+
+
+        # for node in nodes:
+        #     converted_block_constraints = []
+        #     filtered_block_constraints = list(
+        #         filter(lambda c: len(c[1]) > 0, block_constraints))  # filter paths that have zero constraints
+        #     if len(filtered_block_constraints) == 0:
+        #         return ['']
+        #     # print("block_constraints", len(block_constraints), block_constraints)
+        #     paths_len_and_constraints = random.sample(filtered_block_constraints,
+        #                                               min(len(filtered_block_constraints), self.sample_path))
+        #     # print("paths_len_and_constraints", len(paths_len_and_constraints), paths_len_and_constraints)
+        #     for path_len, path_constraints in paths_len_and_constraints:  # path_len is the length of the execution path (until the current block) that contibuted these
+        #         selected_path_constraints = random.sample(path_constraints,
+        #                                                   min(len(path_constraints), self.sample_constraint))
+        #         converted_block_constraints.extend(selected_path_constraints)
+        #         # print("converted_block_constraints", len(converted_block_constraints), converted_block_constraints)
+        #     # print("|".join(converted_block_constraints))
+        #     self.constrains_by_path = ["|".join(converted_block_constraints)]
+
+    def test_build_all_paths(self, root, edges):
+        paths = []  # List to store all paths
+
+        def traverse_path(current_path, current_node, looped=False):
+
+            current_path.append(current_node)
+            # find all outgoing edges from current node
+            children = [edge['dst'] for edge in edges if edge['src'] == current_node]
+            # Check if the current node is a leaf node
+            if len(children) == 0:
+                paths.append(current_path[:])  # Make a copy of the current path
+            else:
+                for child in children:
+                    # if child == 4219398:
+                    #     print('here')
+                    if child not in current_path:
+                        # Not cycle
+                        traverse_path(current_path, child)
+                    elif not looped:
+                        # cycle
+                        # TODO is this the best way to deal with loops? Currently allow only one loop
+                        traverse_path(current_path, child, looped=True)
+
+            # Backtrack: Remove the current node from the current path
+            current_path.pop()
+
+        traverse_path([], root['block_addr'])
+
+        return paths
+
+    def get_current_node_constraints(self, current_node_addr, cur_path_len, nodes):
+        current_node = self.get_current_node(current_node_addr, nodes)
+
+
+        constraints = [constraint for length, _constraints in current_node['constraints']
+                       if length == cur_path_len and _constraints
+                       for constraint in _constraints]
+
+        # Deleting duplicated constraints
+        constraints = list(set(constraints))
+        constraints = random.sample(constraints, min(len(constraints), self.sample_constraint))
+        if current_node_addr in self.constrains_by_path:
+            constraints.extend(self.constrains_by_path[current_node_addr])
+        return ["|".join(constraints)]
+
+    def get_current_node(self, current_node_addr, nodes):
+        node = None
+        for _node in nodes:
+            if _node['block_addr'] == current_node_addr:
+                node = _node
+                break
+        if node is None:
+            raise Exception('Looked for a node that does not exist! Critical error.')
+        return node
 
 class OrganizeOutput:
     def __init__(self, dataset_name, file_locations, train_percentage, test_percentage, validate_percentage):
