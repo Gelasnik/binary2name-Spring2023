@@ -17,10 +17,10 @@ class Vertex:
         return self.baddr == other.baddr
 
     def __str__(self):
-        return f'{{ "block_addr": {self.baddr}, "instructions": "{self.instructions}", "constraints": {self.constraint} }}'
+        return f'{{ "block_addr": {self.baddr}, "path_num": {self.path_num}, "instructions": "{self.instructions}", "constraints": {self.constraint} }}'
 
 class Edge:
-    def __init__(self, source: (int, int), dest: (int, int)):
+    def __init__(self, source: str, dest: str):
         self.source = source
         self.dest = dest
 
@@ -58,11 +58,12 @@ class SymGraph: # TODO: sanity check, when graph is done, vertices.keys() length
         if sum_c > self.path_constraints_len_limit:
             return
         len_and_constraint = [vertex.path_len, vertex.constraint]
-        self.vertices[(vertex.baddr, vertex.path_num)] = vertex
-        self.vertices[(vertex.baddr, vertex.path_num)].constraint = [len_and_constraint]
+        addr_path_key = str((vertex.baddr, vertex.path_num))
+        self.vertices[addr_path_key] = vertex
+        self.vertices[addr_path_key].constraint = [len_and_constraint]
 
-        if ((vertex.baddr, vertex.path_num) not in self.edges.keys()):
-            self.edges[(vertex.baddr, vertex.path_num)] = []
+        if (addr_path_key not in self.edges.keys()):
+            self.edges[addr_path_key] = []
     # --------------------- TAL'S CODE END---------------------#
 
     def addEdge(self, edge: Edge):

@@ -1,3 +1,5 @@
+import traceback
+
 from sym_graph import *
 from typing import Dict, Any, List, Callable, Set
 from multiprocessing import Pool
@@ -269,7 +271,7 @@ def analyze_binary_func(args):
             sm_to_graph(sm, output, test_func_name) # calculate the constraint-full CFG
     except Exception as e:
         open(os.path.join(binary_output_dir, f"{test_func_name}.json"), "w").close() #create an empty file so that the next time we will not analyse this function
-        logging.error(str(e))
+        logging.error(traceback.format_exc())
         logging.error(f"got an error while analyzing {test_func_name}")
 
 def get_analyzed_funcs(dataset_path: str) -> Set[str]:
@@ -379,7 +381,7 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
                 dst = Vertex(ith_node_block_addr, address_to_content_raw(proj, ith_node_block_addr), i, path_num, constraint_list) # added path length as third param
                 # --------------------- TAL'S CODE END---------------------#
             sym_graph.addVertex(dst)
-            edge = Edge((prev.baddr, path_num), (dst.baddr, path_num))
+            edge = Edge(str((prev.baddr, prev.path_num)), str((dst.baddr, dst.path_num)))
             sym_graph.addEdge(edge)
             prev = dst
     
