@@ -381,13 +381,17 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
                 dst = Vertex(ith_node_block_addr, address_to_content_raw(proj, ith_node_block_addr), i, path_num, constraint_list) # added path length as third param
                 # --------------------- TAL'S CODE END---------------------#
             sym_graph.addVertex(dst)
-            edge = Edge(str((prev.baddr, prev.path_num)), str((dst.baddr, dst.path_num)))
+            if type(dst.baddr) == str:
+                edge = Edge("_".join([str(prev.baddr), str(prev.path_num)]), dst.baddr)
+            else:
+                edge = Edge("_".join([str(prev.baddr), str(prev.path_num)]),
+                            "_".join([str(dst.baddr), str(dst.path_num)]))
             sym_graph.addEdge(edge)
             prev = dst
     
     our_json = sym_graph.__str__()
     our_json = our_json.replace("'", "\"").replace("loopSeerDum", "\"loopSeerDum\"")
-    # print (our_json)
+    print(our_json)
     parsed = json.loads(our_json)
     to_write = json.dumps(parsed, indent=4, sort_keys=True)
     output_file.write(to_write)

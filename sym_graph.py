@@ -1,3 +1,4 @@
+import json
 from random import sample
 
 class Vertex:
@@ -58,7 +59,10 @@ class SymGraph: # TODO: sanity check, when graph is done, vertices.keys() length
         if sum_c > self.path_constraints_len_limit:
             return
         len_and_constraint = [vertex.path_len, vertex.constraint]
-        addr_path_key = str((vertex.baddr, vertex.path_num))
+        if type(vertex.baddr) == str:
+            addr_path_key = vertex.baddr
+        else:
+            addr_path_key = "_".join([str(vertex.baddr), str(vertex.path_num)])
         self.vertices[addr_path_key] = vertex
         self.vertices[addr_path_key].constraint = [len_and_constraint]
 
