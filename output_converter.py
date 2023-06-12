@@ -932,6 +932,10 @@ class OutputConvertor:
             if len(children) == 0:
                 paths.append(current_path[:])  # Make a copy of the current path
             else:
+                # for child in children:
+                #     # ignore loops
+                #     if child not in current_path:
+                #         traverse_path(current_path, child)
                 for child in children:
                     # if child == 4219398:
                     #     print('here')
