@@ -1,3 +1,5 @@
+import traceback
+
 from sym_graph import *
 from typing import Dict, Any, List, Callable, Set
 from multiprocessing import Pool
@@ -30,7 +32,7 @@ start_time = 0
 
 
 # REPR = representation
-        
+
 def time_limit_check(simulation_manager):
     global start_time
     minutes_limit = 2
@@ -49,7 +51,7 @@ def analyze_func(proj, bin_func_name, bin_func_addr, cfg):
     sm = proj.factory.simulation_manager(call_state)  # Creates a simulation manager, ready to start from the specific function
     sm.use_technique(LoopSeer(cfg=cfg, bound=1))
     # sm.use_technique(LengthLimiter(100))
-    
+
     global start_time
     start_time = time.time()
     sm.run(until=time_limit_check)
@@ -186,7 +188,7 @@ def generate_dataset(train_binary: str, output_dir: str, dataset_name: str, no_u
         usable_functions_file = open("our_dataset/" + dataset_name + "/usable_functions_names.txt", "r")
         usable_functions = [name.strip() for name in usable_functions_file]
         is_function_usable = (lambda x: x in usable_functions)
-    
+
     # Check which functions have already been analyzed
     output_dir = f"preprocessed_data/{output_dir}"
     os.makedirs(output_dir, exist_ok=True)
@@ -209,9 +211,9 @@ def analyze_binaryOLD(analyzed_funcs: Set[str], binary_name: str, output_dir: st
     os.makedirs(binary_output_dir, exist_ok=True)
 
     funcs = get_cfg_funcs(proj, binary_name_base, excluded)
-    
+
     print(f"{binary_name_base} have {len(funcs)} funcs")
-    for test_func_name, test_func_addr in funcs:        
+    for test_func_name, test_func_addr in funcs:
         if (test_func_name in analyzed_funcs) or not is_function_usable(tokenize_function_name(test_func_name)): # Skip unusable/computed functions
             print(f"skipping {tokenize_function_name(test_func_name)}")
             continue
@@ -219,7 +221,7 @@ def analyze_binaryOLD(analyzed_funcs: Set[str], binary_name: str, output_dir: st
             print(f"skipping {tokenize_function_name(test_func_name)} already analysed.")
             continue            # file already exists no need to analyse again
         print(f"analyzing {binary_name_base}/{test_func_name}")
-        
+
         analyzed_funcs.add(test_func_name)
         try:
             sm = analyze_func(proj, test_func_name, test_func_addr, cfg) # Perform Carol's angr analysis
@@ -235,20 +237,20 @@ def analyze_binary(analyzed_funcs: Set[str], binary_name: str, output_dir: str, 
     excluded = {'main', 'usage', 'exit'}.union(analyzed_funcs)
 
     proj = Project(binary_name, auto_load_libs=False) # Load angr project and calculate CFG
-    cfg = proj.analyses.CFGFast()  # cfg is the ACTUAL control-flow graph   
-    
+    cfg = proj.analyses.CFGFast()  # cfg is the ACTUAL control-flow graph
+
     binary_name_base = os.path.basename(binary_name) # Make the output directory for this binary
     binary_output_dir = os.path.join(output_dir, f"{binary_name_base}")
     os.makedirs(binary_output_dir, exist_ok=True)
 
     funcs = get_cfg_funcs(proj, binary_name_base, excluded)
-    
+
     print(f"{binary_name_base} have {len(funcs)} funcs")
     time.sleep(10)
     with Pool(1, maxtasksperchild=2) as p:
         args = zip(funcs, repeat(binary_name), repeat(output_dir))
         p.map(analyze_binary_func, args)
-    # for test_func_name, test_func_addr in funcs:        
+    # for test_func_name, test_func_addr in funcs:
     return True
 
 def analyze_binary_func(args):
@@ -261,15 +263,15 @@ def analyze_binary_func(args):
         return            # file already exists no need to analyse again
     print(f"analyzing {binary_name_base}/{test_func_name}")
     proj = Project(binary_name, auto_load_libs=False) # Load angr project and calculate CFG
-    cfg = proj.analyses.CFGFast()  # cfg is the ACTUAL control-flow graph   
-    
+    cfg = proj.analyses.CFGFast()  # cfg is the ACTUAL control-flow graph
+
     try:
         sm = analyze_func(proj, test_func_name, test_func_addr, cfg) # Perform Carol's angr analysis
         with open(os.path.join(binary_output_dir, f"{test_func_name}.json"), "w") as output:
             sm_to_graph(sm, output, test_func_name) # calculate the constraint-full CFG
     except Exception as e:
         open(os.path.join(binary_output_dir, f"{test_func_name}.json"), "w").close() #create an empty file so that the next time we will not analyse this function
-        logging.error(str(e))
+        logging.error(traceback.format_exc())
         logging.error(f"got an error while analyzing {test_func_name}")
 
 def get_analyzed_funcs(dataset_path: str) -> Set[str]:
@@ -285,7 +287,7 @@ def get_analyzed_funcs(dataset_path: str) -> Set[str]:
 def find_target_constants(line):
     targets_mapper = {}
     targets_counter = itertools.count()
-    
+
     found_targets = set(re.findall(r"jmp\|0[xX][0-9a-fA-F]+|jnb\|0[xX][0-9a-fA-F]+|jnbe\|0[xX][0-9a-fA-F]+|jnc\|0[xX][0-9a-fA-F]+|jne\|0[xX][0-9a-fA-F]+|jng\|0[xX][0-9a-fA-F]+|jnge\|0[xX][0-9a-fA-F]+|jnl\|0[xX][0-9a-fA-F]+|jnle\|0[xX][0-9a-fA-F]+|jno\|0[xX][0-9a-fA-F]+|jnp\|0[xX][0-9a-fA-F]+|jns\|0[xX][0-9a-fA-F]+|jnz\|0[xX][0-9a-fA-F]+|jo\|0[xX][0-9a-fA-F]+|jp\|0[xX][0-9a-fA-F]+|jpe\|0[xX][0-9a-fA-F]+|jpo\|0[xX][0-9a-fA-F]+|js\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+|ja\|0[xX][0-9a-fA-F]+|jae\|0[xX][0-9a-fA-F]+|jb\|0[xX][0-9a-fA-F]+|jbe\|0[xX][0-9a-fA-F]+|jc\|0[xX][0-9a-fA-F]+|je\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+|jg\|0[xX][0-9a-fA-F]+|jge\|0[xX][0-9a-fA-F]+|jl\|0[xX][0-9a-fA-F]+|jle\|0[xX][0-9a-fA-F]+|jna\|0[xX][0-9a-fA-F]+|jnae\|0[xX][0-9a-fA-F]+|jnb\|0[xX][0-9a-fA-F]+|jnbe\|0[xX][0-9a-fA-F]+|jnc\|0[xX][0-9a-fA-F]+|jne\|0[xX][0-9a-fA-F]+|jng\|0[xX][0-9a-fA-F]+|jnge\|0[xX][0-9a-fA-F]+|jnl\|0[xX][0-9a-fA-F]+|jnle\|0[xX][0-9a-fA-F]+|jno\|0[xX][0-9a-fA-F]+|jnp\|0[xX][0-9a-fA-F]+|jns\|0[xX][0-9a-fA-F]+|jnz\|0[xX][0-9a-fA-F]+|jo\|0[xX][0-9a-fA-F]+|jp\|0[xX][0-9a-fA-F]+|jpe\|0[xX][0-9a-fA-F]+|jpo\|0[xX][0-9a-fA-F]+|js\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+ ", line))
     for target in found_targets:
         print("removing targets")
@@ -309,7 +311,7 @@ def varify_constraints_raw(constraints) -> List[str]:
         if constraint.concrete:
             continue
         new_constraints.append(constraint_to_str(constraint))
-    
+
     return new_constraints
 
 
@@ -342,7 +344,7 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
         eax_val.append(state.regs.eax)
         current_node = state.history
         state_path = [("loopSeerDum", current_node.recent_constraints)]
-        
+
         while current_node.addr is not None:
             state_path.insert(0, (current_node.addr, (current_node.parent.recent_constraints if current_node.parent else [])))
             current_node = current_node.parent
@@ -350,11 +352,12 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
 
     # find the root and assert it is equal for all
     initial_node = all_paths[0][0]
+    initial_node_block_addr = initial_node[0]
     for path in all_paths:
-        assert(path[0][0] == initial_node[0])  # WARNING: very redundent, only checking adress
+        assert(path[0][0] == initial_node_block_addr)  # WARNING: very redundent, only checking adress
         assert(path[0][1] == [])  # assert all root's contain no constraints as expected
 
-    root = Vertex(initial_node[0], address_to_content(proj, initial_node[0]), 0, [])
+    root = Vertex(initial_node_block_addr, address_to_content(proj, initial_node_block_addr), 0, -1, "_".join([str(initial_node_block_addr), "root"]), [])
     # --------------------- TAL'S CODE START---------------------#
     sym_graph = SymGraph(root, func_name, 5000, 100) # added number of paths limit for each vertex in the graph
     # --------------------- TAL'S CODE END---------------------#
@@ -366,28 +369,30 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
         prev = root
         for i in range(1, len(path)):
             constraint_list = varify_constraints_raw(path[i][1])
-            if type(path[i][0]) == str: #This is "loopSeerDum"
+            ith_node_block_addr = path[i][0]
+            addr_path_key = "_".join([str(ith_node_block_addr), str(path_num)])
+            if type(ith_node_block_addr) == str: #This is "loopSeerDum"
                 # --------------------- TAL'S CODE START---------------------#
                 #dst = Vertex(path[i][0], "no_instructions", i, ["|".join(constraint_list)]) # added path length as third param
-                dst = Vertex(path[i][0], "no_instructions", i, constraint_list + [constraint_to_str(eax_val[path_num])]) # added path length as third param
+                dst = Vertex(ith_node_block_addr, "no_instructions", i, path_num, "loopSeerDum", constraint_list + [constraint_to_str(eax_val[path_num])]) # added path length as third param
                 # --------------------- TAL'S CODE END---------------------#
             else:
                 # --------------------- TAL'S CODE START---------------------#
                 #dst = Vertex(path[i][0], address_to_content_raw(proj, path[i][0]), i, ["|".join(constraint_list)]) # added path length as third param
-                dst = Vertex(path[i][0], address_to_content_raw(proj, path[i][0]), i, constraint_list) # added path length as third param
+                dst = Vertex(ith_node_block_addr, address_to_content_raw(proj, ith_node_block_addr), i, path_num, addr_path_key, constraint_list) # added path length as third param
                 # --------------------- TAL'S CODE END---------------------#
             sym_graph.addVertex(dst)
-            edge = Edge(prev.baddr, dst.baddr)
+            edge = Edge(prev.key, dst.key)
             sym_graph.addEdge(edge)
             prev = dst
-    
+
     our_json = sym_graph.__str__()
     our_json = our_json.replace("'", "\"").replace("loopSeerDum", "\"loopSeerDum\"")
-    # print (our_json)
+    # print(our_json)
     parsed = json.loads(our_json)
     to_write = json.dumps(parsed, indent=4, sort_keys=True)
     output_file.write(to_write)
-    
+
 #--------------------- ITTAY AND ITAMAR'S CODE END---------------------#
 
 
