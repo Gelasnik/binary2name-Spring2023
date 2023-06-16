@@ -357,7 +357,7 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
         assert(path[0][0] == initial_node_block_addr)  # WARNING: very redundent, only checking adress
         assert(path[0][1] == [])  # assert all root's contain no constraints as expected
 
-    root = Vertex(initial_node_block_addr, address_to_content(proj, initial_node_block_addr), 0, -1, [])
+    root = Vertex(initial_node_block_addr, address_to_content(proj, initial_node_block_addr), 0, -1, "root", [])
     # --------------------- TAL'S CODE START---------------------#
     sym_graph = SymGraph(root, func_name, 5000, 100) # added number of paths limit for each vertex in the graph
     # --------------------- TAL'S CODE END---------------------#
@@ -370,15 +370,16 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
         for i in range(1, len(path)):
             constraint_list = varify_constraints_raw(path[i][1])
             ith_node_block_addr = path[i][0]
+            addr_path_key = "_".join([str(ith_node_block_addr), str(path_num)])
             if type(ith_node_block_addr) == str: #This is "loopSeerDum"
                 # --------------------- TAL'S CODE START---------------------#
                 #dst = Vertex(path[i][0], "no_instructions", i, ["|".join(constraint_list)]) # added path length as third param
-                dst = Vertex(ith_node_block_addr, "no_instructions", i, path_num, constraint_list + [constraint_to_str(eax_val[path_num])]) # added path length as third param
+                dst = Vertex(ith_node_block_addr, "no_instructions", i, path_num, addr_path_key, constraint_list + [constraint_to_str(eax_val[path_num])]) # added path length as third param
                 # --------------------- TAL'S CODE END---------------------#
             else:
                 # --------------------- TAL'S CODE START---------------------#
                 #dst = Vertex(path[i][0], address_to_content_raw(proj, path[i][0]), i, ["|".join(constraint_list)]) # added path length as third param
-                dst = Vertex(ith_node_block_addr, address_to_content_raw(proj, ith_node_block_addr), i, path_num, constraint_list) # added path length as third param
+                dst = Vertex(ith_node_block_addr, address_to_content_raw(proj, ith_node_block_addr), i, path_num, addr_path_key, constraint_list) # added path length as third param
                 # --------------------- TAL'S CODE END---------------------#
             sym_graph.addVertex(dst)
             if type(dst.baddr) == str:

@@ -3,13 +3,14 @@ from random import sample
 
 class Vertex:
     # --------------------- TAL'S CODE START---------------------#
-    def __init__(self, baddr: int, instructions: str, path_len: int, path_num: int, constraint: list = []):
+    def __init__(self, baddr: int, instructions: str, path_len: int, path_num: int, key: str, constraint: list = []):
         self.baddr = baddr
         self.instructions = instructions
         self.constraint = constraint
         self.paths_constraints = []
         self.path_len = path_len # added this vertex param to indicate path length to the vertex
         self.path_num = path_num # added this vertex param to indicate baddr is from deifferent path
+        self.key = key
     # --------------------- TAL'S CODE END---------------------#
     
     # we define uniqueness by address only
@@ -59,15 +60,12 @@ class SymGraph: # TODO: sanity check, when graph is done, vertices.keys() length
         if sum_c > self.path_constraints_len_limit:
             return
         len_and_constraint = [vertex.path_len, vertex.constraint]
-        if type(vertex.baddr) == str:
-            addr_path_key = vertex.baddr
-        else:
-            addr_path_key = "_".join([str(vertex.baddr), str(vertex.path_num)])
-        self.vertices[addr_path_key] = vertex
-        self.vertices[addr_path_key].constraint = [len_and_constraint]
+        assert(vertex.key not in self.vertices)
+        self.vertices[vertex.key] = vertex
+        self.vertices[vertex.key].constraint = [len_and_constraint]
 
-        if (addr_path_key not in self.edges.keys()):
-            self.edges[addr_path_key] = []
+        if (vertex.key not in self.edges.keys()):
+            self.edges[vertex.key] = []
     # --------------------- TAL'S CODE END---------------------#
 
     def addEdge(self, edge: Edge):
