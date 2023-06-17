@@ -21,7 +21,7 @@ OUR_API_TYPE = 'F'  # Meaningless - simply here to notify this is not a NORMAL_P
 MEM_DIFF_THRESH = 20
 RET_DIFF_THRESH = 20
 CONVERTED_DS_PREFIX = 'Converted_'
-SYM_EXE_MAX_OUTPUT_TO_PROCESS = 1000000
+SYM_EXE_MAX_OUTPUT_TO_PROCESS = 7000000
 
 
 def is_num(val: str) -> bool:
@@ -276,6 +276,7 @@ class OutputConvertor:
         self.dest = CONVERTED_DS_PREFIX + dataset_name
         self.sample_path = sample_path
         self.sample_constraint = sample_constraint
+        self.paths_to_remove = []
 
     def backup_all_files(self):
         """
@@ -386,10 +387,16 @@ class OutputConvertor:
         result["precent_block_constraints"] = num_nodes_with_constraints/num_nodes
         return True, result
 
-
-    def __convert_edges(self, edges: List) -> List:
+    def __reduce_and_convert_edges(self, edges: List) -> List:
         converted_edges = []
         for edge in edges:
+            source_path = edge['src'].split('_')[1]
+            if not edge['dst'] == "loopSeerDum":
+                dest_path = edge['dst'].split('_')[1]
+            else:
+                dest_path = edge['dst']
+            if source_path in self.paths_to_remove or dest_path in self.paths_to_remove:
+                continue
             new_edge = (edge['src'], edge['dst'])
             converted_edges.append(new_edge)
         return converted_edges
@@ -447,13 +454,9 @@ class OutputConvertor:
         filtered_block_constraints = list(filter(lambda c: len(c[1]) > 0, block_constraints)) #filter paths that have zero constraints
         if len(filtered_block_constraints) == 0:
             return ['']
-        # print("block_constraints", len(block_constraints), block_constraints)
-        paths_len_and_constraints = random.sample(filtered_block_constraints, min(len(filtered_block_constraints), self.sample_path))
-        # print("paths_len_and_constraints", len(paths_len_and_constraints), paths_len_and_constraints)
-        for path_len, path_constraints in paths_len_and_constraints: # path_len is the length of the execution path (until the current block) that contibuted these
+        for path_len, path_constraints in filtered_block_constraints: # path_len is the length of the execution path (until the current block) that contributed these
             selected_path_constraints = random.sample(path_constraints, min(len(path_constraints), self.sample_constraint))
             converted_block_constraints.extend(selected_path_constraints)
-            # print("converted_block_constraints", len(converted_block_constraints), converted_block_constraints)
         # print("|".join(converted_block_constraints))
         return ["|".join(converted_block_constraints)]
 
@@ -512,14 +515,17 @@ class OutputConvertor:
                 i += 1
         return constraint_asts
 
-    def __convert_nodes(self, nodes: List) -> Dict:
-        with open('conversion_config.json', 'r') as config_file:
-                data = json.load(config_file)
-                MAX_TOKENS_PER_CONSTRAINT = data['MAX_TOKENS_PER_CONSTRAINT']
+    def __reduce_and_convert_nodes(self, nodes: List) -> Dict:
         converted_nodes = {}
+
         for node in nodes:
+            if str(node['path_num']) in self.paths_to_remove:
+                continue
             # reduce the number of constraints
-            node['constraints'] = self.__reduce_constraints(node['constraints'])
+            if node['block_addr'] == "loopSeerDum":
+                node['constraints'] = [""]
+            else:
+                node['constraints'] = self.__reduce_constraints(node['constraints'])
             converted_constraints = []
             if node['constraints'] != ['']:
                 # Remove "junk symbols"
@@ -536,16 +542,32 @@ class OutputConvertor:
                 # Convert to the nero format
                 for constraint_ast in filtered_constraint_asts:
                     converted_constraints += constraint_ast.convert_list_to_nero_format()
-            
+
             if not converted_constraints:
-                converted_nodes[node['block_addr']] = []
+                converted_nodes[node['key']] = []
             else:
-                converted_nodes[node['block_addr']] = converted_constraints
+                converted_nodes[node['key']] = converted_constraints
 
         return converted_nodes
 
+    # TODO: if this works add support in symbolic analysis
+    def find_num_paths(self, nodes: List) -> int:
+        max_path = -math.inf
+        for node in nodes:
+            for constraint in node['constraints']:
+                path_num = constraint[0]
+                if path_num > max_path:
+                    max_path = path_num
+        return int(max_path + 1)
+
+    def create_paths_to_remove_list(self, nodes: List):
+        lst = list(range(self.find_num_paths(nodes)))
+        str_lst = [str(x) for x in lst]
+        self.paths_to_remove = random.sample(str_lst, max(0, len(str_lst) - self.sample_path))
+
     def convert_json(self, filename: str):
         filesize = os.path.getsize(filename)
+        # TODO: rethink SYM_EXE_MAX_OUTPUT_TO_PROCESS
         if filesize == 0 or filesize > SYM_EXE_MAX_OUTPUT_TO_PROCESS:
             # print(f'Warning! file {filename} is empty or larger than {SYM_EXE_MAX_OUTPUT_TO_PROCESS}. Skipping.')
             # raise Exception #This is necessary as that calling function will omit this
@@ -572,8 +594,9 @@ class OutputConvertor:
         #converted_data = {'func_name': OUR_API_TYPE + function_name, 'GNN_data': {}, 'exe_name': exe_name, 'package': package_name}
         converted_data = {'func_name': function_name, 'GNN_data': {}, 'exe_name': exe_name, 'package': package_name}
         # try:
-        converted_data['GNN_data']['edges'] = self.__convert_edges(initial_data['GNN_DATA']['edges'])
-        converted_data['GNN_data']['nodes'] = self.__convert_nodes(initial_data['GNN_DATA']['nodes'])
+        self.create_paths_to_remove_list(initial_data['GNN_DATA']['nodes'])
+        converted_data['GNN_data']['edges'] = self.__reduce_and_convert_edges(initial_data['GNN_DATA']['edges'])
+        converted_data['GNN_data']['nodes'] = self.__reduce_and_convert_nodes(initial_data['GNN_DATA']['nodes'])
         #except Exception as e:
         #    print("file", filename)
         #    exit(1)
@@ -643,7 +666,9 @@ class OutputConvertor:
         for _, constraints in nodes.items():
             total_num_constraints = total_num_constraints + len(constraints)
         return total_num_constraints
-    
+
+
+
 class OrganizeOutput:
     def __init__(self, dataset_name, file_locations, train_percentage, test_percentage, validate_percentage):
         self.dataset_name = dataset_name
