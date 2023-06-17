@@ -59,7 +59,7 @@ def collect_to_file(file_list: List[str], filename: str) -> None:
         #for function_file in file_list:
             #with open(function_file, 'r') as file:
                 #collective_files += file.read() + '\n'
-    
+
     if 'train.json' in filename:
         binaries = [b for b in os.listdir('../nero_dataset_binaries/TRAIN') if os.path.isfile(os.path.join('../nero_dataset_binaries/TRAIN', b))]
     if 'test.json' in filename:
@@ -191,7 +191,7 @@ class ConstraintAst:
 def are_constraints_similar(first: ConstraintAst, second: ConstraintAst) -> bool:
     if len(first.children) != len(second.children):
         return False
-    
+
     if first.children == [] and second.children == []:
         if first.value == second.value:
             return True
@@ -209,23 +209,23 @@ def are_constraints_similar(first: ConstraintAst, second: ConstraintAst) -> bool
             if abs(split_a[2] != split_b[2]) > MEM_DIFF_THRESH:  # size
                 return False
             return True
-        
+
         elif is_retval(first.value) and is_retval(second.value):
             ret_a = int(first.value.split('_')[-2], 16)
             ret_b = int(second.value.split('_')[-2], 16)
             if abs(ret_a - ret_b) > RET_DIFF_THRESH:
                 return False
             return True
-        
+
         else:
             return False
-    
+
     if first.value != second.value:
         return False
     for child_a, child_b in zip(first.children, second.children):
         if not are_constraints_similar(child_a, child_b):
             return False
-    
+
     return True
 
 
@@ -248,7 +248,7 @@ def merge_constraints_similar(first: ConstraintAst, second: ConstraintAst) -> Co
             value = "fake_ret_value_?_?"
         else:
             value = '?'
-        
+
     children = [merge_constraints_similar(child_a, child_b) for child_a, child_b in zip(first.children, second.children)]
     return ConstraintAst(value, children)
 
@@ -276,6 +276,7 @@ class OutputConvertor:
         self.dest = CONVERTED_DS_PREFIX + dataset_name
         self.sample_path = sample_path
         self.sample_constraint = sample_constraint
+        self.path_priority_queue = []
 
     def backup_all_files(self):
         """
@@ -289,7 +290,7 @@ class OutputConvertor:
         if os.path.isdir(dest):
             print('converted dir already exists, removing')
             shutil.rmtree(dest)
-        
+
         print('Started copying dataset for backup')
         shutil.copytree(src, dest)
         print('Finished backup, starting to scan files')
@@ -300,8 +301,8 @@ class OutputConvertor:
         if os.path.isdir(dest):
             print('converted dir already exists, removing')
             shutil.rmtree(dest)
-        
-        
+
+
     def load_all_files(self):
         dataset_name = self.src
         bin_folders = list(
@@ -328,7 +329,7 @@ class OutputConvertor:
             if i % 100 == 0:
                 p = int(i*100/(1+len(self.filenames)))
                 print(f'{p}% processed.', end = "    \r")
-            
+
         print('\n', datetime.datetime.now().strftime("%H:%M:%S"), 'Done converting, data should be ready')
         print('{} out of {} files were converted which mean they were not empty or too large.'.format(len(self.converted_filenames), len(self.filenames)))
 
@@ -371,7 +372,7 @@ class OutputConvertor:
             #os.remove(filename)
             result["error_parsing_json"] = True
             return True, result
-        
+
         nodes = data['GNN_DATA']['nodes']
         num_nodes_with_constraints = 0
         num_nodes = 0
@@ -443,7 +444,19 @@ class OutputConvertor:
         """
         goals: reduce the number of constraints so the model would like more easily
         """
+
+        # TODO: OUR CODE
+        counter = min(self.sample_path, len(block_constraints))
         converted_block_constraints = []
+        while counter > 0:
+            for path_num in self.path_priority_queue:
+                for path_constraints in block_constraints:
+                    if path_num == path_constraints[0]:
+                        selected_path_constraints = random.sample(path_constraints[2],
+                                                                  min(len(path_constraints), self.sample_constraint))
+                        converted_block_constraints.extend(selected_path_constraints)
+        # TODO: OUR CODE END
+
         filtered_block_constraints = list(filter(lambda c: len(c[1]) > 0, block_constraints)) #filter paths that have zero constraints
         if len(filtered_block_constraints) == 0:
             return ['']
@@ -536,7 +549,7 @@ class OutputConvertor:
                 # Convert to the nero format
                 for constraint_ast in filtered_constraint_asts:
                     converted_constraints += constraint_ast.convert_list_to_nero_format()
-            
+
             if not converted_constraints:
                 converted_nodes[node['block_addr']] = []
             else:
@@ -544,17 +557,32 @@ class OutputConvertor:
 
         return converted_nodes
 
+    #TODO: if this works add support in symbolic analysis
+    def find_num_paths(self, nodes: List) -> int:
+        max_path = -math.inf
+        for node in nodes:
+            for constraint in node['constraints']:
+                path_num = constraint[0]
+                if path_num > max_path:
+                    max_path = path_num
+        return int(max_path + 1)
+
+    def create_random_priority_list(self, nodes: List):
+        lst = list(range(self.find_num_paths(nodes)))
+        random.shuffle(lst)
+        self.path_priority_queue = lst
+
     def convert_json(self, filename: str):
         filesize = os.path.getsize(filename)
         if filesize == 0 or filesize > SYM_EXE_MAX_OUTPUT_TO_PROCESS:
             # print(f'Warning! file {filename} is empty or larger than {SYM_EXE_MAX_OUTPUT_TO_PROCESS}. Skipping.')
             # raise Exception #This is necessary as that calling function will omit this
             return False, None
-        
+
         # _, result = self.get_stats_json(filename)
         # if result["precent_block_constraints"] < 0.3: # Check if there too few blocks with constraints. In the nero DS this should remove about 15% of the functions
         #     return False, None
-        
+
         with open(filename, 'r') as function_file:
             initial_data = json.load(function_file)
 
@@ -566,34 +594,35 @@ class OutputConvertor:
         if len(exe_name_split) > 1:
             exe_name = exe_name_split[-1]
             package_name = exe_name_split[-2]
-        
+
         # print(package_name, exe_name, function_name)
 
         #converted_data = {'func_name': OUR_API_TYPE + function_name, 'GNN_data': {}, 'exe_name': exe_name, 'package': package_name}
         converted_data = {'func_name': function_name, 'GNN_data': {}, 'exe_name': exe_name, 'package': package_name}
         # try:
+        self.create_random_priority_list(initial_data['GNN_DATA']['nodes'])
         converted_data['GNN_data']['edges'] = self.__convert_edges(initial_data['GNN_DATA']['edges'])
         converted_data['GNN_data']['nodes'] = self.__convert_nodes(initial_data['GNN_DATA']['nodes'])
         #except Exception as e:
         #    print("file", filename)
         #    exit(1)
-        
+
         #if self.portion_nodes_has_constraints(converted_data['GNN_data']['nodes']) < 0.25 or self.nodes_total_num_constraints(converted_data['GNN_data']['nodes']) < 20:
             #return False, None
-        
+
         if self.nodes_total_num_constraints(converted_data['GNN_data']['nodes']) < 5:
             return False, None
-        
+
         #if self.portion_nodes_has_constraints(converted_data['GNN_data']['nodes']) < 0.15:
             #return False, None
-            
+
         #converted_data['GNN_data']['edges'], converted_data['GNN_data']['nodes'] = self.reduce_graph(converted_data['GNN_data']['edges'], converted_data['GNN_data']['nodes'])
         converted_filename = CONVERTED_DS_PREFIX + filename
         os.makedirs(os.path.dirname(converted_filename), exist_ok=True)
         with open(converted_filename, 'w') as function_file:
             jp_obj = str(encode(converted_data))
             function_file.write(jp_obj)
-            
+
         return True, converted_filename
 
     '''
@@ -616,7 +645,7 @@ class OutputConvertor:
                     assert len_n_after_merge == len_n - 1
                     break
         return edges, nodes
-            
+
     '''
     Merge mode2 into node1
     '''
@@ -630,20 +659,20 @@ class OutputConvertor:
         del nodes[node2]
         return edges, nodes
 
-    
+
     def portion_nodes_has_constraints(self, nodes):
         num_nodes_with_constraints = 0
         for _, constraints in nodes.items():
             if len(constraints) > 0:
                 num_nodes_with_constraints = num_nodes_with_constraints + 1
         return num_nodes_with_constraints/len(nodes)
-    
+
     def nodes_total_num_constraints(self, nodes):
         total_num_constraints = 0
         for _, constraints in nodes.items():
             total_num_constraints = total_num_constraints + len(constraints)
         return total_num_constraints
-    
+
 class OrganizeOutput:
     def __init__(self, dataset_name, file_locations, train_percentage, test_percentage, validate_percentage):
         self.dataset_name = dataset_name
@@ -685,13 +714,13 @@ class OrganizeOutput:
 
         if not os.path.exists(os.path.join('../ready_data', ready_dir)):
             os.mkdir(os.path.join('../ready_data', ready_dir))
-        
+
         # --------------------- TAL'S CODE START---------------------#
         collect_to_file(self.file_locations, os.path.join(ready_dir, 'train.json'))
         collect_to_file(self.file_locations, os.path.join(ready_dir, 'test.json'))
         collect_to_file(self.file_locations, os.path.join(ready_dir, 'validation.json'))
         # --------------------- TAL'S CODE END---------------------#
-        
+
         #collect_to_file(training_files, os.path.join(ready_dir, 'train.json'))
         #collect_to_file(testing_files, os.path.join(ready_dir, 'test.json'))
         #collect_to_file(validating_files, os.path.join(ready_dir, 'validation.json'))
@@ -720,7 +749,7 @@ def main():
     else:
         out_convertor.load_all_files()
         out_convertor.get_stats()
-        
+
     collector = OrganizeOutput(args.dataset_name, out_convertor.converted_filenames, args.train, args.test, args.val)
     collector.print_information_and_fix()
     buff = input('collect converted files into train/val/test? [y/n]\n')
