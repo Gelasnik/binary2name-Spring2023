@@ -462,7 +462,7 @@ class OutputConvertor:
                             break
                         # TODO do we need to keep counting constraints in loop? Currently we don't count it
                         selected_path_constraints = random.sample(path_constraints[2],
-                                                                  min(len(path_constraints), self.sample_constraint))
+                                                                  min(len(path_constraints[2]), self.sample_constraint))
                         converted_block_constraints.extend(selected_path_constraints)
 
                         found_path = True
@@ -472,9 +472,9 @@ class OutputConvertor:
                     break
         else:
             return ['']
-        # TODO this exists only for debugging reason, please delete
-        if paths_counter > 0:
-            print("Path counter is not zero, when all path queue was checked.")
+        # # TODO this exists only for debugging reason, please delete
+        # if paths_counter > 0:
+        #     print("Path counter is not zero, when all path queue was checked.")
         # TODO: OUR CODE END
 
         # filtered_block_constraints = list(
@@ -588,7 +588,7 @@ class OutputConvertor:
         for node in nodes:
             for constraint in node['constraints']:
                 path_num = constraint[0]
-                if path_num > max_path:
+                if type(path_num) != str and int(path_num) > max_path:
                     max_path = path_num
         return int(max_path + 1)
 
