@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4408037_0",
+                "src": "4408015_root"
+            },
+            {
+                "dst": "4408288_0",
+                "src": "4408037_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4408288_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4408015,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|eax|dword|ptr|rip|+|0x266257|    |test|eax|eax|    |jne|target_0|    ",
+                "key": "4408015_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4408037,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|1|    |jmp|0x4343e0|    ",
+                "key": "4408037_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4408288,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4408288_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x1>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "process_arch_specific"
+}

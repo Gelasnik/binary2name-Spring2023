@@ -1,0 +1,92 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4215852_0",
+                "src": "4215833_root"
+            },
+            {
+                "dst": "4215874_0",
+                "src": "4215852_0"
+            },
+            {
+                "dst": "4215910_0",
+                "src": "4215874_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4215910_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4215833,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|esi|0|    |mov|edi|1|    |call|0x4052b2|    ",
+                "key": "4215833_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4215852,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rip|+|0x206665|rax|    |mov|esi|0|    |mov|edi|1|    |call|0x4052b2|    ",
+                "key": "4215852_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4215874,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rip|+|0x20663f|rax|    |mov|rax|qword|ptr|rip|+|0x206638|    |mov|rax|qword|ptr|rax|+|0x20|    |mov|byte|ptr|rax|1|    |mov|esi|0|    |mov|edi|1|    |call|0x4052b2|    ",
+                "key": "4215874_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4215910,
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(__add__(fake_ret_value_913_64, 0x20), 0xfffffffffffffffe)>",
+                            "<Bool __eq__(Concat(mem_0_915_48, mem_fffffffffffffffe_914_16), 0xffffffffffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rip|+|0x206623|rax|    |mov|rax|qword|ptr|rip|+|0x20661c|    |mov|rax|qword|ptr|rax|+|0x20|    |mov|byte|ptr|rax|2|    |nop|    |pop|rbp|    |ret|    ",
+                "key": "4215910_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<Bool __eq__(__add__(fake_ret_value_916_64, 0x20), 0xfffffffffffffff0)>",
+                            "<Bool __eq__(mem_fffffffffffffff0_917_64, 0xffffffffffffffff)>",
+                            "<BV32 Extract(31, 0, mem_fffffffffffffff0_917_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "bc_init_numbers"
+}

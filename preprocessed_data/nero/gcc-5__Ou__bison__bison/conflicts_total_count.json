@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4231500_0",
+                "src": "4231486_root"
+            },
+            {
+                "dst": "4231512_0",
+                "src": "4231500_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4231512_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4231486,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|rbx|    |sub|rsp|8|    |call|0x408e51|    ",
+                "key": "4231486_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4231500,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|ebx|eax|    |mov|edi|0|    |call|0x408f71|    ",
+                "key": "4231500_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4231512,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "add|eax|ebx|    |add|rsp|8|    |pop|rbx|    |pop|rbp|    |ret|    ",
+                "key": "4231512_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 __add__(Extract(31, 0, fake_ret_value_11166_64), Extract(31, 0, fake_ret_value_11165_64))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "conflicts_total_count"
+}

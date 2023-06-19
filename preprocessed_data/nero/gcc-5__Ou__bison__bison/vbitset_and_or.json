@@ -1,0 +1,527 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4549900_0",
+                "src": "4549834_root"
+            },
+            {
+                "dst": "4549879_1",
+                "src": "4549834_root"
+            },
+            {
+                "dst": "4549879_2",
+                "src": "4549834_root"
+            },
+            {
+                "dst": "4549879_3",
+                "src": "4549834_root"
+            },
+            {
+                "dst": "4549879_4",
+                "src": "4549834_root"
+            },
+            {
+                "dst": "4549924_0",
+                "src": "4549900_0"
+            },
+            {
+                "dst": "4550100_0",
+                "src": "4549924_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4550100_0"
+            },
+            {
+                "dst": "4549900_1",
+                "src": "4549879_1"
+            },
+            {
+                "dst": "4549924_1",
+                "src": "4549900_1"
+            },
+            {
+                "dst": "4550100_1",
+                "src": "4549924_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4550100_1"
+            },
+            {
+                "dst": "4549929_2",
+                "src": "4549879_2"
+            },
+            {
+                "dst": "4549952_2",
+                "src": "4549929_2"
+            },
+            {
+                "dst": "4550091_2",
+                "src": "4549952_2"
+            },
+            {
+                "dst": "4550100_2",
+                "src": "4550091_2"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4550100_2"
+            },
+            {
+                "dst": "4549929_3",
+                "src": "4549879_3"
+            },
+            {
+                "dst": "4549952_3",
+                "src": "4549929_3"
+            },
+            {
+                "dst": "4550091_3",
+                "src": "4549952_3"
+            },
+            {
+                "dst": "4550021_3",
+                "src": "4550091_3"
+            },
+            {
+                "dst": "4550100_3",
+                "src": "4550091_3"
+            },
+            {
+                "dst": "4550091_3",
+                "src": "4550021_3"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4550100_3"
+            },
+            {
+                "dst": "4549929_4",
+                "src": "4549879_4"
+            },
+            {
+                "dst": "4549952_4",
+                "src": "4549929_4"
+            },
+            {
+                "dst": "4550091_4",
+                "src": "4549952_4"
+            },
+            {
+                "dst": "4550021_4",
+                "src": "4550091_4"
+            },
+            {
+                "dst": "4550091_4",
+                "src": "4550021_4"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4550021_4"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4549834,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x50|    |mov|qword|ptr|rbp|-|0x38|rdi|    |mov|qword|ptr|rbp|-|0x40|rsi|    |mov|qword|ptr|rbp|-|0x48|rdx|    |mov|qword|ptr|rbp|-|0x50|rcx|    |mov|rax|qword|ptr|rbp|-|0x40|    |mov|rdx|qword|ptr|rax|+|0x20|    |mov|rax|qword|ptr|rbp|-|0x48|    |mov|rax|qword|ptr|rax|+|0x20|    |cmp|rdx|rax|    |jne|target_0|    ",
+                "key": "4549834_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4549900,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_40_59332_64, 0x20), 0xfffffffffffffffc)>",
+                            "<Bool __eq__(__add__(reg_20_59333_64, 0x20), 0xfffffffffffffffe)>",
+                            "<Bool __ne__(Concat(mem_0_59336_32, mem_fffffffffffffffc_59335_32), Concat(mem_4_59337_16, mem_0_59336_32, Extract(31, 16, mem_fffffffffffffffc_59335_32)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rcx|qword|ptr|rbp|-|0x50|    |mov|rdx|qword|ptr|rbp|-|0x48|    |mov|rsi|qword|ptr|rbp|-|0x40|    |mov|rax|qword|ptr|rbp|-|0x38|    |mov|rdi|rax|    |call|0x44eb9d|    ",
+                "key": "4549900_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4549924,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x456dd4|    ",
+                "key": "4549924_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4550100,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4550100_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_59339_64)>"
+                        ]
+                    ],
+                    [
+                        5,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_59341_64)>"
+                        ]
+                    ],
+                    [
+                        6,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ],
+                    [
+                        8,
+                        [
+                            "<BV32 0x1>"
+                        ]
+                    ],
+                    [
+                        8,
+                        [
+                            "<Bool __eq__(__add__(0x8, Concat(Extract(15, 0, mem_fffffffffffffffc_59335_32), Extract(63, 16, mem_fffffffffffffff4_59342_64))), 0x1000000000007)>",
+                            "<Bool __eq__(__add__(0x8, mem_19_59344_64), 0x7)>",
+                            "<BV32 Extract(31, 0, __add__(0x8, mem_19_59344_64))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4549879,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_40_59332_64, 0x20), 0xfffffffffffffffc)>",
+                            "<Bool __eq__(__add__(reg_20_59333_64, 0x20), 0xfffffffffffffffe)>",
+                            "<Bool __eq__(Concat(mem_0_59336_32, mem_fffffffffffffffc_59335_32), Concat(mem_4_59337_16, mem_0_59336_32, Extract(31, 16, mem_fffffffffffffffc_59335_32)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x40|    |mov|rdx|qword|ptr|rax|+|0x20|    |mov|rax|qword|ptr|rbp|-|0x50|    |mov|rax|qword|ptr|rax|+|0x20|    |cmp|rdx|rax|    |je|0x456d29|    ",
+                "key": "4549879_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4549900,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(reg_18_59334_64, 0x20), 0xffffffffffffffe0)>",
+                            "<Bool __ne__(Concat(mem_0_59336_32, mem_fffffffffffffffc_59335_32), mem_ffffffffffffffe0_59338_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rcx|qword|ptr|rbp|-|0x50|    |mov|rdx|qword|ptr|rbp|-|0x48|    |mov|rsi|qword|ptr|rbp|-|0x40|    |mov|rax|qword|ptr|rbp|-|0x38|    |mov|rdi|rax|    |call|0x44eb9d|    ",
+                "key": "4549900_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4549924,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x456dd4|    ",
+                "key": "4549924_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4550100,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4550100_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4549879,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_40_59332_64, 0x20), 0xfffffffffffffffc)>",
+                            "<Bool __eq__(__add__(reg_20_59333_64, 0x20), 0xfffffffffffffffe)>",
+                            "<Bool __eq__(Concat(mem_0_59336_32, mem_fffffffffffffffc_59335_32), Concat(mem_4_59337_16, mem_0_59336_32, Extract(31, 16, mem_fffffffffffffffc_59335_32)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x40|    |mov|rdx|qword|ptr|rax|+|0x20|    |mov|rax|qword|ptr|rbp|-|0x50|    |mov|rax|qword|ptr|rax|+|0x20|    |cmp|rdx|rax|    |je|0x456d29|    ",
+                "key": "4549879_2",
+                "path_num": 2
+            },
+            {
+                "block_addr": 4549929,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(reg_18_59334_64, 0x20), 0xffffffffffffffe0)>",
+                            "<Bool __eq__(Concat(mem_0_59336_32, mem_fffffffffffffffc_59335_32), mem_ffffffffffffffe0_59338_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x40|    |mov|rdx|qword|ptr|rax|+|0x20|    |mov|rax|qword|ptr|rbp|-|0x38|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x4553c6|    ",
+                "key": "4549929_2",
+                "path_num": 2
+            },
+            {
+                "block_addr": 4549952,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x40|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|qword|ptr|rbp|-|0x28|rax|    |mov|rax|qword|ptr|rbp|-|0x48|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|qword|ptr|rbp|-|0x20|rax|    |mov|rax|qword|ptr|rbp|-|0x50|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|qword|ptr|rbp|-|0x18|rax|    |mov|rax|qword|ptr|rbp|-|0x38|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rbp|-|0x38|    |mov|rax|qword|ptr|rax|+|0x10|    |mov|qword|ptr|rbp|-|8|rax|    |mov|dword|ptr|rbp|-|0x2c|0|    |jmp|0x456dcb|    ",
+                "key": "4549952_2",
+                "path_num": 2
+            },
+            {
+                "block_addr": 4550091,
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<Bool __eq__(__add__(reg_48_59331_64, 0x18), 0x19)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|0x2c|    |cmp|rax|qword|ptr|rbp|-|8|    |jb|0x456d85|    ",
+                "key": "4550091_2",
+                "path_num": 2
+            },
+            {
+                "block_addr": 4550100,
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<Bool __ge__(0x0, mem_11_59345_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4550100_2",
+                "path_num": 2
+            },
+            {
+                "block_addr": 4549879,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_40_59332_64, 0x20), 0xfffffffffffffffc)>",
+                            "<Bool __eq__(__add__(reg_20_59333_64, 0x20), 0xfffffffffffffffe)>",
+                            "<Bool __eq__(Concat(mem_0_59336_32, mem_fffffffffffffffc_59335_32), Concat(mem_4_59337_16, mem_0_59336_32, Extract(31, 16, mem_fffffffffffffffc_59335_32)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x40|    |mov|rdx|qword|ptr|rax|+|0x20|    |mov|rax|qword|ptr|rbp|-|0x50|    |mov|rax|qword|ptr|rax|+|0x20|    |cmp|rdx|rax|    |je|0x456d29|    ",
+                "key": "4549879_3",
+                "path_num": 3
+            },
+            {
+                "block_addr": 4549929,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(reg_18_59334_64, 0x20), 0xffffffffffffffe0)>",
+                            "<Bool __eq__(Concat(mem_0_59336_32, mem_fffffffffffffffc_59335_32), mem_ffffffffffffffe0_59338_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x40|    |mov|rdx|qword|ptr|rax|+|0x20|    |mov|rax|qword|ptr|rbp|-|0x38|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x4553c6|    ",
+                "key": "4549929_3",
+                "path_num": 3
+            },
+            {
+                "block_addr": 4549952,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x40|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|qword|ptr|rbp|-|0x28|rax|    |mov|rax|qword|ptr|rbp|-|0x48|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|qword|ptr|rbp|-|0x20|rax|    |mov|rax|qword|ptr|rbp|-|0x50|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|qword|ptr|rbp|-|0x18|rax|    |mov|rax|qword|ptr|rbp|-|0x38|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rbp|-|0x38|    |mov|rax|qword|ptr|rax|+|0x10|    |mov|qword|ptr|rbp|-|8|rax|    |mov|dword|ptr|rbp|-|0x2c|0|    |jmp|0x456dcb|    ",
+                "key": "4549952_3",
+                "path_num": 3
+            },
+            {
+                "block_addr": 4550091,
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<Bool __eq__(__add__(reg_48_59331_64, 0x18), 0x19)>"
+                        ]
+                    ],
+                    [
+                        6,
+                        [
+                            "<Bool __eq__(mem_fffffffffffffff4_59342_64, 0xffffffffffffff80)>",
+                            "<Bool __eq__(Concat(Extract(15, 0, mem_fffffffffffffffc_59335_32), Extract(63, 16, mem_fffffffffffffff4_59342_64)), 0xffffffffffff)>",
+                            "<Bool __eq__(mem_ffffffffffffffd8_59343_64, 0xfffffffc00000000)>",
+                            "<Bool __eq__(mem_19_59344_64, 0xffffffffffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|0x2c|    |cmp|rax|qword|ptr|rbp|-|8|    |jb|0x456d85|    ",
+                "key": "4550091_3",
+                "path_num": 3
+            },
+            {
+                "block_addr": 4550021,
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<Bool __lt__(0x0, mem_11_59345_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x10|    |lea|rdx|rax|+|8|    |mov|qword|ptr|rbp|-|0x10|rdx|    |mov|rdx|qword|ptr|rbp|-|0x28|    |lea|rcx|rdx|+|8|    |mov|qword|ptr|rbp|-|0x28|rcx|    |mov|rsi|qword|ptr|rdx|    |mov|rdx|qword|ptr|rbp|-|0x20|    |lea|rcx|rdx|+|8|    |mov|qword|ptr|rbp|-|0x20|rcx|    |mov|rdx|qword|ptr|rdx|    |and|rsi|rdx|    |mov|rdx|qword|ptr|rbp|-|0x18|    |lea|rcx|rdx|+|8|    |mov|qword|ptr|rbp|-|0x18|rcx|    |mov|rdx|qword|ptr|rdx|    |or|rdx|rsi|    |mov|qword|ptr|rax|rdx|    |add|dword|ptr|rbp|-|0x2c|1|    |mov|eax|dword|ptr|rbp|-|0x2c|    |cmp|rax|qword|ptr|rbp|-|8|    |jb|0x456d85|    ",
+                "key": "4550021_3",
+                "path_num": 3
+            },
+            {
+                "block_addr": 4550100,
+                "constraints": [
+                    [
+                        7,
+                        [
+                            "<Bool __ge__(0x1, mem_11_59345_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4550100_3",
+                "path_num": 3
+            },
+            {
+                "block_addr": 4549879,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_40_59332_64, 0x20), 0xfffffffffffffffc)>",
+                            "<Bool __eq__(__add__(reg_20_59333_64, 0x20), 0xfffffffffffffffe)>",
+                            "<Bool __eq__(Concat(mem_0_59336_32, mem_fffffffffffffffc_59335_32), Concat(mem_4_59337_16, mem_0_59336_32, Extract(31, 16, mem_fffffffffffffffc_59335_32)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x40|    |mov|rdx|qword|ptr|rax|+|0x20|    |mov|rax|qword|ptr|rbp|-|0x50|    |mov|rax|qword|ptr|rax|+|0x20|    |cmp|rdx|rax|    |je|0x456d29|    ",
+                "key": "4549879_4",
+                "path_num": 4
+            },
+            {
+                "block_addr": 4549929,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(reg_18_59334_64, 0x20), 0xffffffffffffffe0)>",
+                            "<Bool __eq__(Concat(mem_0_59336_32, mem_fffffffffffffffc_59335_32), mem_ffffffffffffffe0_59338_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x40|    |mov|rdx|qword|ptr|rax|+|0x20|    |mov|rax|qword|ptr|rbp|-|0x38|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x4553c6|    ",
+                "key": "4549929_4",
+                "path_num": 4
+            },
+            {
+                "block_addr": 4549952,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x40|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|qword|ptr|rbp|-|0x28|rax|    |mov|rax|qword|ptr|rbp|-|0x48|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|qword|ptr|rbp|-|0x20|rax|    |mov|rax|qword|ptr|rbp|-|0x50|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|qword|ptr|rbp|-|0x18|rax|    |mov|rax|qword|ptr|rbp|-|0x38|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rbp|-|0x38|    |mov|rax|qword|ptr|rax|+|0x10|    |mov|qword|ptr|rbp|-|8|rax|    |mov|dword|ptr|rbp|-|0x2c|0|    |jmp|0x456dcb|    ",
+                "key": "4549952_4",
+                "path_num": 4
+            },
+            {
+                "block_addr": 4550091,
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<Bool __eq__(__add__(reg_48_59331_64, 0x18), 0x19)>"
+                        ]
+                    ],
+                    [
+                        6,
+                        [
+                            "<Bool __eq__(mem_fffffffffffffff4_59342_64, 0xffffffffffffff80)>",
+                            "<Bool __eq__(Concat(Extract(15, 0, mem_fffffffffffffffc_59335_32), Extract(63, 16, mem_fffffffffffffff4_59342_64)), 0xffffffffffff)>",
+                            "<Bool __eq__(mem_ffffffffffffffd8_59343_64, 0xfffffffc00000000)>",
+                            "<Bool __eq__(mem_19_59344_64, 0xffffffffffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|0x2c|    |cmp|rax|qword|ptr|rbp|-|8|    |jb|0x456d85|    ",
+                "key": "4550091_4",
+                "path_num": 4
+            },
+            {
+                "block_addr": 4550021,
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<Bool __lt__(0x0, mem_11_59345_64)>"
+                        ]
+                    ],
+                    [
+                        7,
+                        [
+                            "<Bool __lt__(0x1, mem_11_59345_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x10|    |lea|rdx|rax|+|8|    |mov|qword|ptr|rbp|-|0x10|rdx|    |mov|rdx|qword|ptr|rbp|-|0x28|    |lea|rcx|rdx|+|8|    |mov|qword|ptr|rbp|-|0x28|rcx|    |mov|rsi|qword|ptr|rdx|    |mov|rdx|qword|ptr|rbp|-|0x20|    |lea|rcx|rdx|+|8|    |mov|qword|ptr|rbp|-|0x20|rcx|    |mov|rdx|qword|ptr|rdx|    |and|rsi|rdx|    |mov|rdx|qword|ptr|rbp|-|0x18|    |lea|rcx|rdx|+|8|    |mov|qword|ptr|rbp|-|0x18|rcx|    |mov|rdx|qword|ptr|rdx|    |or|rdx|rsi|    |mov|qword|ptr|rax|rdx|    |add|dword|ptr|rbp|-|0x2c|1|    |mov|eax|dword|ptr|rbp|-|0x2c|    |cmp|rax|qword|ptr|rbp|-|8|    |jb|0x456d85|    ",
+                "key": "4550021_4",
+                "path_num": 4
+            }
+        ]
+    },
+    "func_name": "vbitset_and_or"
+}

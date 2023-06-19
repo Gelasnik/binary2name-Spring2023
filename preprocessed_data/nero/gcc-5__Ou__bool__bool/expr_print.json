@@ -1,0 +1,73 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4208020_0",
+                "src": "4207945_root"
+            },
+            {
+                "dst": "4208041_0",
+                "src": "4208020_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4208041_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4207945,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|dword|ptr|rbp|-|0x14|edi|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|dword|ptr|rbp|-|0xc|0|    |mov|rax|qword|ptr|rip|+|0x2075f7|    |mov|rax|qword|ptr|rax|+|0x10|    |mov|edx|dword|ptr|rbp|-|0x14|    |movsxd|rdx|edx|    |shl|rdx|4|    |add|rax|rdx|    |mov|rax|qword|ptr|rax|    |lea|rdx|rbp|-|0xc|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x4034a4|    ",
+                "key": "4207945_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4208020,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(mem_10_768_64, __lshift__(SignExt(32, Extract(31, 0, reg_48_767_64)), 0x4)), 0xfffffffffffffffe)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |mov|rax|qword|ptr|rbp|-|8|    |xor|rax|qword|ptr|fs:0x28|    |je|0x4035a9|    ",
+                "key": "4208020_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4208041,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4208041_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "expr_print"
+}

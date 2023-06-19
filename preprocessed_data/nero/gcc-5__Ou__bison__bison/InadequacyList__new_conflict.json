@@ -1,0 +1,78 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4215059_0",
+                "src": "4215025_root"
+            },
+            {
+                "dst": "4215126_0",
+                "src": "4215059_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4215126_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4215025,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x30|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|qword|ptr|rbp|-|0x28|rdx|    |mov|qword|ptr|rbp|-|0x30|rcx|    |mov|edi|0x30|    |call|0x44db6b|    ",
+                "key": "4215025_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4215059,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|0x30|    |mov|rax|qword|ptr|rax|    |lea|rcx|rax|+|1|    |mov|rdx|qword|ptr|rbp|-|0x30|    |mov|qword|ptr|rdx|rcx|    |mov|rdx|qword|ptr|rbp|-|8|    |mov|qword|ptr|rdx|+|8|rax|    |mov|rax|qword|ptr|rbp|-|0x30|    |mov|rax|qword|ptr|rax|    |test|rax|rax|    |jne|0x405156|    ",
+                "key": "4215059_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4215126,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(reg_18_3798_64, 0xffffffe000000000)>",
+                            "<Bool __eq__(__add__(fake_ret_value_3799_64, 0x8), 0xffffffffffffffff)>",
+                            "<Bool __ne__(__add__(0x1, mem_ffffffe000000000_3800_64), 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|0|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdx|qword|ptr|rbp|-|0x18|    |mov|qword|ptr|rax|+|0x10|rdx|    |mov|rax|qword|ptr|rbp|-|0x28|    |mov|rax|qword|ptr|rax|    |mov|rax|qword|ptr|rax|+|0x30|    |mov|rdx|qword|ptr|rbp|-|0x28|    |mov|rdi|rdx|    |call|rax|    ",
+                "key": "4215126_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(__add__(fake_ret_value_3799_64, 0x10), 0x7)>",
+                            "<Bool __eq__(reg_20_3797_64, 0xffffff8000000000)>",
+                            "<Bool __eq__(__add__(mem_ffffff8000000000_3802_64, 0x30), 0xffffffffffffffff)>",
+                            "<BV32 Extract(31, 0, fake_ret_value_3803_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "InadequacyList__new_conflict"
+}

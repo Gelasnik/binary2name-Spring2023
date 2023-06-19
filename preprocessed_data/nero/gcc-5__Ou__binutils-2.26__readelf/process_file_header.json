@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4281881_0",
+                "src": "4281826_root"
+            },
+            {
+                "dst": "4281891_0",
+                "src": "4281881_0"
+            },
+            {
+                "dst": "4281904_0",
+                "src": "4281891_0"
+            },
+            {
+                "dst": "4283317_0",
+                "src": "4281904_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4283317_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4281826,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|reg|    |push|rbx|    |sub|rsp|0x10|    |movzx|eax|byte|ptr|rip|+|0x284e8c|    |cmp|al|0x7f|    |jne|target_0|    ",
+                "key": "4281826_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4281881,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edi|0x479ab8|    |call|0x401440|    ",
+                "key": "4281881_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4281891,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdi|rax|    |mov|eax|0|    |call|0x450612|    ",
+                "key": "4281891_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4281904,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |jmp|0x415bb5|    ",
+                "key": "4281904_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4283317,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "add|rsp|0x10|    |pop|rbx|    |pop|r12|    |pop|rbp|    |ret|    ",
+                "key": "4283317_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "process_file_header"
+}

@@ -1,0 +1,119 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4199815_0",
+                "src": "4199776_root"
+            },
+            {
+                "dst": "4200024_0",
+                "src": "4199815_0"
+            },
+            {
+                "dst": "4200190_0",
+                "src": "4200024_0"
+            },
+            {
+                "dst": "4200205_0",
+                "src": "4200190_0"
+            },
+            {
+                "dst": "4200217_0",
+                "src": "4200205_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4200217_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4199776,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|dword|ptr|rip|+|0x2150b6|1|    |movzx|eax|byte|ptr|rip|+|0x215063|    |test|al|al|    |je|target_0|    ",
+                "key": "4199776_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4199815,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rip|+|0x214fb7|    |test|eax|eax|    |je|0x401658|    ",
+                "key": "4199815_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4200024,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x214ef9|    |test|rax|rax|    |je|0x4016fe|    ",
+                "key": "4200024_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4200190,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x214d8b|    |mov|rdi|rax|    |call|0x40171b|    ",
+                "key": "4200190_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4200205,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|byte|ptr|rip|+|0x214ec8|1|    |mov|eax|1|    |leave|    |ret|    ",
+                "key": "4200205_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4200217,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4200217_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        6,
+                        [
+                            "<BV32 0x1>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "open_new_file"
+}

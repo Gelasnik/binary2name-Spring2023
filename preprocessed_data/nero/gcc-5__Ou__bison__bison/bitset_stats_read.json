@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4520013_0",
+                "src": "4519782_root"
+            },
+            {
+                "dst": "4520014_0",
+                "src": "4520013_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4520014_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4519782,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|rax|qword|ptr|rip|+|0x2282ff|    |test|rax|rax|    |je|target_0|    ",
+                "key": "4519782_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4520013,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4520013_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4520014,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4520014_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "bitset_stats_read"
+}

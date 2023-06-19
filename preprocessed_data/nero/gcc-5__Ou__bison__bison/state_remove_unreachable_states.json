@@ -1,0 +1,119 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4469875_0",
+                "src": "4469835_root"
+            },
+            {
+                "dst": "4469904_0",
+                "src": "4469875_0"
+            },
+            {
+                "dst": "4470134_0",
+                "src": "4469904_0"
+            },
+            {
+                "dst": "4470149_0",
+                "src": "4470134_0"
+            },
+            {
+                "dst": "4470170_0",
+                "src": "4470149_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4470170_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4469835,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|dword|ptr|rbp|-|0x10|0|    |mov|eax|dword|ptr|rip|+|0x230fdc|    |cdqe|    |mov|esi|1|    |mov|rdi|rax|    |call|0x44e34d|    ",
+                "key": "4469835_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4469875,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rip|+|0x230fd2|    |mov|rax|qword|ptr|rax|    |mov|rdx|qword|ptr|rbp|-|8|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x4433ac|    ",
+                "key": "4469875_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4469904,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|dword|ptr|rbp|-|0xc|0|    |jmp|0x443576|    ",
+                "key": "4469904_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4470134,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rip|+|0x230ec4|    |cmp|dword|ptr|rbp|-|0xc|eax|    |jl|0x44349c|    ",
+                "key": "4470134_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4470149,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|0x10|    |mov|dword|ptr|rip|+|0x230eb2|eax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x44e383|    ",
+                "key": "4470149_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4470170,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4470170_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        6,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_1095_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "state_remove_unreachable_states"
+}

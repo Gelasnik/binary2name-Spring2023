@@ -1,0 +1,58 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4527558_0",
+                "src": "4527466_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4527558_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4527466,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rax|qword|ptr|rax|+|0x30|    |mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rbp|-|0x20|    |lea|rdx|rax*8|    |mov|rax|qword|ptr|rbp|-|0x10|    |add|rax|rdx|    |mov|rax|qword|ptr|rax|    |mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|0x20|    |lea|rdx|rax*8|    |mov|rax|qword|ptr|rbp|-|0x10|    |add|rax|rdx|    |mov|qword|ptr|rax|0|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x451546|    ",
+                "key": "4527466_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4527558,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_46282_64, 0x30), 0xfffffffffffffff0)>",
+                            "<Bool __eq__(__add__(mem_fffffffffffffff0_46284_64, __lshift__(reg_40_46283_64, 0x3)), 0xffffffffffffffe8)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4527558_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_46286_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "ebitset_elt_remove"
+}

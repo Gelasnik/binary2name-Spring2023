@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4565372_0",
+                "src": "4565288_root"
+            },
+            {
+                "dst": "4565433_0",
+                "src": "4565372_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4565433_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4565288,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|0x28|rdi|    |mov|qword|ptr|rbp|-|0x18|0x28|    |mov|qword|ptr|rbp|-|0x10|8|    |mov|rax|qword|ptr|rbp|-|0x28|    |add|rax|0x3f|    |shr|rax|6|    |mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |lea|rdx|rax*8|    |mov|rax|qword|ptr|rbp|-|0x18|    |add|rax|rdx|    |mov|qword|ptr|rbp|-|0x20|rax|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|edx|0|    |div|qword|ptr|rbp|-|0x10|    |mov|rax|rdx|    |test|rax|rax|    |jne|target_0|    ",
+                "key": "4565288_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4565372,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|8|    |mov|edx|0|    |div|qword|ptr|rbp|-|0x10|    |mov|rax|rdx|    |test|rax|rax|    |je|0x45a9b9|    ",
+                "key": "4565372_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4565433,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x20|    |pop|rbp|    |ret|    ",
+                "key": "4565433_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, __add__(0x28, Concat(0, Extract(63, 6, __add__(0x3f, reg_48_69862_64)), 0)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "abitset_bytes"
+}

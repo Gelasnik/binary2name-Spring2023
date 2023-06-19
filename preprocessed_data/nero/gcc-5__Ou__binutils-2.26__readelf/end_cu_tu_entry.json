@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4515602_0",
+                "src": "4515582_root"
+            },
+            {
+                "dst": "4515612_0",
+                "src": "4515602_0"
+            },
+            {
+                "dst": "4515625_0",
+                "src": "4515612_0"
+            },
+            {
+                "dst": "4515664_0",
+                "src": "4515625_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4515664_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4515582,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|edx|dword|ptr|rip|+|0x24cbb4|    |mov|eax|dword|ptr|rip|+|0x24cbaa|    |cmp|edx|eax|    |jb|target_0|    ",
+                "key": "4515582_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4515602,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edi|0x4895f0|    |call|0x401440|    ",
+                "key": "4515602_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4515612,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdi|rax|    |mov|eax|0|    |call|0x450612|    ",
+                "key": "4515612_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4515625,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x44e750|    ",
+                "key": "4515625_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4515664,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4515664_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_95330_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "end_cu_tu_entry"
+}

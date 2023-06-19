@@ -1,0 +1,137 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4565266_0",
+                "src": "4565210_root"
+            },
+            {
+                "dst": "4565245_1",
+                "src": "4565210_root"
+            },
+            {
+                "dst": "4565285_0",
+                "src": "4565266_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4565285_0"
+            },
+            {
+                "dst": "4565264_1",
+                "src": "4565245_1"
+            },
+            {
+                "dst": "4565285_1",
+                "src": "4565264_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4565285_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4565210,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdx|qword|ptr|rax|    |mov|rax|qword|ptr|rbp|-|0x10|    |mov|rax|qword|ptr|rax|    |cmp|rdx|rax|    |jne|target_0|    ",
+                "key": "4565210_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4565266,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_69738_64, 0xfffffffff0000000)>",
+                            "<Bool __eq__(reg_40_69739_64, 0xffffffffffffc000)>",
+                            "<Bool __ne__(mem_fffffffff0000000_69740_64, mem_ffffffffffffc000_69741_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rbp|-|0x10|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x44e93d|    ",
+                "key": "4565266_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4565285,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4565285_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_69743_64)>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_69742_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4565245,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_69738_64, 0xfffffffff0000000)>",
+                            "<Bool __eq__(reg_40_69739_64, 0xffffffffffffc000)>",
+                            "<Bool __eq__(mem_fffffffff0000000_69740_64, mem_ffffffffffffc000_69741_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rbp|-|0x10|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x459d3b|    ",
+                "key": "4565245_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4565264,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x45a925|    ",
+                "key": "4565264_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4565285,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4565285_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "abitset_copy"
+}

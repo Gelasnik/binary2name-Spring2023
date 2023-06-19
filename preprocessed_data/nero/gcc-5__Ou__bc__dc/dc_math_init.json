@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4213237_0",
+                "src": "4213228_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4213237_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4213228,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |call|0x405419|    ",
+                "key": "4213228_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4213237,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |pop|rbp|    |ret|    ",
+                "key": "4213237_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_288_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "dc_math_init"
+}

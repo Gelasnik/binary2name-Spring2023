@@ -1,0 +1,56 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4198619_0",
+                "src": "4198562_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4198619_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4198562,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x30|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|dword|ptr|rbp|-|0x24|edx|    |mov|dword|ptr|rbp|-|0x28|ecx|    |mov|eax|dword|ptr|rbp|-|0x28|    |cmp|dword|ptr|rbp|-|0x24|eax|    |cmovle|eax|dword|ptr|rbp|-|0x24|    |mov|dword|ptr|rbp|-|4|eax|    |mov|edx|dword|ptr|rbp|-|4|    |mov|rcx|qword|ptr|rbp|-|0x20|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rsi|rcx|    |mov|rdi|rax|    |call|0x400fb9|    ",
+                "key": "4198562_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4198619,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|4|    |movsxd|rdx|eax|    |mov|rax|qword|ptr|rbp|-|0x18|    |add|rax|rdx|    |mov|byte|ptr|rax|0|    |mov|rax|qword|ptr|rbp|-|0x18|    |leave|    |ret|    ",
+                "key": "4198619_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(reg_48_569_64, SignExt(32, If(SLE(Extract(31, 0, reg_20_571_64), Extract(31, 0, reg_18_572_64)), Extract(31, 0, reg_20_571_64), Extract(31, 0, reg_18_572_64)))), 0xffffffffffffffff)>",
+                            "<BV32 Extract(31, 0, reg_48_569_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "strlimitcpy"
+}

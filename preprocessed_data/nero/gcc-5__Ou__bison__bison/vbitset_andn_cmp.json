@@ -1,0 +1,41 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": "4547581_root"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4547581,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|rbx|    |sub|rsp|0x78|    |mov|qword|ptr|rbp|-|0x68|rdi|    |mov|qword|ptr|rbp|-|0x70|rsi|    |mov|qword|ptr|rbp|-|0x78|rdx|    |mov|dword|ptr|rbp|-|0x54|0|    |mov|rax|qword|ptr|rbp|-|0x70|    |mov|rax|qword|ptr|rax|    |mov|rax|qword|ptr|rax|+|0x28|    |mov|rdx|qword|ptr|rbp|-|0x70|    |mov|rdi|rdx|    |call|rax|    ",
+                "key": "4547581_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_40_58705_64, 0xfffffff000000000)>",
+                            "<Bool __eq__(__add__(mem_fffffff000000000_58707_64, 0x28), 0xfffffffffffffffe)>",
+                            "<BV32 Extract(31, 0, fake_ret_value_58710_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "vbitset_andn_cmp"
+}

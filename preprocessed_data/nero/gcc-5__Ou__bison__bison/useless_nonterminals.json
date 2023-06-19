@@ -1,0 +1,72 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4389184_0",
+                "src": "4389155_root"
+            },
+            {
+                "dst": "4389188_0",
+                "src": "4389184_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4389188_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4389155,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|eax|dword|ptr|rip|+|0x24452b|    |cdqe|    |mov|esi|1|    |mov|rdi|rax|    |call|0x44e34d|    ",
+                "key": "4389155_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4389184,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rip|+|0x2446dd|    |mov|rax|qword|ptr|rax|    |mov|rax|qword|ptr|rax|+|0x50|    |mov|rcx|qword|ptr|rip|+|0x2446cf|    |mov|rdx|qword|ptr|rbp|-|0x10|    |mov|rsi|rcx|    |mov|rdi|rdx|    |call|rax|    ",
+                "key": "4389184_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4389188,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x2446dd|    |mov|rax|qword|ptr|rax|    |mov|rax|qword|ptr|rax|+|0x50|    |mov|rcx|qword|ptr|rip|+|0x2446cf|    |mov|rdx|qword|ptr|rbp|-|0x10|    |mov|rsi|rcx|    |mov|rdi|rdx|    |call|rax|    ",
+                "key": "4389188_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(__add__(mem_0_47844_64, 0x50), 0xfffffffffffffff8)>",
+                            "<BV32 Extract(31, 0, fake_ret_value_47846_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "useless_nonterminals"
+}

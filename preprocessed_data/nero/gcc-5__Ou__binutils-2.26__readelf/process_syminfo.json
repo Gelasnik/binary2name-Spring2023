@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4358578_0",
+                "src": "4358541_root"
+            },
+            {
+                "dst": "4359447_0",
+                "src": "4358578_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4359447_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4358541,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|reg|    |push|rbx|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x28|rdi|    |mov|rax|qword|ptr|rip|+|0x271125|    |test|rax|rax|    |je|target_0|    ",
+                "key": "4358541_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4358578,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|1|    |jmp|0x428517|    ",
+                "key": "4358578_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4359447,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "add|rsp|0x20|    |pop|rbx|    |pop|r12|    |pop|rbp|    |ret|    ",
+                "key": "4359447_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x1>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "process_syminfo"
+}

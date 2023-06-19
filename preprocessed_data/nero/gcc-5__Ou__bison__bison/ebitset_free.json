@@ -1,0 +1,73 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4529663_0",
+                "src": "4529639_root"
+            },
+            {
+                "dst": "4529679_0",
+                "src": "4529663_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4529679_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4529639,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x45189c|    ",
+                "key": "4529639_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4529663,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x30|    |mov|rdi|rax|    |call|0x402060|    ",
+                "key": "4529663_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4529679,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(reg_48_47815_64, 0x30), 0xfffffffffffffff0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4529679_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_47818_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "ebitset_free"
+}

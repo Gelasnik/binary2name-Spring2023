@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4553273_0",
+                "src": "4552997_root"
+            },
+            {
+                "dst": "4553274_0",
+                "src": "4553273_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4553274_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4552997,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|eax|dword|ptr|rip|+|0x21d131|    |test|eax|eax|    |je|target_0|    ",
+                "key": "4552997_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4553273,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |pop|rbp|    |ret|    ",
+                "key": "4553273_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4553274,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4553274_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "init_timevar"
+}

@@ -1,0 +1,135 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4224358_0",
+                "src": "4223691_root"
+            },
+            {
+                "dst": "4223713_1",
+                "src": "4223691_root"
+            },
+            {
+                "dst": "4224363_0",
+                "src": "4224358_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4224363_0"
+            },
+            {
+                "dst": "4224358_1",
+                "src": "4223713_1"
+            },
+            {
+                "dst": "4224363_1",
+                "src": "4224358_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4224363_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4223691,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |cmp|qword|ptr|rbp|-|8|0xfb|    |ja|target_0|    ",
+                "key": "4223691_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4224358,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __gt__(reg_48_34435_64, 0xfb)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4224358_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4224363,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4224363_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4223713,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __le__(reg_48_34435_64, 0xfb)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |shl|rax|3|    |add|rax|0x46dae0|    |mov|rax|qword|ptr|rax|    |jmp|rax|    ",
+                "key": "4223713_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4224358,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(__lshift__(reg_48_34435_64, 0x3), 0x46dae0), 0x46e280)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4224358_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4224363,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4224363_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "elf_s390_reloc_type"
+}

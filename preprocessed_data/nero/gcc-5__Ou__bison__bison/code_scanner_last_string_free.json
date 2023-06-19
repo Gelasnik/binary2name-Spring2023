@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4419873_0",
+                "src": "4419788_root"
+            },
+            {
+                "dst": "4419892_0",
+                "src": "4419873_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4419892_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4419788,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|0x10|0x674140|    |mov|rax|qword|ptr|rip|+|0x23d0dd|    |mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|0x10|    |mov|rax|qword|ptr|rax|+|8|    |cmp|rax|qword|ptr|rbp|-|8|    |jae|target_0|    ",
+                "key": "4419788_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4419873,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rbp|-|0x10|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x458b5d|    ",
+                "key": "4419873_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4419892,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4419892_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_58428_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "code_scanner_last_string_free"
+}

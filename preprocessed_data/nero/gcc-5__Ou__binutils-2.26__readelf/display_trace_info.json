@@ -1,0 +1,57 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4486113_0",
+                "src": "4486063_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4486113_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4486063,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|edx|dword|ptr|rax|+|0x30|    |mov|rsi|qword|ptr|rbp|-|0x10|    |mov|rax|qword|ptr|rbp|-|8|    |mov|regd|0|    |mov|ecx|0|    |mov|rdi|rax|    |call|0x43e0d8|    ",
+                "key": "4486063_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4486113,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_77169_64, 0x30), 0xfffffffffffffff0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4486113_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_77172_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "display_trace_info"
+}

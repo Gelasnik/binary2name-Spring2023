@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4519723_0",
+                "src": "4519523_root"
+            },
+            {
+                "dst": "4519724_0",
+                "src": "4519723_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4519724_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4519523,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|rbx|    |sub|rsp|0x28|    |mov|qword|ptr|rbp|-|0x28|rdi|    |mov|eax|esi|    |mov|byte|ptr|rbp|-|0x2c|al|    |mov|rax|qword|ptr|rip|+|0x2283fc|    |test|rax|rax|    |je|target_0|    ",
+                "key": "4519523_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4519723,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |add|rsp|0x28|    |pop|rbx|    |pop|rbp|    |ret|    ",
+                "key": "4519723_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4519724,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "add|rsp|0x28|    |pop|rbx|    |pop|rbp|    |ret|    ",
+                "key": "4519724_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "bitset_stats_print"
+}

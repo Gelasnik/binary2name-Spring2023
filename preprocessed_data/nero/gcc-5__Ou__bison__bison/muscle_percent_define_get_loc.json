@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4288688_0",
+                "src": "4288640_root"
+            },
+            {
+                "dst": "4288706_0",
+                "src": "4288688_0"
+            },
+            {
+                "dst": "4288730_0",
+                "src": "4288706_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4288730_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4288640,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|rax|qword|ptr|rbp|-|0x20|    |mov|esi|0x45e560|    |mov|rdi|rax|    |call|0x416ea3|    ",
+                "key": "4288640_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4288688,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|rax|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x415421|    ",
+                "key": "4288688_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4288706,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x18|    |mov|rcx|qword|ptr|rbp|-|8|    |xor|rcx|qword|ptr|fs:0x28|    |je|0x4170da|    ",
+                "key": "4288706_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4288730,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4288730_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, reg_48_31584_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "muscle_percent_define_get_loc"
+}

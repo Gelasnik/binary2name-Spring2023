@@ -1,0 +1,89 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4219069_0",
+                "src": "4219039_root"
+            },
+            {
+                "dst": "4219074_0",
+                "src": "4219069_0"
+            },
+            {
+                "dst": "4219107_0",
+                "src": "4219074_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4219107_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4219039,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|dword|ptr|rbp|-|4|edi|    |cmp|dword|ptr|rbp|-|4|4|    |ja|target_0|    ",
+                "key": "4219039_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4219069,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __gt__(Extract(31, 0, reg_48_6528_64), 0x4)>"
+                        ]
+                    ]
+                ],
+                "instructions": "call|0x4020a0|    ",
+                "key": "4219069_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4219074,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|0x45b0b8|    |jmp|0x4060e3|    ",
+                "key": "4219074_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4219107,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4219107_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 0x45b0b8>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "assoc_to_string"
+}

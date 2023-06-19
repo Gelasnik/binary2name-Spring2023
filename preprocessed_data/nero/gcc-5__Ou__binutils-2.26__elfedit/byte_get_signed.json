@@ -1,0 +1,89 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4207767_0",
+                "src": "4207731_root"
+            },
+            {
+                "dst": "4207858_0",
+                "src": "4207767_0"
+            },
+            {
+                "dst": "4207863_0",
+                "src": "4207858_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4207863_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4207731,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|dword|ptr|rbp|-|0x1c|esi|    |mov|rax|qword|ptr|rip|+|0x204fdf|    |mov|ecx|dword|ptr|rbp|-|0x1c|    |mov|rdx|qword|ptr|rbp|-|0x18|    |mov|esi|ecx|    |mov|rdi|rdx|    |call|rax|    ",
+                "key": "4207731_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4207767,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |cmp|dword|ptr|rbp|-|0x1c|8|    |ja|0x4034f2|    ",
+                "key": "4207767_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207858,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __gt__(Extract(31, 0, reg_40_1377_64), 0x8)>"
+                        ]
+                    ]
+                ],
+                "instructions": "call|0x400f40|    ",
+                "key": "4207858_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207863,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4207863_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_1379_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "byte_get_signed"
+}

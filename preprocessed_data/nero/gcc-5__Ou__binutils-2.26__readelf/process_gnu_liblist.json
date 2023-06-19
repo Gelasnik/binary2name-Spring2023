@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4397390_0",
+                "src": "4397344_root"
+            },
+            {
+                "dst": "4398567_0",
+                "src": "4397390_0"
+            },
+            {
+                "dst": "4398587_0",
+                "src": "4398567_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4398587_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4397344,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|reg|    |push|rbx|    |sub|rsp|0xb0|    |mov|qword|ptr|rbp|-|0xb8|rdi|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|0x18|rax|    |xor|eax|eax|    |mov|eax|dword|ptr|rip|+|0x268bee|    |test|eax|eax|    |jne|target_0|    ",
+                "key": "4397344_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4397390,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |jmp|0x431de7|    ",
+                "key": "4397390_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4398567,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rbx|qword|ptr|rbp|-|0x18|    |xor|rbx|qword|ptr|fs:0x28|    |je|0x431dfb|    ",
+                "key": "4398567_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4398587,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "lea|rsp|rbp|-|0x10|    |pop|rbx|    |pop|r12|    |pop|rbp|    |ret|    ",
+                "key": "4398587_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "process_gnu_liblist"
+}

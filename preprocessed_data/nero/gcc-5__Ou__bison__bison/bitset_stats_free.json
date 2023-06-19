@@ -1,0 +1,93 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4524447_0",
+                "src": "4524318_root"
+            },
+            {
+                "dst": "4524416_1",
+                "src": "4524318_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4524447_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4524416_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4524318,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rip|+|0x227147|    |mov|rdx|qword|ptr|rbp|-|8|    |mov|rdx|qword|ptr|rdx|+|0x28|    |mov|rdx|qword|ptr|rdx|    |mov|edx|dword|ptr|rdx|+|0x100|    |mov|ecx|edx|    |imul|rcx|rcx|0xdc|    |add|rcx|rax|    |add|rcx|8|    |mov|ecx|dword|ptr|rcx|    |add|ecx|1|    |mov|edx|edx|    |imul|rdx|rdx|0xdc|    |add|rax|rdx|    |add|rax|8|    |mov|dword|ptr|rax|ecx|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x28|    |mov|rax|qword|ptr|rax|    |mov|rax|qword|ptr|rax|+|0xf8|    |test|rax|rax|    |je|target_0|    ",
+                "key": "4524318_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4524447,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_44146_64, 0x28), 0xffffffffffffffff)>",
+                            "<Bool __eq__(Concat(mem_0_44148_56, mem_ffffffffffffffff_44147_8), 0xffffffffff800000)>",
+                            "<Bool __eq__(__add__(mem_ffffffffff800000_44149_64, 0x100), 0xfffffffffffffff0)>",
+                            "<Bool __eq__(__add__(__mul__(ZeroExt(32, mem_fffffffffffffff0_44150_32), 0xdc), 0x8), 0x347543e008)>",
+                            "<Bool __eq__(mem_ffffffffffffffe8_44152_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4524447_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, mem_ffffffffffffffe8_44152_64)>"
+                        ]
+                    ],
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_44153_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4524416,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_44146_64, 0x28), 0xffffffffffffffff)>",
+                            "<Bool __eq__(Concat(mem_0_44148_56, mem_ffffffffffffffff_44147_8), 0xffffffffff800000)>",
+                            "<Bool __eq__(__add__(mem_ffffffffff800000_44149_64, 0x100), 0xfffffffffffffff0)>",
+                            "<Bool __eq__(__add__(__mul__(ZeroExt(32, mem_fffffffffffffff0_44150_32), 0xdc), 0x8), 0x347543e008)>",
+                            "<Bool __ne__(mem_ffffffffffffffe8_44152_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x28|    |mov|rax|qword|ptr|rax|    |mov|rax|qword|ptr|rax|+|0xf8|    |mov|rdx|qword|ptr|rbp|-|8|    |mov|rdx|qword|ptr|rdx|+|0x28|    |mov|rdi|rdx|    |call|rax|    ",
+                "key": "4524416_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "bitset_stats_free"
+}

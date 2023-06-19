@@ -1,0 +1,74 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4219775_0",
+                "src": "4219540_root"
+            },
+            {
+                "dst": "4219799_0",
+                "src": "4219775_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4219799_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4219540,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|reg|    |push|reg|    |push|rbx|    |sub|rsp|0x28|    |mov|qword|ptr|rbp|-|0x38|rdi|    |mov|rax|qword|ptr|rip|+|0x2048b4|    |mov|rax|qword|ptr|rax|+|0x60|    |add|rax|0x10|    |mov|edx|dword|ptr|rip|+|0x20488e|    |mov|edx|edx|    |lea|rbx|rax|+|rdx|    |mov|qword|ptr|rbp|-|0x28|0x60aa00|    |mov|reg|qword|ptr|rbp|-|0x38|    |jmp|target_0|    ",
+                "key": "4219540_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4219775,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x2047da|    |mov|rax|qword|ptr|rax|+|0x60|    |add|rax|0x10|    |cmp|rax|rbx|    |jb|0x4062d1|    ",
+                "key": "4219775_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4219799,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __ge__(__add__(mem_60_6556_64, 0x10), __add__(0x10, mem_60_6556_64))>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x2047c2|    |mov|rax|qword|ptr|rax|+|0x60|    |mov|rcx|rbx|    |mov|rdx|qword|ptr|rip|+|0x2047b4|    |mov|rdx|qword|ptr|rdx|+|0x60|    |add|rdx|0x10|    |sub|rcx|rdx|    |mov|rdx|rcx|    |add|edx|1|    |mov|dword|ptr|rax|edx|    |mov|rax|qword|ptr|rbp|-|0x38|    |add|rsp|0x28|    |pop|rbx|    |pop|r12|    |pop|r13|    |pop|rbp|    |ret|    ",
+                "key": "4219799_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(mem_60_6556_64, 0xffffffffffffffff)>",
+                            "<BV32 Extract(31, 0, reg_48_6555_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "text_backward"
+}

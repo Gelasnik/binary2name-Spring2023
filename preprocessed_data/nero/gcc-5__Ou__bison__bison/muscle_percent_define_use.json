@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4288147_0",
+                "src": "4288118_root"
+            },
+            {
+                "dst": "4288160_0",
+                "src": "4288147_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4288160_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4288118,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|esi|0x45e5cc|    |mov|rdi|rax|    |call|0x412635|    ",
+                "key": "4288118_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4288147,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|esi|0x45e281|    |mov|rdi|rax|    |call|0x412cbc|    ",
+                "key": "4288147_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4288160,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4288160_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_30969_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "muscle_percent_define_use"
+}

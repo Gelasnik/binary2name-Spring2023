@@ -1,0 +1,125 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4295087_0",
+                "src": "4294945_root"
+            },
+            {
+                "dst": "4295116_0",
+                "src": "4295087_0"
+            },
+            {
+                "dst": "4295149_0",
+                "src": "4295116_0"
+            },
+            {
+                "dst": "4295185_0",
+                "src": "4295149_0"
+            },
+            {
+                "dst": "4295201_0",
+                "src": "4295185_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4295201_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4294945,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|eax|dword|ptr|rip|+|0x281c0d|    |test|eax|eax|    |je|target_0|    ",
+                "key": "4294945_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4295087,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x20|    |mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rip|+|0x283092|    |mov|rdx|qword|ptr|rbp|-|8|    |mov|esi|4|    |mov|rdi|rdx|    |call|rax|    ",
+                "key": "4295087_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4295116,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edx|eax|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|dword|ptr|rax|edx|    |mov|rax|qword|ptr|rip|+|0x283075|    |mov|rdx|qword|ptr|rbp|-|8|    |add|rdx|8|    |mov|esi|8|    |mov|rdi|rdx|    |call|rax|    ",
+                "key": "4295116_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4295149,
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(reg_48_90740_64, 0xffffffffffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|rax|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|qword|ptr|rax|+|8|rdx|    |mov|rax|qword|ptr|rip|+|0x283051|    |mov|rdx|qword|ptr|rbp|-|8|    |add|rdx|0x10|    |mov|esi|8|    |mov|rdi|rdx|    |call|rax|    ",
+                "key": "4295149_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4295185,
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<Bool __eq__(__add__(reg_48_90740_64, 0x8), 0x7)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|rax|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|qword|ptr|rax|+|0x10|rdx|    |mov|eax|0x18|    |leave|    |ret|    ",
+                "key": "4295185_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4295201,
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<Bool __eq__(__add__(reg_48_90740_64, 0x10), 0xf)>"
+                        ]
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4295201_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        6,
+                        [
+                            "<BV32 0x18>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "get_compression_header"
+}

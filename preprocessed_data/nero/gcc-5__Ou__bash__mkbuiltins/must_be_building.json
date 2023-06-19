@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4205257_0",
+                "src": "4205231_root"
+            },
+            {
+                "dst": "4205283_0",
+                "src": "4205257_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4205283_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4205231,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |mov|eax|dword|ptr|rip|+|0x203aa7|    |test|eax|eax|    |jne|target_0|    ",
+                "key": "4205231_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4205257,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rbp|-|0x10|    |mov|esi|0x404858|    |mov|rdi|rax|    |mov|eax|0|    |call|0x40314b|    ",
+                "key": "4205257_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4205283,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4205283_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_755_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "must_be_building"
+}

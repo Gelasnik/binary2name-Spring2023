@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4381781_0",
+                "src": "4381739_root"
+            },
+            {
+                "dst": "4381964_0",
+                "src": "4381781_0"
+            },
+            {
+                "dst": "4381984_0",
+                "src": "4381964_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4381984_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4381739,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|rbx|    |sub|rsp|0x68|    |mov|qword|ptr|rbp|-|0x68|rdi|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|0x18|rax|    |xor|eax|eax|    |movzx|eax|byte|ptr|rip|+|0x2461cb|    |xor|eax|1|    |test|al|al|    |je|target_0|    ",
+                "key": "4381739_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4381781,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |jmp|0x42dd0c|    ",
+                "key": "4381781_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4381964,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rcx|qword|ptr|rbp|-|0x18|    |xor|rcx|qword|ptr|fs:0x28|    |je|0x42dd20|    ",
+                "key": "4381964_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4381984,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "add|rsp|0x68|    |pop|rbx|    |pop|rbp|    |ret|    ",
+                "key": "4381984_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "get_merge_function"
+}

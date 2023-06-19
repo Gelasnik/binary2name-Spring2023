@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4560816_0",
+                "src": "4560795_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4560816_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4560795,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |call|0x4020a0|    ",
+                "key": "4560795_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4560816,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |nop|    |pop|rbp|    |ret|    ",
+                "key": "4560816_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_66215_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "abitset_set"
+}

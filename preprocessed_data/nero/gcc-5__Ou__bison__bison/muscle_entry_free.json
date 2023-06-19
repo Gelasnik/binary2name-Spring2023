@@ -1,0 +1,73 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4269972_0",
+                "src": "4269936_root"
+            },
+            {
+                "dst": "4269984_0",
+                "src": "4269972_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4269984_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4269936,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x10|    |mov|rdi|rax|    |call|0x402060|    ",
+                "key": "4269936_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4269972,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_25878_64, 0x10), 0xfffffffffffffff0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x402060|    ",
+                "key": "4269972_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4269984,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4269984_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_25881_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "muscle_entry_free"
+}

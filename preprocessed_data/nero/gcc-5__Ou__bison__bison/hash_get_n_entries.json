@@ -1,0 +1,40 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": "4493477_root"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4493477,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x20|    |pop|rbp|    |ret|    ",
+                "key": "4493477_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_19601_64, 0x20), 0xffffffffffffffc0)>",
+                            "<BV32 Extract(31, 0, mem_ffffffffffffffc0_19602_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "hash_get_n_entries"
+}

@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4205381_0",
+                "src": "4205312_root"
+            },
+            {
+                "dst": "4205388_0",
+                "src": "4205381_0"
+            },
+            {
+                "dst": "4205427_0",
+                "src": "4205388_0"
+            },
+            {
+                "dst": "4205432_0",
+                "src": "4205427_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4205432_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4205312,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|rax|qword|ptr|rip|+|0x20294d|    |mov|qword|ptr|rbp|-|8|rax|    |jmp|target_0|    ",
+                "key": "4205312_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4205381,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "cmp|qword|ptr|rbp|-|8|0|    |jne|0x402b19|    ",
+                "key": "4205381_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4205388,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rip|+|0x2025b6|    |test|eax|eax|    |je|0x402b73|    ",
+                "key": "4205388_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4205427,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |leave|    |ret|    ",
+                "key": "4205427_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4205432,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4205432_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "lookup_word"
+}

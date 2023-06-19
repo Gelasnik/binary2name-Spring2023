@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4480578_0",
+                "src": "4480548_root"
+            },
+            {
+                "dst": "4480692_0",
+                "src": "4480578_0"
+            },
+            {
+                "dst": "4480703_0",
+                "src": "4480692_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4480703_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4480548,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|rbx|    |sub|rsp|0x18|    |mov|eax|dword|ptr|rip|+|0x22e025|    |cdqe|    |mov|esi|8|    |mov|rdi|rax|    |call|0x44dc5c|    ",
+                "key": "4480548_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4480578,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rip|+|0x22e657|rax|    |mov|dword|ptr|rbp|-|0x1c|0|    |jmp|0x445eb4|    ",
+                "key": "4480578_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4480692,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rip|+|0x22df9e|    |cmp|dword|ptr|rbp|-|0x1c|eax|    |jl|0x445e52|    ",
+                "key": "4480692_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4480703,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |add|rsp|0x18|    |pop|rbx|    |pop|rbp|    |ret|    ",
+                "key": "4480703_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "init_prec_nodes"
+}

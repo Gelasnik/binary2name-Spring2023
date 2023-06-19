@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4239406_0",
+                "src": "4239372_root"
+            },
+            {
+                "dst": "4239411_0",
+                "src": "4239406_0"
+            },
+            {
+                "dst": "4239421_0",
+                "src": "4239411_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4239421_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4239372,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rsi|rax|    |mov|edi|0x413766|    |mov|eax|0|    |call|0x400e20|    ",
+                "key": "4239372_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4239406,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "call|0x40afe7|    ",
+                "key": "4239406_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4239411,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edi|0x413770|    |call|0x400db0|    ",
+                "key": "4239411_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4239421,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4239421_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_3243_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "warranty"
+}

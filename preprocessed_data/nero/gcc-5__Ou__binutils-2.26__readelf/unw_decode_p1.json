@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4417504_0",
+                "src": "4417439_root"
+            },
+            {
+                "dst": "4417531_0",
+                "src": "4417504_0"
+            },
+            {
+                "dst": "4417555_0",
+                "src": "4417531_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4417555_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4417439,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x50|    |mov|qword|ptr|rbp|-|0x38|rdi|    |mov|dword|ptr|rbp|-|0x3c|esi|    |mov|qword|ptr|rbp|-|0x48|rdx|    |mov|qword|ptr|rbp|-|0x50|rcx|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|eax|dword|ptr|rbp|-|0x3c|    |and|eax|0x1f|    |mov|byte|ptr|rbp|-|0x21|al|    |movzx|edx|byte|ptr|rbp|-|0x21|    |lea|rax|rbp|-|0x20|    |mov|esi|edx|    |mov|rdi|rax|    |call|0x435c08|    ",
+                "key": "4417439_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4417504,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "lea|rax|rbp|-|0x20|    |mov|rdx|rax|    |mov|esi|0x4821ad|    |mov|edi|0x4821b0|    |mov|eax|0|    |call|0x401460|    ",
+                "key": "4417504_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4417531,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x38|    |mov|rcx|qword|ptr|rbp|-|8|    |xor|rcx|qword|ptr|fs:0x28|    |je|0x436813|    ",
+                "key": "4417531_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4417555,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4417555_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, reg_48_35194_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "unw_decode_p1"
+}

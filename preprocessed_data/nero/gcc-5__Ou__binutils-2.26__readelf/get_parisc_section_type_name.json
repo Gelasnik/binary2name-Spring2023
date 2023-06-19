@@ -1,0 +1,73 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4277262_0",
+                "src": "4277181_root"
+            },
+            {
+                "dst": "4277268_0",
+                "src": "4277262_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4277268_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4277181,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|dword|ptr|rbp|-|4|edi|    |mov|eax|dword|ptr|rbp|-|4|    |sub|eax|0x70000000|    |cmp|eax|9|    |ja|target_0|    ",
+                "key": "4277181_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4277262,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __gt__(__sub__(Extract(31, 0, reg_48_74329_64), 0x70000000), 0x9)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4277262_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4277268,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4277268_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "get_parisc_section_type_name"
+}

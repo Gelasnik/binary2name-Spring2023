@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4466469_0",
+                "src": "4466425_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4466469_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4466425,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rcx|rax|    |mov|edx|0x4665f0|    |mov|esi|0x1000|    |mov|edi|0|    |mov|eax|0|    |call|0x407580|    ",
+                "key": "4466425_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4466469,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4466469_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_68265_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "fail_for_invalid_at"
+}

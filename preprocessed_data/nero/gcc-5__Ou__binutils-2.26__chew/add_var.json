@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4206054_0",
+                "src": "4206030_root"
+            },
+            {
+                "dst": "4206075_0",
+                "src": "4206054_0"
+            },
+            {
+                "dst": "4206101_0",
+                "src": "4206075_0"
+            },
+            {
+                "dst": "4206118_0",
+                "src": "4206101_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4206118_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4206030,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rdi|rax|    |call|0x402c83|    ",
+                "key": "4206030_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4206054,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|esi|0x4010d3|    |mov|rdi|rax|    |call|0x402cf3|    ",
+                "key": "4206054_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4206075,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |add|rax|0x20|    |mov|rdx|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x402cf3|    ",
+                "key": "4206075_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4206101,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|esi|0|    |mov|rdi|rax|    |call|0x402cf3|    ",
+                "key": "4206101_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4206118,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4206118_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_1929_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "add_var"
+}

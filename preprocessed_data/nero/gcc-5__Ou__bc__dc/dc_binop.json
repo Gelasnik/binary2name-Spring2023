@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4207103_0",
+                "src": "4207045_root"
+            },
+            {
+                "dst": "4207135_0",
+                "src": "4207103_0"
+            },
+            {
+                "dst": "4207354_0",
+                "src": "4207135_0"
+            },
+            {
+                "dst": "4207374_0",
+                "src": "4207354_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4207374_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4207045,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x50|    |mov|qword|ptr|rbp|-|0x48|rdi|    |mov|dword|ptr|rbp|-|0x4c|esi|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|rax|qword|ptr|rip|+|0x208056|    |test|rax|rax|    |je|target_0|    ",
+                "key": "4207045_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4207103,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rip|+|0x20887a|    |mov|rax|qword|ptr|rip|+|0x207ff3|    |mov|esi|0x409400|    |mov|rdi|rax|    |mov|eax|0|    |call|0x400fe0|    ",
+                "key": "4207103_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207135,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x4032fa|    ",
+                "key": "4207135_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207354,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |xor|rax|qword|ptr|fs:0x28|    |je|0x40330e|    ",
+                "key": "4207354_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207374,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4207374_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "dc_binop"
+}

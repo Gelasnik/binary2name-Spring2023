@@ -1,0 +1,76 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4198295_0",
+                "src": "4198249_root"
+            },
+            {
+                "dst": "4198278_0",
+                "src": "4198295_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4198278_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4198249,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x10|    |mov|qword|ptr|rip|+|0x2044e4|rax|    |jmp|target_0|    ",
+                "key": "4198249_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4198295,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_230_64, 0x10), 0xfffffffffffffff8)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x2044ca|    |mov|rax|qword|ptr|rax|    |test|rax|rax|    |jne|0x400f86|    ",
+                "key": "4198295_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4198278,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(mem_fffffffffffffff8_231_64, 0xfffffffffffffffe)>",
+                            "<Bool __ne__(Concat(mem_0_232_48, Extract(63, 48, mem_fffffffffffffff8_231_64)), 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x2044db|    |mov|rdx|qword|ptr|rax|    |mov|eax|0|    |call|rdx|    ",
+                "key": "4198278_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_233_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "exec"
+}

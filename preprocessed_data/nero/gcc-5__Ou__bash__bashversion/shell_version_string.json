@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4198315_0",
+                "src": "4198300_root"
+            },
+            {
+                "dst": "4198325_0",
+                "src": "4198315_0"
+            },
+            {
+                "dst": "4198384_0",
+                "src": "4198325_0"
+            },
+            {
+                "dst": "4198439_0",
+                "src": "4198384_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4198439_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4198300,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |movzx|eax|byte|ptr|rip|+|0x201139|    |test|al|al|    |jne|target_0|    ",
+                "key": "4198300_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4198315,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|0x401208|    |test|rax|rax|    |je|0x400ff6|    ",
+                "key": "4198315_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4198325,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edx|0x401208|    |mov|esi|1|    |mov|ecx|0|    |mov|eax|0x4011f0|    |sub|rsp|8|    |push|rdx|    |mov|r9d|esi|    |mov|r8d|ecx|    |mov|rcx|rax|    |mov|edx|0x4012e0|    |mov|esi|0x20|    |mov|edi|0x6020e0|    |mov|eax|0|    |call|0x400b40|    ",
+                "key": "4198325_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4198384,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "add|rsp|0x10|    |jmp|0x401027|    ",
+                "key": "4198384_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4198439,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|0x6020e0|    |leave|    |ret|    ",
+                "key": "4198439_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 0x6020e0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "shell_version_string"
+}

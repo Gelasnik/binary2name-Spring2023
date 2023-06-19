@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4218533_0",
+                "src": "4218443_root"
+            },
+            {
+                "dst": "4218574_0",
+                "src": "4218533_0"
+            },
+            {
+                "dst": "4218589_0",
+                "src": "4218574_0"
+            },
+            {
+                "dst": "4218605_0",
+                "src": "4218589_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4218605_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4218443,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |jmp|target_0|    ",
+                "key": "4218443_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4218533,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x21063c|    |test|rax|rax|    |je|0x405ece|    ",
+                "key": "4218533_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4218574,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x210613|    |mov|rdi|rax|    |call|0x405f33|    ",
+                "key": "4218574_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4218589,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rip|+|0x210600|0|    |call|0x405dea|    ",
+                "key": "4218589_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4218605,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4218605_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "yylex_destroy"
+}

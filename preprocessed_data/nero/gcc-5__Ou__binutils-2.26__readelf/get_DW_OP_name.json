@@ -1,0 +1,135 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4541670_0",
+                "src": "4539948_root"
+            },
+            {
+                "dst": "4539972_1",
+                "src": "4539948_root"
+            },
+            {
+                "dst": "4541675_0",
+                "src": "4541670_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4541675_0"
+            },
+            {
+                "dst": "4541572_1",
+                "src": "4539972_1"
+            },
+            {
+                "dst": "4541675_1",
+                "src": "4541572_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4541675_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4539948,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|dword|ptr|rbp|-|4|edi|    |mov|eax|dword|ptr|rbp|-|4|    |sub|eax|3|    |cmp|eax|0xf9|    |ja|target_0|    ",
+                "key": "4539948_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4541670,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __gt__(__sub__(Extract(31, 0, reg_48_127799_64), 0x3), 0xf9)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4541670_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4541675,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4541675_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 0x48ca59>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4539972,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __le__(__sub__(Extract(31, 0, reg_48_127799_64), 0x3), 0xf9)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|eax|    |mov|rax|qword|ptr|rax*8|+|0x48cb78|    |jmp|rax|    ",
+                "key": "4539972_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4541572,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(__lshift__(ZeroExt(32, __add__(0xfffffffd, Extract(31, 0, reg_48_127799_64))), 0x3), 0x48cb78), 0x48d308)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0x48ca59|    |jmp|0x454ceb|    ",
+                "key": "4541572_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4541675,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4541675_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "get_DW_OP_name"
+}

@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4560130_0",
+                "src": "4560121_root"
+            },
+            {
+                "dst": "4560150_0",
+                "src": "4560130_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4560150_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4560121,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |call|0x45948e|    ",
+                "key": "4560121_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4560130,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edx|0|    |mov|esi|0x6774e0|    |mov|edi|0|    |call|0x402040|    ",
+                "key": "4560130_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4560150,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |pop|rbp|    |ret|    ",
+                "key": "4560150_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_65238_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "block_fatal_signals"
+}

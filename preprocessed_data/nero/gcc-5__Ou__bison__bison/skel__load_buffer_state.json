@@ -1,0 +1,41 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": "4462335_root"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4462335,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|rax|qword|ptr|rip|+|0x232c96|    |mov|rdx|qword|ptr|rip|+|0x232c7f|    |shl|rdx|3|    |add|rax|rdx|    |mov|rax|qword|ptr|rax|    |mov|eax|dword|ptr|rax|+|0x1c|    |mov|dword|ptr|rip|+|0x232c88|eax|    |mov|rax|qword|ptr|rip|+|0x232c75|    |mov|rdx|qword|ptr|rip|+|0x232c5e|    |shl|rdx|3|    |add|rax|rdx|    |mov|rax|qword|ptr|rax|    |mov|rax|qword|ptr|rax|+|0x10|    |mov|qword|ptr|rip|+|0x232c69|rax|    |mov|rax|qword|ptr|rip|+|0x232c62|    |mov|qword|ptr|rip|+|0x235f1b|rax|    |mov|rax|qword|ptr|rip|+|0x232c44|    |mov|rdx|qword|ptr|rip|+|0x232c2d|    |shl|rdx|3|    |add|rax|rdx|    |mov|rax|qword|ptr|rax|    |mov|rax|qword|ptr|rax|    |mov|qword|ptr|rip|+|0x232c09|rax|    |mov|rax|qword|ptr|rip|+|0x232c32|    |movzx|eax|byte|ptr|rax|    |mov|byte|ptr|rip|+|0x232c21|al|    |nop|    |pop|rbp|    |ret|    ",
+                "key": "4462335_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(mem_0_64079_64, 0x1c), 0xffffffffffe0000c)>",
+                            "<Bool __eq__(mem_ffffffffffe00000_64081_64, 0xffffffffffffffe0)>",
+                            "<BV32 Extract(31, 0, Concat(0x0, mem_ffffffffffffffe0_64083_8))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "skel__load_buffer_state"
+}

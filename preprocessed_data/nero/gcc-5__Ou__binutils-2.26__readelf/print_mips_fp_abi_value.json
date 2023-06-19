@@ -1,0 +1,89 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4379254_0",
+                "src": "4378983_root"
+            },
+            {
+                "dst": "4379274_0",
+                "src": "4379254_0"
+            },
+            {
+                "dst": "4379275_0",
+                "src": "4379274_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4379275_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4378983,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|dword|ptr|rbp|-|4|edi|    |cmp|dword|ptr|rbp|-|4|8|    |ja|target_0|    ",
+                "key": "4378983_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4379254,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __gt__(Extract(31, 0, reg_48_148560_64), 0x8)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|4|    |mov|esi|eax|    |mov|edi|0x47e524|    |mov|eax|0|    |call|0x401460|    ",
+                "key": "4379254_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4379274,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |nop|    |leave|    |ret|    ",
+                "key": "4379274_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4379275,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4379275_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_148561_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "print_mips_fp_abi_value"
+}

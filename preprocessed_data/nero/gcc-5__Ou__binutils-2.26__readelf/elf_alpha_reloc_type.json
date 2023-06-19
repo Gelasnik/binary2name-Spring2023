@@ -1,0 +1,73 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4202548_0",
+                "src": "4202234_root"
+            },
+            {
+                "dst": "4202553_0",
+                "src": "4202548_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4202553_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4202234,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |cmp|qword|ptr|rbp|-|8|0x29|    |ja|target_0|    ",
+                "key": "4202234_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4202548,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __gt__(reg_48_3685_64, 0x29)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4202548_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4202553,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4202553_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "elf_alpha_reloc_type"
+}

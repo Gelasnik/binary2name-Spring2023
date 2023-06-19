@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4199337_0",
+                "src": "4199263_root"
+            },
+            {
+                "dst": "4199390_0",
+                "src": "4199337_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4199390_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4199263,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|rax|qword|ptr|rip|+|0x203d96|    |mov|rdx|rax|    |mov|eax|0x605480|    |sub|rdx|rax|    |mov|rax|rdx|    |sar|rax|3|    |mov|rdx|rax|    |movabs|rax|0xaaaaaaaaaaaaaaab|    |imul|rax|rdx|    |mov|rdx|rax|    |mov|rax|qword|ptr|rip|+|0x203d49|    |mov|esi|0x403880|    |mov|rdi|rax|    |mov|eax|0|    |call|0x4008a0|    ",
+                "key": "4199263_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4199337,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x203d00|    |mov|rdx|rax|    |mov|eax|0x6052c0|    |sub|rdx|rax|    |mov|rax|rdx|    |sar|rax|3|    |mov|rdx|rax|    |mov|rax|qword|ptr|rip|+|0x203d14|    |mov|esi|0x4038a8|    |mov|rdi|rax|    |mov|eax|0|    |call|0x4008a0|    ",
+                "key": "4199337_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4199390,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x204083|    |add|rax|8|    |mov|qword|ptr|rip|+|0x204078|rax|    |nop|    |pop|rbp|    |ret|    ",
+                "key": "4199390_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x8>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "print_stack_level"
+}

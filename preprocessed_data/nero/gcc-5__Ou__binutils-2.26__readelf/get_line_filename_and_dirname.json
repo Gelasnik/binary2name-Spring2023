@@ -1,0 +1,89 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4471785_0",
+                "src": "4471688_root"
+            },
+            {
+                "dst": "4472887_0",
+                "src": "4471785_0"
+            },
+            {
+                "dst": "4472907_0",
+                "src": "4472887_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4472907_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4471688,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x90|    |mov|qword|ptr|rbp|-|0x78|rdi|    |mov|qword|ptr|rbp|-|0x80|rsi|    |mov|qword|ptr|rbp|-|0x88|rdx|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|qword|ptr|rbp|-|0x28|0x698500|    |mov|rax|qword|ptr|rbp|-|0x88|    |mov|qword|ptr|rax|0|    |mov|rax|qword|ptr|rbp|-|0x28|    |mov|rax|qword|ptr|rax|+|0x18|    |test|rax|rax|    |je|target_0|    ",
+                "key": "4471688_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4471785,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_20_67590_64, 0xffffffffffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |jmp|0x444037|    ",
+                "key": "4471785_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4472887,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rsi|qword|ptr|rbp|-|8|    |xor|rsi|qword|ptr|fs:0x28|    |je|0x44404b|    ",
+                "key": "4472887_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4472907,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4472907_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "get_line_filename_and_dirname"
+}

@@ -1,0 +1,311 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4269600_0",
+                "src": "4269562_root"
+            },
+            {
+                "dst": "4269581_1",
+                "src": "4269562_root"
+            },
+            {
+                "dst": "4269581_2",
+                "src": "4269562_root"
+            },
+            {
+                "dst": "4269581_3",
+                "src": "4269562_root"
+            },
+            {
+                "dst": "4269619_0",
+                "src": "4269600_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4269619_0"
+            },
+            {
+                "dst": "4269593_1",
+                "src": "4269581_1"
+            },
+            {
+                "dst": "4269619_1",
+                "src": "4269593_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4269619_1"
+            },
+            {
+                "dst": "4269586_2",
+                "src": "4269581_2"
+            },
+            {
+                "dst": "4269607_2",
+                "src": "4269586_2"
+            },
+            {
+                "dst": "4269619_2",
+                "src": "4269607_2"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4269619_2"
+            },
+            {
+                "dst": "4269586_3",
+                "src": "4269581_3"
+            },
+            {
+                "dst": "4269591_3",
+                "src": "4269586_3"
+            },
+            {
+                "dst": "4269614_3",
+                "src": "4269591_3"
+            },
+            {
+                "dst": "4269619_3",
+                "src": "4269614_3"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4269619_3"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4269562,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|dword|ptr|rbp|-|4|edi|    |mov|eax|dword|ptr|rbp|-|4|    |cmp|eax|1|    |je|target_0|    ",
+                "key": "4269562_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4269600,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(Extract(31, 0, reg_48_25269_64), 0x1)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0x45e205|    |jmp|0x412633|    ",
+                "key": "4269600_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4269619,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4269619_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x45e205>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 0x45e200>"
+                        ]
+                    ],
+                    [
+                        5,
+                        [
+                            "<BV32 0x45e20d>"
+                        ]
+                    ],
+                    [
+                        6,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_25270_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4269581,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __ne__(Extract(31, 0, reg_48_25269_64), 0x1)>"
+                        ]
+                    ]
+                ],
+                "instructions": "cmp|eax|1|    |jb|0x412619|    ",
+                "key": "4269581_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4269593,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __lt__(Extract(31, 0, reg_48_25269_64), 0x1)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0x45e200|    |jmp|0x412633|    ",
+                "key": "4269593_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4269619,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4269619_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4269581,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __ne__(Extract(31, 0, reg_48_25269_64), 0x1)>"
+                        ]
+                    ]
+                ],
+                "instructions": "cmp|eax|1|    |jb|0x412619|    ",
+                "key": "4269581_2",
+                "path_num": 2
+            },
+            {
+                "block_addr": 4269586,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __ge__(Extract(31, 0, reg_48_25269_64), 0x1)>"
+                        ]
+                    ]
+                ],
+                "instructions": "cmp|eax|2|    |je|0x412627|    ",
+                "key": "4269586_2",
+                "path_num": 2
+            },
+            {
+                "block_addr": 4269607,
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(Extract(31, 0, reg_48_25269_64), 0x2)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0x45e20d|    |jmp|0x412633|    ",
+                "key": "4269607_2",
+                "path_num": 2
+            },
+            {
+                "block_addr": 4269619,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4269619_2",
+                "path_num": 2
+            },
+            {
+                "block_addr": 4269581,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __ne__(Extract(31, 0, reg_48_25269_64), 0x1)>"
+                        ]
+                    ]
+                ],
+                "instructions": "cmp|eax|1|    |jb|0x412619|    ",
+                "key": "4269581_3",
+                "path_num": 3
+            },
+            {
+                "block_addr": 4269586,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __ge__(Extract(31, 0, reg_48_25269_64), 0x1)>"
+                        ]
+                    ]
+                ],
+                "instructions": "cmp|eax|2|    |je|0x412627|    ",
+                "key": "4269586_3",
+                "path_num": 3
+            },
+            {
+                "block_addr": 4269591,
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __ne__(Extract(31, 0, reg_48_25269_64), 0x2)>"
+                        ]
+                    ]
+                ],
+                "instructions": "jmp|0x41262e|    ",
+                "key": "4269591_3",
+                "path_num": 3
+            },
+            {
+                "block_addr": 4269614,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "call|0x4020a0|    ",
+                "key": "4269614_3",
+                "path_num": 3
+            },
+            {
+                "block_addr": 4269619,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4269619_3",
+                "path_num": 3
+            }
+        ]
+    },
+    "func_name": "muscle_kind_string"
+}

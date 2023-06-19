@@ -1,0 +1,41 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": "4452501_root"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4452501,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|rax|qword|ptr|rip|+|0x2351e0|    |mov|rdx|qword|ptr|rip|+|0x2351c9|    |shl|rdx|3|    |add|rax|rdx|    |mov|rax|qword|ptr|rax|    |mov|eax|dword|ptr|rax|+|0x1c|    |mov|dword|ptr|rip|+|0x2351d2|eax|    |mov|rax|qword|ptr|rip|+|0x2351bf|    |mov|rdx|qword|ptr|rip|+|0x2351a8|    |shl|rdx|3|    |add|rax|rdx|    |mov|rax|qword|ptr|rax|    |mov|rax|qword|ptr|rax|+|0x10|    |mov|qword|ptr|rip|+|0x2351b3|rax|    |mov|rax|qword|ptr|rip|+|0x2351ac|    |mov|qword|ptr|rip|+|0x238575|rax|    |mov|rax|qword|ptr|rip|+|0x23518e|    |mov|rdx|qword|ptr|rip|+|0x235177|    |shl|rdx|3|    |add|rax|rdx|    |mov|rax|qword|ptr|rax|    |mov|rax|qword|ptr|rax|    |mov|qword|ptr|rip|+|0x235153|rax|    |mov|rax|qword|ptr|rip|+|0x23517c|    |movzx|eax|byte|ptr|rax|    |mov|byte|ptr|rip|+|0x23516b|al|    |nop|    |pop|rbp|    |ret|    ",
+                "key": "4452501_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(mem_0_59526_64, 0x1c), 0xffffffffffffff8c)>",
+                            "<Bool __eq__(mem_ffffffffffffff80_59528_64, 0xffffffffffffffc0)>",
+                            "<BV32 Extract(31, 0, Concat(0x0, mem_ffffffffffffffc0_59530_8))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "gram__load_buffer_state"
+}

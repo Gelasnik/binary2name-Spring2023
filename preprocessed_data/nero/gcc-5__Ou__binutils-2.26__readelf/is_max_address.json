@@ -1,0 +1,39 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": "4479511_root"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4479511,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|dword|ptr|rbp|-|0x1c|esi|    |mov|eax|dword|ptr|rbp|-|0x1c|    |shl|eax|3|    |sub|eax|1|    |mov|rdx|-2|    |mov|ecx|eax|    |shl|rdx|cl|    |mov|rax|rdx|    |not|rax|    |mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|0x18|    |and|rax|qword|ptr|rbp|-|8|    |cmp|rax|qword|ptr|rbp|-|8|    |sete|al|    |movzx|eax|al|    |pop|rbp|    |ret|    ",
+                "key": "4479511_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<BV32 Extract(31, 0, Concat(0x0, If(__eq__(__invert__(__or__(__invert__(reg_48_70245_64), __lshift__(0xfffffffffffffffe, Concat(0x0, __add__(63, Concat(Extract(2, 0, reg_40_70246_64), 0)))))), __invert__(__lshift__(0xfffffffffffffffe, Concat(0x0, __add__(63, Concat(Extract(2, 0, reg_40_70246_64), 0)))))), 1, 0)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "is_max_address"
+}

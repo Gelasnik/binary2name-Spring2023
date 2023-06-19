@@ -1,0 +1,165 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4199596_0",
+                "src": "4199572_root"
+            },
+            {
+                "dst": "4199596_1",
+                "src": "4199572_root"
+            },
+            {
+                "dst": "4199612_0",
+                "src": "4199596_0"
+            },
+            {
+                "dst": "4199660_0",
+                "src": "4199612_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4199660_0"
+            },
+            {
+                "dst": "4199619_1",
+                "src": "4199596_1"
+            },
+            {
+                "dst": "4199655_1",
+                "src": "4199619_1"
+            },
+            {
+                "dst": "4199660_1",
+                "src": "4199655_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4199660_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4199572,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x401056|    ",
+                "key": "4199572_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4199596,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|dword|ptr|rip|+|0x20f8ae|eax|    |mov|eax|dword|ptr|rip|+|0x20f8a8|    |test|eax|eax|    |js|0x4014c3|    ",
+                "key": "4199596_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4199612,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(Extract(0, 0, LShR(ZeroExt(32, Extract(31, 0, fake_ret_value_166_64)), 0x1f)), 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |jmp|0x4014ec|    ",
+                "key": "4199612_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4199660,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4199660_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ],
+                    [
+                        5,
+                        [
+                            "<BV32 0xfffffffe>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4199596,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|dword|ptr|rip|+|0x20f8ae|eax|    |mov|eax|dword|ptr|rip|+|0x20f8a8|    |test|eax|eax|    |js|0x4014c3|    ",
+                "key": "4199596_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4199619,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __ne__(Extract(0, 0, LShR(ZeroExt(32, Extract(31, 0, fake_ret_value_166_64)), 0x1f)), 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rip|+|0x20f856|    |mov|rax|qword|ptr|rip|+|0x20f3ef|    |mov|rcx|qword|ptr|rbp|-|8|    |mov|esi|0x40bdc5|    |mov|rdi|rax|    |mov|eax|0|    |call|0x400e70|    ",
+                "key": "4199619_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4199655,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|0xfffffffe|    |leave|    |ret|    ",
+                "key": "4199655_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4199660,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4199660_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "get_encoding"
+}

@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4558332_0",
+                "src": "4558292_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4558332_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4558292,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|dword|ptr|rbp|-|0xc|esi|    |mov|dword|ptr|rbp|-|0x10|edx|    |cmp|qword|ptr|rbp|-|8|0|    |mov|eax|dword|ptr|rbp|-|0xc|    |imul|eax|dword|ptr|rbp|-|0x10|    |mov|eax|eax|    |mov|rdi|rax|    |call|0x4015b0|    ",
+                "key": "4558292_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4558332,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4558332_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_154152_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "zcalloc"
+}

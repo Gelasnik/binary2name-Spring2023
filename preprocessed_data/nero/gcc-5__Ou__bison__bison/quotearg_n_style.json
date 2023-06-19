@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4507229_0",
+                "src": "4507179_root"
+            },
+            {
+                "dst": "4507257_0",
+                "src": "4507229_0"
+            },
+            {
+                "dst": "4507277_0",
+                "src": "4507257_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4507277_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4507179,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x50|    |mov|dword|ptr|rbp|-|0x44|edi|    |mov|dword|ptr|rbp|-|0x48|esi|    |mov|qword|ptr|rbp|-|0x50|rdx|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |lea|rax|rbp|-|0x40|    |mov|edx|dword|ptr|rbp|-|0x48|    |mov|esi|edx|    |mov|rdi|rax|    |call|0x44afb4|    ",
+                "key": "4507179_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4507229,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "lea|rdx|rbp|-|0x40|    |mov|rsi|qword|ptr|rbp|-|0x50|    |mov|eax|dword|ptr|rbp|-|0x44|    |mov|rcx|rdx|    |mov|rdx|-1|    |mov|edi|eax|    |call|0x44c31b|    ",
+                "key": "4507229_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4507257,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rcx|qword|ptr|rbp|-|8|    |xor|rcx|qword|ptr|fs:0x28|    |je|0x44c68d|    ",
+                "key": "4507257_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4507277,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4507277_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_27745_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "quotearg_n_style"
+}

@@ -1,0 +1,58 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4207001_0",
+                "src": "4206983_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4207001_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4206983,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|edi|0x20|    |call|0x4017c5|    ",
+                "key": "4206983_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4207001,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|dword|ptr|rax|0|    |mov|rax|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|+|0x10|0|    |mov|rax|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|+|0x18|0|    |mov|rax|qword|ptr|rbp|-|8|    |leave|    |ret|    ",
+                "key": "4207001_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(fake_ret_value_785_64, 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(fake_ret_value_785_64, 0x10), 0xf)>",
+                            "<Bool __eq__(__add__(fake_ret_value_785_64, 0x18), 0x17)>",
+                            "<BV32 Extract(31, 0, fake_ret_value_785_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "dc_alloc"
+}

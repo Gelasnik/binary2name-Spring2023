@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4238306_0",
+                "src": "4238255_root"
+            },
+            {
+                "dst": "4238311_0",
+                "src": "4238306_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4238311_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4238255,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |movzx|eax|word|ptr|rip|+|0x28f900|    |cmp|ax|0x69|    |jne|target_0|    ",
+                "key": "4238255_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4238306,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4238306_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4238311,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4238311_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "uses_msp430x_relocs"
+}

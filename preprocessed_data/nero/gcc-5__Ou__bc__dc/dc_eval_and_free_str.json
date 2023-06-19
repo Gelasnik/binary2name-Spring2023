@@ -1,0 +1,135 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4201259_0",
+                "src": "4201235_root"
+            },
+            {
+                "dst": "4201259_1",
+                "src": "4201235_root"
+            },
+            {
+                "dst": "4201289_0",
+                "src": "4201259_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4201289_0"
+            },
+            {
+                "dst": "4201273_1",
+                "src": "4201259_1"
+            },
+            {
+                "dst": "4201289_1",
+                "src": "4201273_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4201289_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4201235,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rdi|rax|    |call|0x402710|    ",
+                "key": "4201235_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4201259,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|dword|ptr|rbp|-|4|eax|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|eax|dword|ptr|rax|    |cmp|eax|2|    |jne|0x401b49|    ",
+                "key": "4201259_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4201289,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(reg_48_545_64, 0xffffff8000000000)>",
+                            "<Bool __ne__(mem_ffffff8000000000_547_32, 0x2)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|4|    |leave|    |ret|    ",
+                "key": "4201289_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_546_64)>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_546_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4201259,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|dword|ptr|rbp|-|4|eax|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|eax|dword|ptr|rax|    |cmp|eax|2|    |jne|0x401b49|    ",
+                "key": "4201259_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4201273,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(reg_48_545_64, 0xffffff8000000000)>",
+                            "<Bool __eq__(mem_ffffff8000000000_547_32, 0x2)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x18|    |add|rax|8|    |mov|rdi|rax|    |call|0x404fd3|    ",
+                "key": "4201273_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4201289,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|4|    |leave|    |ret|    ",
+                "key": "4201289_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "dc_eval_and_free_str"
+}

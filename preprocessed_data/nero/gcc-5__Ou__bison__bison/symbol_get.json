@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4478901_0",
+                "src": "4478877_root"
+            },
+            {
+                "dst": "4478921_0",
+                "src": "4478901_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4478921_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4478877,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x4482fb|    ",
+                "key": "4478877_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4478901,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "push|qword|ptr|rbp|+|0x28|    |push|qword|ptr|rbp|+|0x20|    |push|qword|ptr|rbp|+|0x18|    |push|qword|ptr|rbp|+|0x10|    |mov|rdi|rax|    |call|0x44561a|    ",
+                "key": "4478901_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4478921,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "add|rsp|0x20|    |leave|    |ret|    ",
+                "key": "4478921_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_9564_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "symbol_get"
+}

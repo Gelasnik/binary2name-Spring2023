@@ -1,0 +1,72 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4198360_0",
+                "src": "4198329_root"
+            },
+            {
+                "dst": "4198388_0",
+                "src": "4198360_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4198388_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4198329,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x30|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|dword|ptr|rbp|-|0x24|edx|    |mov|rax|qword|ptr|rbp|-|0x20|    |mov|rdi|rax|    |call|0x400c00|    ",
+                "key": "4198329_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4198360,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|dword|ptr|rbp|-|4|eax|    |mov|eax|dword|ptr|rbp|-|0x24|    |movsxd|rdx|eax|    |mov|rcx|qword|ptr|rbp|-|0x20|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rsi|rcx|    |mov|rdi|rax|    |call|0x400b90|    ",
+                "key": "4198360_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4198388,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|0x24|    |cmp|dword|ptr|rbp|-|4|eax|    |cmovle|eax|dword|ptr|rbp|-|4|    |movsxd|rdx|eax|    |mov|rax|qword|ptr|rbp|-|0x18|    |add|rax|rdx|    |mov|byte|ptr|rax|0|    |mov|rax|qword|ptr|rbp|-|0x18|    |leave|    |ret|    ",
+                "key": "4198388_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(__add__(reg_48_459_64, SignExt(32, If(SLE(Extract(31, 0, fake_ret_value_462_64), Extract(31, 0, reg_20_461_64)), Extract(31, 0, fake_ret_value_462_64), Extract(31, 0, reg_20_461_64)))), 0xffffffffffffffff)>",
+                            "<BV32 Extract(31, 0, reg_48_459_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "strmaxcpy"
+}

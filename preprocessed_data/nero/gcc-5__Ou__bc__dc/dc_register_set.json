@@ -1,0 +1,91 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4209231_0",
+                "src": "4209173_root"
+            },
+            {
+                "dst": "4209236_0",
+                "src": "4209231_0"
+            },
+            {
+                "dst": "4209337_0",
+                "src": "4209236_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4209337_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4209173,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x30|    |mov|dword|ptr|rbp|-|0x14|edi|    |mov|eax|esi|    |mov|rcx|rdx|    |mov|rdx|rcx|    |mov|qword|ptr|rbp|-|0x30|rax|    |mov|qword|ptr|rbp|-|0x28|rdx|    |and|dword|ptr|rbp|-|0x14|0xff|    |mov|eax|dword|ptr|rbp|-|0x14|    |cdqe|    |mov|rax|qword|ptr|rax*8|+|0x60b260|    |mov|qword|ptr|rbp|-|8|rax|    |cmp|qword|ptr|rbp|-|8|0|    |jne|target_0|    ",
+                "key": "4209173_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4209231,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(__lshift__(SignExt(32, Concat(0x0, Extract(7, 0, reg_48_1041_64))), 0x3), 0x60b260), 0x60b9e0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "call|0x403187|    ",
+                "key": "4209231_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4209236,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|rax|    |mov|eax|dword|ptr|rbp|-|0x14|    |cdqe|    |mov|qword|ptr|rax*8|+|0x60b260|rdx|    |jmp|0x403ab9|    ",
+                "key": "4209236_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4209337,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|0x14|    |cdqe|    |mov|rcx|qword|ptr|rax*8|+|0x60b260|    |mov|rax|qword|ptr|rbp|-|0x30|    |mov|rdx|qword|ptr|rbp|-|0x28|    |mov|qword|ptr|rcx|rax|    |mov|qword|ptr|rcx|+|8|rdx|    |nop|    |leave|    |ret|    ",
+                "key": "4209337_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<Bool __eq__(fake_ret_value_1044_64, 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(fake_ret_value_1044_64, 0x8), 0x7)>",
+                            "<BV32 Extract(31, 0, reg_40_1042_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "dc_register_set"
+}

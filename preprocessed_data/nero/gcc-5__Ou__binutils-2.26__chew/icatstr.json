@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4204466_0",
+                "src": "4204434_root"
+            },
+            {
+                "dst": "4204495_0",
+                "src": "4204466_0"
+            },
+            {
+                "dst": "4204514_0",
+                "src": "4204495_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4204514_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4204434,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|rax|qword|ptr|rip|+|0x202963|    |sub|rax|0x18|    |mov|qword|ptr|rip|+|0x202958|rax|    |mov|eax|0|    |call|0x400ef3|    ",
+                "key": "4204434_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4204466,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x202947|    |lea|rdx|rax|+|0x18|    |mov|rax|qword|ptr|rip|+|0x20293c|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x400d90|    ",
+                "key": "4204466_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4204495,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x20292a|    |add|rax|0x18|    |mov|rdi|rax|    |call|0x400b5e|    ",
+                "key": "4204495_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4204514,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x202c7f|    |add|rax|8|    |mov|qword|ptr|rip|+|0x202c74|rax|    |nop|    |pop|rbp|    |ret|    ",
+                "key": "4204514_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 0x8>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "icatstr"
+}

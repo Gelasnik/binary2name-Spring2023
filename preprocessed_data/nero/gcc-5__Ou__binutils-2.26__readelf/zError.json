@@ -1,0 +1,40 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": "4558265_root"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4558265,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|dword|ptr|rbp|-|4|edi|    |mov|eax|2|    |sub|eax|dword|ptr|rbp|-|4|    |cdqe|    |mov|rax|qword|ptr|rax*8|+|0x48f4e0|    |pop|rbp|    |ret|    ",
+                "key": "4558265_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(__lshift__(SignExt(32, __sub__(0x2, Extract(31, 0, reg_48_153411_64))), 0x3), 0x48f4e0), 0xfffffffffffef4f0)>",
+                            "<BV32 Extract(31, 0, mem_fffffffffffef4f0_153412_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "zError"
+}

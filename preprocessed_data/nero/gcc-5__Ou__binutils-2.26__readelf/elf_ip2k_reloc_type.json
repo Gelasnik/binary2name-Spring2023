@@ -1,0 +1,73 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4212664_0",
+                "src": "4212525_root"
+            },
+            {
+                "dst": "4212669_0",
+                "src": "4212664_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4212669_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4212525,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |cmp|qword|ptr|rbp|-|8|0xe|    |ja|target_0|    ",
+                "key": "4212525_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4212664,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __gt__(reg_48_17215_64, 0xe)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4212664_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4212669,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4212669_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "elf_ip2k_reloc_type"
+}

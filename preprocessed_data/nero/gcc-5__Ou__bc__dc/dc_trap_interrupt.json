@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4201320_0",
+                "src": "4201294_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4201320_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4201294,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|dword|ptr|rbp|-|4|edi|    |mov|eax|dword|ptr|rbp|-|4|    |mov|esi|0x401b4e|    |mov|edi|eax|    |call|0x400fd0|    ",
+                "key": "4201294_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4201320,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|dword|ptr|rip|+|0x2096a6|1|    |nop|    |leave|    |ret|    ",
+                "key": "4201320_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_571_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "dc_trap_interrupt"
+}

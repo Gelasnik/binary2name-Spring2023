@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4242147_0",
+                "src": "4242125_root"
+            },
+            {
+                "dst": "4242170_0",
+                "src": "4242147_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4242170_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4242125,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|edi|0x45d866|    |call|0x402250|    ",
+                "key": "4242125_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4242147,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rcx|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|edx|0x40b4ec|    |mov|rsi|rcx|    |mov|rdi|rax|    |call|0x40b953|    ",
+                "key": "4242147_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4242170,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4242170_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_16386_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "grammar_rules_print"
+}

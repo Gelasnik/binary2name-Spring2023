@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4490897_0",
+                "src": "4490862_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4490897_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4490862,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|regd|0x402060|    |mov|ecx|0x44861f|    |mov|edx|0x448649|    |mov|esi|0|    |mov|edi|0x101|    |call|0x4499e8|    ",
+                "key": "4490862_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4490897,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rip|+|0x22bf90|rax|    |nop|    |pop|rbp|    |ret|    ",
+                "key": "4490897_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_15697_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "uniqstrs_new"
+}

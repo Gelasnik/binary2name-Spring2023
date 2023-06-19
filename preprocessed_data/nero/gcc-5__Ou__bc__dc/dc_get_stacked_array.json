@@ -1,0 +1,73 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4210364_0",
+                "src": "4210320_root"
+            },
+            {
+                "dst": "4210369_0",
+                "src": "4210364_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4210369_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4210320,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|dword|ptr|rbp|-|0x14|edi|    |mov|eax|dword|ptr|rbp|-|0x14|    |movzx|eax|al|    |cdqe|    |mov|rax|qword|ptr|rax*8|+|0x60b260|    |mov|qword|ptr|rbp|-|8|rax|    |cmp|qword|ptr|rbp|-|8|0|    |je|target_0|    ",
+                "key": "4210320_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4210364,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(__lshift__(SignExt(32, Extract(31, 0, ZeroExt(56, Extract(7, 0, reg_48_1209_64)))), 0x3), 0x60b260), 0x60ba58)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4210364_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4210369,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4210369_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "dc_get_stacked_array"
+}

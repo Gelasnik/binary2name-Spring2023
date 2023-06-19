@@ -1,0 +1,59 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4208781_0",
+                "src": "4208749_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4208781_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4208749,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x30|    |mov|dword|ptr|rbp|-|0x14|edi|    |mov|eax|esi|    |mov|rcx|rdx|    |mov|rdx|rcx|    |mov|qword|ptr|rbp|-|0x30|rax|    |mov|qword|ptr|rbp|-|0x28|rdx|    |call|0x403187|    ",
+                "key": "4208749_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4208781,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |and|dword|ptr|rbp|-|0x14|0xff|    |mov|rcx|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rbp|-|0x30|    |mov|rdx|qword|ptr|rbp|-|0x28|    |mov|qword|ptr|rcx|rax|    |mov|qword|ptr|rcx|+|8|rdx|    |mov|eax|dword|ptr|rbp|-|0x14|    |cdqe|    |mov|rdx|qword|ptr|rax*8|+|0x60b260|    |mov|rax|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|+|0x18|rdx|    |mov|eax|dword|ptr|rbp|-|0x14|    |cdqe|    |mov|rdx|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax*8|+|0x60b260|rdx|    |nop|    |leave|    |ret|    ",
+                "key": "4208781_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(fake_ret_value_971_64, 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(fake_ret_value_971_64, 0x8), 0x7)>",
+                            "<Bool __eq__(__add__(__lshift__(SignExt(32, Concat(0x0, Extract(7, 0, reg_48_968_64))), 0x3), 0x60b260), 0x60b9e0)>",
+                            "<Bool __eq__(__add__(fake_ret_value_971_64, 0x18), 0x17)>",
+                            "<BV32 Extract(31, 0, Concat(0x0, Extract(7, 0, reg_48_968_64)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "dc_register_push"
+}

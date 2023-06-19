@@ -1,0 +1,117 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4201202_0",
+                "src": "4201184_root"
+            },
+            {
+                "dst": "4201209_1",
+                "src": "4201184_root"
+            },
+            {
+                "dst": "4201233_0",
+                "src": "4201202_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4201233_0"
+            },
+            {
+                "dst": "4201233_1",
+                "src": "4201209_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4201233_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4201184,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|rax|qword|ptr|rip|+|0x20973d|    |movzx|eax|byte|ptr|rax|    |test|al|al|    |jne|target_0|    ",
+                "key": "4201184_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4201202,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(mem_0_523_8, 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0xffffffff|    |jmp|0x401b11|    ",
+                "key": "4201202_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4201233,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4201233_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0xffffffff>"
+                        ]
+                    ],
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, Concat(0x0, mem_0_523_8))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4201209,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __ne__(mem_0_523_8, 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x209728|    |lea|rdx|rax|+|1|    |mov|qword|ptr|rip|+|0x20971d|rdx|    |movzx|eax|byte|ptr|rax|    |movzx|eax|al|    |pop|rbp|    |ret|    ",
+                "key": "4201209_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4201233,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4201233_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "input_str"
+}

@@ -1,0 +1,135 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4202227_0",
+                "src": "4200390_root"
+            },
+            {
+                "dst": "4200412_1",
+                "src": "4200390_root"
+            },
+            {
+                "dst": "4202232_0",
+                "src": "4202227_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4202232_0"
+            },
+            {
+                "dst": "4202227_1",
+                "src": "4200412_1"
+            },
+            {
+                "dst": "4202232_1",
+                "src": "4202227_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4202232_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4200390,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |cmp|qword|ptr|rbp|-|8|0x408|    |ja|target_0|    ",
+                "key": "4200390_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4202227,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __gt__(reg_48_3070_64, 0x408)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4202227_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4202232,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4202232_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4200412,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __le__(reg_48_3070_64, 0x408)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |shl|rax|3|    |add|rax|0x45c0b0|    |mov|rax|qword|ptr|rax|    |jmp|rax|    ",
+                "key": "4200412_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4202227,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(__lshift__(reg_48_3070_64, 0x3), 0x45c0b0), 0x45d070)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4202227_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4202232,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4202232_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "elf_aarch64_reloc_type"
+}

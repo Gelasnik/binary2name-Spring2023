@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4556479_0",
+                "src": "4556418_root"
+            },
+            {
+                "dst": "4556449_1",
+                "src": "4556418_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4556479_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4556449_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4556418,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |mov|rax|qword|ptr|rbp|-|8|    |movzx|eax|byte|ptr|rax|+|0x50|    |and|eax|1|    |test|al|al|    |je|target_0|    ",
+                "key": "4556418_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4556479,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_62515_64, 0x50), 0xfffffffffffffffc)>",
+                            "<Bool __eq__(Extract(0, 0, mem_fffffffffffffffc_62517_8), 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x38|    |mov|rdx|qword|ptr|rbp|-|0x10|    |mov|rdi|rdx|    |call|rax|    ",
+                "key": "4556479_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_62519_64)>"
+                        ]
+                    ],
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_62521_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4556449,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_62515_64, 0x50), 0xfffffffffffffffc)>",
+                            "<Bool __ne__(Extract(0, 0, mem_fffffffffffffffc_62517_8), 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x38|    |mov|rdx|qword|ptr|rbp|-|8|    |mov|rdx|qword|ptr|rdx|+|0x48|    |mov|rcx|qword|ptr|rbp|-|0x10|    |mov|rsi|rcx|    |mov|rdi|rdx|    |call|rax|    ",
+                "key": "4556449_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "call_chunkfun"
+}

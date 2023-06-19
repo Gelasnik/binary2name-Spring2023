@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4288761_0",
+                "src": "4288732_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4288761_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4288732,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|esi|0x45e564|    |mov|rdi|rax|    |call|0x416ea3|    ",
+                "key": "4288732_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4288761,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4288761_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_31707_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "muscle_percent_define_get_syncline"
+}

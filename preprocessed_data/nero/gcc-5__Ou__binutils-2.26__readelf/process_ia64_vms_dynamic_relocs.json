@@ -1,0 +1,135 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4305731_0",
+                "src": "4305651_root"
+            },
+            {
+                "dst": "4305753_0",
+                "src": "4305731_0"
+            },
+            {
+                "dst": "4306186_0",
+                "src": "4305753_0"
+            },
+            {
+                "dst": "4306217_0",
+                "src": "4306186_0"
+            },
+            {
+                "dst": "4306236_0",
+                "src": "4306217_0"
+            },
+            {
+                "dst": "4306259_0",
+                "src": "4306236_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4306259_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4305651,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |add|rsp|-0x80|    |mov|qword|ptr|rbp|-|0x78|rdi|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|dword|ptr|rbp|-|0x64|0|    |mov|qword|ptr|rbp|-|0x58|0|    |mov|qword|ptr|rbp|-|0x50|0|    |mov|qword|ptr|rbp|-|0x48|0|    |lea|rax|rbp|-|0x30|    |mov|edx|0x28|    |mov|esi|0|    |mov|rdi|rax|    |call|0x4014d0|    ",
+                "key": "4305651_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4305731,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "lea|rax|rbp|-|0x40|    |mov|edx|0x10|    |mov|esi|0|    |mov|rdi|rax|    |call|0x4014d0|    ",
+                "key": "4305731_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4305753,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x27f188|    |mov|qword|ptr|rbp|-|0x60|rax|    |jmp|0x41b50a|    ",
+                "key": "4305753_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4306186,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x27efd7|    |mov|rdx|qword|ptr|rip|+|0x27dd78|    |shl|rdx|4|    |add|rax|rdx|    |cmp|rax|qword|ptr|rbp|-|0x60|    |ja|0x41b369|    ",
+                "key": "4306186_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4306217,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "cmp|qword|ptr|rbp|-|0x48|0|    |je|0x41b53c|    ",
+                "key": "4306217_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4306236,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|0x64|    |mov|rcx|qword|ptr|rbp|-|8|    |xor|rcx|qword|ptr|fs:0x28|    |je|0x41b553|    ",
+                "key": "4306236_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4306259,
+                "constraints": [
+                    [
+                        6,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4306259_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        7,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "process_ia64_vms_dynamic_relocs"
+}

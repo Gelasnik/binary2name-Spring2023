@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4241456_0",
+                "src": "4241417_root"
+            },
+            {
+                "dst": "4241611_0",
+                "src": "4241456_0"
+            },
+            {
+                "dst": "4241626_0",
+                "src": "4241611_0"
+            },
+            {
+                "dst": "4241653_0",
+                "src": "4241626_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4241653_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4241417,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rcx|rax|    |mov|edx|6|    |mov|esi|1|    |mov|edi|0x45d845|    |call|0x4024c0|    ",
+                "key": "4241417_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4241456,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|dword|ptr|rbp|-|4|0|    |jmp|0x40b8cb|    ",
+                "key": "4241456_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4241611,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rip|+|0x268567|    |cmp|dword|ptr|rbp|-|4|eax|    |jb|0x40b83c|    ",
+                "key": "4241611_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4241626,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x18|    |mov|rcx|rax|    |mov|edx|2|    |mov|esi|1|    |mov|edi|0x45d85e|    |call|0x4024c0|    ",
+                "key": "4241626_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4241653,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4241653_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_16026_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "ritem_print"
+}

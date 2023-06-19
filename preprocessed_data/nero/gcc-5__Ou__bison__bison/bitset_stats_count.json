@@ -1,0 +1,42 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": "4521263_root"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4521263,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x28|    |mov|rax|qword|ptr|rax|    |mov|rax|qword|ptr|rax|+|0x30|    |mov|rdx|qword|ptr|rbp|-|8|    |mov|rdx|qword|ptr|rdx|+|0x28|    |mov|rdi|rdx|    |call|rax|    ",
+                "key": "4521263_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_40740_64, 0x28), 0xffffffffffffffd0)>",
+                            "<Bool __eq__(mem_ffffffffffffffd0_40741_64, 0xfffffff800000000)>",
+                            "<Bool __eq__(__add__(mem_fffffff800000000_40742_64, 0x30), 0x31)>",
+                            "<BV32 Extract(31, 0, fake_ret_value_40744_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "bitset_stats_count"
+}

@@ -1,0 +1,57 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4480736_0",
+                "src": "4480711_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4480736_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4480711,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|dword|ptr|rbp|-|0x14|edi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|edi|0x10|    |call|0x44db6b|    ",
+                "key": "4480711_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4480736,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|edx|dword|ptr|rbp|-|0x14|    |mov|dword|ptr|rax|edx|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdx|qword|ptr|rbp|-|0x20|    |mov|qword|ptr|rax|+|8|rdx|    |mov|rax|qword|ptr|rbp|-|8|    |leave|    |ret|    ",
+                "key": "4480736_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(fake_ret_value_11071_64, 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(fake_ret_value_11071_64, 0x8), 0x7)>",
+                            "<BV32 Extract(31, 0, fake_ret_value_11071_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "symgraphlink_new"
+}

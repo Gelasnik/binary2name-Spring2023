@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4510169_0",
+                "src": "4510069_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4510169_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4510069,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x40|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|qword|ptr|rbp|-|0x28|rdx|    |mov|eax|ecx|    |mov|ecx|regd|    |mov|edx|regd|    |mov|byte|ptr|rbp|-|0x2c|al|    |mov|byte|ptr|rbp|-|0x30|cl|    |mov|byte|ptr|rbp|-|0x34|dl|    |movzx|regd|byte|ptr|rbp|-|0x34|    |movzx|edi|byte|ptr|rbp|-|0x30|    |movzx|ecx|byte|ptr|rbp|-|0x2c|    |mov|rdx|qword|ptr|rbp|-|0x28|    |mov|rsi|qword|ptr|rbp|-|0x20|    |mov|rax|qword|ptr|rbp|-|0x18|    |sub|rsp|8|    |push|qword|ptr|rbp|+|0x10|    |push|reg|    |push|rdi|    |push|rcx|    |push|0|    |mov|regd|0|    |mov|regd|1|    |mov|ecx|1|    |mov|rdi|rax|    |call|0x44cb4c|    ",
+                "key": "4510069_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4510169,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "add|rsp|0x30|    |mov|dword|ptr|rbp|-|4|eax|    |mov|eax|dword|ptr|rbp|-|4|    |leave|    |ret|    ",
+                "key": "4510169_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_31813_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "create_pipe_bidi"
+}

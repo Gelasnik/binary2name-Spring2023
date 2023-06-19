@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4238245_0",
+                "src": "4238217_root"
+            },
+            {
+                "dst": "4238253_0",
+                "src": "4238245_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4238253_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4238217,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|eax|dword|ptr|rip|+|0x28f9ad|    |test|eax|eax|    |je|target_0|    ",
+                "key": "4238217_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4238245,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |shr|rax|0x20|    |pop|rbp|    |ret|    ",
+                "key": "4238245_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4238253,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4238253_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(63, 32, reg_48_54253_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "get_reloc_symindex"
+}

@@ -1,0 +1,117 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4245053_0",
+                "src": "4245033_root"
+            },
+            {
+                "dst": "4245060_1",
+                "src": "4245033_root"
+            },
+            {
+                "dst": "4245065_0",
+                "src": "4245053_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4245065_0"
+            },
+            {
+                "dst": "4245065_1",
+                "src": "4245060_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4245065_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4245033,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |cmp|rax|0x70000001|    |jne|target_0|    ",
+                "key": "4245033_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4245053,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_58077_64, 0x70000001)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0x476098|    |jmp|0x40c649|    ",
+                "key": "4245053_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4245065,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4245065_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x476098>"
+                        ]
+                    ],
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4245060,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __ne__(reg_48_58077_64, 0x70000001)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4245060_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4245065,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4245065_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "get_sparc64_dynamic_type"
+}

@@ -1,0 +1,119 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4522382_0",
+                "src": "4522369_root"
+            },
+            {
+                "dst": "4522405_0",
+                "src": "4522382_0"
+            },
+            {
+                "dst": "4522391_0",
+                "src": "4522405_0"
+            },
+            {
+                "dst": "4522401_0",
+                "src": "4522391_0"
+            },
+            {
+                "dst": "4522405_0",
+                "src": "4522401_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4522401_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4522369,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |call|0x4389a8|    ",
+                "key": "4522369_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4522382,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|dword|ptr|rbp|-|4|0|    |jmp|0x4501a5|    ",
+                "key": "4522382_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4522405,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ],
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "cmp|dword|ptr|rbp|-|4|0x23|    |jbe|0x450197|    ",
+                "key": "4522405_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4522391,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ],
+                    [
+                        6,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|4|    |mov|edi|eax|    |call|0x42b584|    ",
+                "key": "4522391_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4522401,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ],
+                    [
+                        7,
+                        []
+                    ]
+                ],
+                "instructions": "add|dword|ptr|rbp|-|4|1|    |cmp|dword|ptr|rbp|-|4|0x23|    |jbe|0x450197|    ",
+                "key": "4522401_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        8,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_103646_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "free_debug_memory"
+}
