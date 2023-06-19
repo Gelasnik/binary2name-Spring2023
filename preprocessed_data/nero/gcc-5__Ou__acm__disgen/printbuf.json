@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4224706_0",
+                "src": "4224604_root"
+            },
+            {
+                "dst": "4224727_0",
+                "src": "4224706_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4224727_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4224604,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|dword|ptr|rbp|-|8|0|    |jmp|target_0|    ",
+                "key": "4224604_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4224706,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|8|    |cdqe|    |movzx|eax|byte|ptr|rax|+|0x60a8e0|    |mov|byte|ptr|rbp|-|9|al|    |cmp|byte|ptr|rbp|-|9|0|    |jne|0x40766d|    ",
+                "key": "4224706_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4224727,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4224727_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "printbuf"
+}

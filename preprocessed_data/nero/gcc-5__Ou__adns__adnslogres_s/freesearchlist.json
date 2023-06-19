@@ -1,0 +1,137 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4231750_0",
+                "src": "4231702_root"
+            },
+            {
+                "dst": "4231728_1",
+                "src": "4231702_root"
+            },
+            {
+                "dst": "4231769_0",
+                "src": "4231750_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4231769_0"
+            },
+            {
+                "dst": "4231750_1",
+                "src": "4231728_1"
+            },
+            {
+                "dst": "4231769_1",
+                "src": "4231750_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4231769_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4231702,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|eax|dword|ptr|rax|+|0xa0|    |test|eax|eax|    |je|target_0|    ",
+                "key": "4231702_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4231750,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_9613_64, 0xa0), 0xfffffffffffffffe)>",
+                            "<Bool __eq__(Concat(mem_0_9615_16, mem_fffffffffffffffe_9614_16), 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x280|    |mov|rdi|rax|    |call|0x401410|    ",
+                "key": "4231750_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4231769,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4231769_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_9617_64)>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_9620_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4231728,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_9613_64, 0xa0), 0xfffffffffffffffe)>",
+                            "<Bool __ne__(Concat(mem_0_9615_16, mem_fffffffffffffffe_9614_16), 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x280|    |mov|rax|qword|ptr|rax|    |mov|rdi|rax|    |call|0x401410|    ",
+                "key": "4231728_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4231750,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(mem_1de_9616_64, 0xfffffff800000000)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x280|    |mov|rdi|rax|    |call|0x401410|    ",
+                "key": "4231750_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4231769,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4231769_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "freesearchlist"
+}

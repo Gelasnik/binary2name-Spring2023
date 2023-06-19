@@ -1,0 +1,132 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4213511_0",
+                "src": "4213439_root"
+            },
+            {
+                "dst": "4213553_0",
+                "src": "4213511_0"
+            },
+            {
+                "dst": "4213578_0",
+                "src": "4213553_0"
+            },
+            {
+                "dst": "4213603_0",
+                "src": "4213578_0"
+            },
+            {
+                "dst": "4213632_0",
+                "src": "4213603_0"
+            },
+            {
+                "dst": "4213632_0",
+                "src": "4213632_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4213632_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4213439,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0xf0|    |mov|qword|ptr|rbp|-|0xe8|rdi|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|rax|qword|ptr|rbp|-|0xe8|    |mov|dword|ptr|rax|+|8|2|    |lea|rax|rbp|-|0xd0|    |mov|rsi|rax|    |mov|edi|0|    |mov|eax|0|    |call|0x4054ea|    ",
+                "key": "4213439_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4213511,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_5590_64, 0x8), 0xffffffffffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rbp|-|0xc8|    |mov|rax|qword|ptr|rbp|-|0xe8|    |mov|qword|ptr|rax|rdx|    |lea|rax|rbp|-|0xd0|    |mov|rsi|rax|    |mov|edi|0x12|    |mov|eax|0|    |call|0x4054ea|    ",
+                "key": "4213511_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4213553,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "lea|rax|rbp|-|0xd0|    |mov|rsi|rax|    |mov|edi|2|    |mov|eax|0|    |call|0x4054ea|    ",
+                "key": "4213553_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4213578,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "lea|rax|rbp|-|0xc0|    |mov|esi|2|    |mov|rdi|rax|    |mov|eax|0|    |call|0x404eba|    ",
+                "key": "4213578_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4213603,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0xe8|    |lea|rdx|rax|+|0x10|    |lea|rax|rbp|-|0xc0|    |mov|ecx|0x16|    |mov|rdi|rdx|    |mov|rsi|rax|    |rep|movsq|qword|ptr|rdi|qword|ptr|rsi|    ",
+                "key": "4213603_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4213632,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ],
+                    [
+                        6,
+                        [
+                            "<Bool __eq__(__add__(0x10, reg_48_5590_64), 0x7)>"
+                        ]
+                    ]
+                ],
+                "instructions": "rep|movsq|qword|ptr|rdi|qword|ptr|rsi|    ",
+                "key": "4213632_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        7,
+                        [
+                            "<Bool __eq__(__add__(0x18, reg_48_5590_64), 0xf)>",
+                            "<BV32 0xfffeff30>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "def_union"
+}

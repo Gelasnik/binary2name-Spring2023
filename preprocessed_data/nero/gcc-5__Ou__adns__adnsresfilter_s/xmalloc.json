@@ -1,0 +1,149 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4200603_0",
+                "src": "4200579_root"
+            },
+            {
+                "dst": "4200603_1",
+                "src": "4200579_root"
+            },
+            {
+                "dst": "4200620_0",
+                "src": "4200603_0"
+            },
+            {
+                "dst": "4200630_0",
+                "src": "4200620_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4200630_0"
+            },
+            {
+                "dst": "4200614_1",
+                "src": "4200603_1"
+            },
+            {
+                "dst": "4200630_1",
+                "src": "4200614_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4200630_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4200579,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rdi|rax|    |call|0x401440|    ",
+                "key": "4200579_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4200603,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |cmp|qword|ptr|rbp|-|8|0|    |je|0x4018ac|    ",
+                "key": "4200603_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4200620,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(fake_ret_value_180_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|edi|0x411fdb|    |call|0x40183f|    ",
+                "key": "4200620_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4200630,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4200630_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_181_64)>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_180_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4200603,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |cmp|qword|ptr|rbp|-|8|0|    |je|0x4018ac|    ",
+                "key": "4200603_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4200614,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __ne__(fake_ret_value_180_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |jmp|0x4018b6|    ",
+                "key": "4200614_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4200630,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4200630_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "xmalloc"
+}

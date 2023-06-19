@@ -1,0 +1,58 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4254341_0",
+                "src": "4254281_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4254341_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4254281,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x30|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|qword|ptr|rbp|-|0x28|rdx|    |mov|rax|qword|ptr|rbp|-|0x20|    |mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rbp|-|0x28|    |mov|qword|ptr|rbp|-|8|rax|    |mov|rdx|qword|ptr|rbp|-|8|    |mov|rcx|qword|ptr|rbp|-|0x10|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|edx|dword|ptr|rdx|    |mov|esi|dword|ptr|rcx|    |mov|rdi|rax|    |call|0x40e9ec|    ",
+                "key": "4254281_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4254341,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_20_6953_64, 0xfffffffffffff000)>",
+                            "<Bool __eq__(reg_40_6952_64, 0xffffff0000000000)>"
+                        ]
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4254341_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_6956_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "di_inaddr"
+}

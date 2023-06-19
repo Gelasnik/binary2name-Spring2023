@@ -1,0 +1,73 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4245555_0",
+                "src": "4245523_root"
+            },
+            {
+                "dst": "4245579_0",
+                "src": "4245555_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4245579_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4245523,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|dword|ptr|rbp|-|0xc|esi|    |mov|edx|dword|ptr|rbp|-|0xc|    |mov|rax|qword|ptr|rbp|-|8|    |mov|esi|edx|    |mov|rdi|rax|    |call|0x42126e|    ",
+                "key": "4245523_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4245555,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0xc0|    |mov|edx|dword|ptr|rbp|-|0xc|    |mov|esi|edx|    |mov|rdi|rax|    |call|0x42126e|    ",
+                "key": "4245555_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4245579,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(reg_48_10385_64, 0xc0), 0xffffffffffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4245579_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_10390_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "aris_proof_set_font"
+}

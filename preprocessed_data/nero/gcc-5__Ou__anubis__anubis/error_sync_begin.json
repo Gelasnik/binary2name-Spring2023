@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4306525_0",
+                "src": "4306035_root"
+            },
+            {
+                "dst": "4306555_0",
+                "src": "4306525_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4306555_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4306035,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |jmp|target_0|    ",
+                "key": "4306035_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4306525,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x217214|    |test|rax|rax|    |je|0x41b67b|    ",
+                "key": "4306525_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4306555,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|0xc|    |leave|    |ret|    ",
+                "key": "4306555_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 mem_7fffffffffeffe4_7832_32>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "error_sync_begin"
+}

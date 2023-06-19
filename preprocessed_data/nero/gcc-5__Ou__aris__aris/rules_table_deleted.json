@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4253940_0",
+                "src": "4253910_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4253940_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4253910,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |mov|qword|ptr|rbp|-|0x18|rdx|    |mov|eax|0|    |call|0x409264|    ",
+                "key": "4253910_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4253940,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|1|    |leave|    |ret|    ",
+                "key": "4253940_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 0x1>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "rules_table_deleted"
+}

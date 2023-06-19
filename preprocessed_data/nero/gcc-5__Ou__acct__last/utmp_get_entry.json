@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4208795_0",
+                "src": "4208776_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4208795_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4208776,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|rax|qword|ptr|rip|+|0x202b95|    |mov|rdi|rax|    |call|0x402af4|    ",
+                "key": "4208776_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4208795,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4208795_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_247_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "utmp_get_entry"
+}

@@ -1,0 +1,92 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4201016_0",
+                "src": "4200989_root"
+            },
+            {
+                "dst": "4201042_0",
+                "src": "4201016_0"
+            },
+            {
+                "dst": "4201079_0",
+                "src": "4201042_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4201079_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4200989,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|dword|ptr|rbp|-|0x14|edi|    |mov|dword|ptr|rbp|-|0x18|esi|    |mov|dword|ptr|rbp|-|0x1c|edx|    |mov|edi|0x48|    |call|0x402df9|    ",
+                "key": "4200989_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4201016,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|edx|0x48|    |mov|esi|0|    |mov|rdi|rax|    |call|0x400e80|    ",
+                "key": "4201016_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4201042,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|edx|dword|ptr|rbp|-|0x14|    |mov|dword|ptr|rax|+|0x34|edx|    |mov|rax|qword|ptr|rbp|-|8|    |mov|edx|dword|ptr|rbp|-|0x18|    |mov|dword|ptr|rax|+|0x30|edx|    |mov|eax|dword|ptr|rbp|-|0x14|    |imul|eax|dword|ptr|rbp|-|0x18|    |cdqe|    |mov|rdi|rax|    |call|0x402df9|    ",
+                "key": "4201042_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4201079,
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(__add__(fake_ret_value_191_64, 0x34), 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(fake_ret_value_191_64, 0x30), 0xfffffffffffffffb)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|+|0x28|rdx|    |mov|rax|qword|ptr|rbp|-|8|    |mov|edx|dword|ptr|rbp|-|0x1c|    |mov|dword|ptr|rax|+|0x38|edx|    |mov|rax|qword|ptr|rbp|-|8|    |leave|    |ret|    ",
+                "key": "4201079_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<Bool __eq__(__add__(fake_ret_value_191_64, 0x28), 0xfffffffffffffff3)>",
+                            "<Bool __eq__(__add__(fake_ret_value_191_64, 0x38), 0x3)>",
+                            "<BV32 Extract(31, 0, fake_ret_value_191_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "file_reader_init"
+}

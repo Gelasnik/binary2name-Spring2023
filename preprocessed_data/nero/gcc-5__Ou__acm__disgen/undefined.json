@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4199440_0",
+                "src": "4199396_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4199440_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4199396,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|rax|qword|ptr|rip|+|0x209941|    |mov|rcx|qword|ptr|rbp|-|0x18|    |mov|edx|0x401399|    |mov|rsi|rcx|    |mov|rdi|rax|    |mov|eax|0|    |call|0x406f37|    ",
+                "key": "4199396_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4199440,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |cmp|qword|ptr|rbp|-|8|0|    |sete|al|    |movzx|eax|al|    |leave|    |ret|    ",
+                "key": "4199440_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, Concat(0x0, If(__eq__(fake_ret_value_808_64, 0x0), 1, 0)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "undefined"
+}

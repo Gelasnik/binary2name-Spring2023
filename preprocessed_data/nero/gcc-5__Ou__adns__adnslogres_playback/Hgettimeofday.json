@@ -1,0 +1,73 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4213079_0",
+                "src": "4213058_root"
+            },
+            {
+                "dst": "4213107_0",
+                "src": "4213079_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4213107_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4213058,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |call|0x402386|    ",
+                "key": "4213058_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4213079,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "cmp|qword|ptr|rbp|-|0x10|0|    |sete|al|    |movzx|eax|al|    |mov|edx|eax|    |mov|esi|0x415bb0|    |mov|edi|0x415bb3|    |call|0x405407|    ",
+                "key": "4213079_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4213107,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rcx|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rip|+|0x217dd2|    |mov|rdx|qword|ptr|rip|+|0x217dd3|    |mov|qword|ptr|rcx|rax|    |mov|qword|ptr|rcx|+|8|rdx|    |mov|eax|0|    |leave|    |ret|    ",
+                "key": "4213107_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(reg_48_7030_64, 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(reg_48_7030_64, 0x8), 0x7)>",
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "Hgettimeofday"
+}

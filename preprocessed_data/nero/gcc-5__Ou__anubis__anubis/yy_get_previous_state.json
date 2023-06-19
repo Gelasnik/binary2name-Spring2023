@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4300199_0",
+                "src": "4299995_root"
+            },
+            {
+                "dst": "4300215_0",
+                "src": "4300199_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4300215_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4299995,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|reg|    |push|reg|    |push|rbx|    |mov|ebx|dword|ptr|rip|+|0x218bca|    |mov|reg|qword|ptr|rip|+|0x218dff|    |jmp|target_0|    ",
+                "key": "4299995_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4300199,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x218afa|    |cmp|r12|rax|    |jb|0x419cf6|    ",
+                "key": "4300199_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4300215,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|ebx|    |pop|rbx|    |pop|r12|    |pop|r13|    |pop|rbp|    |ret|    ",
+                "key": "4300215_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "yy_get_previous_state"
+}

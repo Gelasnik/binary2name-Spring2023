@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4199104_0",
+                "src": "4222336_root"
+            },
+            {
+                "dst": "7340328_0",
+                "src": "4199104_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "7340328_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4222336,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|rsi|    |mov|rsi|rdi|    |mov|edi|1|    |jmp|target_0|    ",
+                "key": "4222336_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4199104,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|qword|ptr|rip|+|0x207e52|    ",
+                "key": "4199104_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 7340328,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    ",
+                "key": "7340328_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, unconstrained_ret___xstat_1665_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "stat"
+}

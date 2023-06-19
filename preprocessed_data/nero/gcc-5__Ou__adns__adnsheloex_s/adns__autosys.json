@@ -1,0 +1,135 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4212371_0",
+                "src": "4212315_root"
+            },
+            {
+                "dst": "4212357_1",
+                "src": "4212315_root"
+            },
+            {
+                "dst": "4212372_0",
+                "src": "4212371_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4212372_0"
+            },
+            {
+                "dst": "4212369_1",
+                "src": "4212357_1"
+            },
+            {
+                "dst": "4212372_1",
+                "src": "4212369_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4212372_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4212315,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|rsi|    |mov|rcx|rdx|    |mov|rdx|rcx|    |mov|qword|ptr|rbp|-|0x20|rax|    |mov|qword|ptr|rbp|-|0x18|rdx|    |mov|rax|qword|ptr|rbp|-|8|    |mov|eax|dword|ptr|rax|    |and|eax|0x10|    |test|eax|eax|    |jne|target_0|    ",
+                "key": "4212315_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4212371,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_4744_64, 0xfffffffffffffff0)>",
+                            "<Bool __ne__(__and__(Extract(7, 0, mem_fffffffffffffff0_4747_32), 16), 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4212371_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4212372,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4212372_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, Concat(0x0, Extract(4, 4, mem_fffffffffffffff0_4747_32), 0))>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_4748_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4212357,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_4744_64, 0xfffffffffffffff0)>",
+                            "<Bool __eq__(__and__(Extract(7, 0, mem_fffffffffffffff0_4747_32), 16), 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x404552|    ",
+                "key": "4212357_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4212369,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x404694|    ",
+                "key": "4212369_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4212372,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4212372_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "adns__autosys"
+}

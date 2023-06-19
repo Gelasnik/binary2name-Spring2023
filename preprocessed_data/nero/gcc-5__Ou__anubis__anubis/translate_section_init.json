@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4240521_0",
+                "src": "4240503_root"
+            },
+            {
+                "dst": "4240542_0",
+                "src": "4240521_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4240542_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4240503,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|edi|0x427048|    |call|0x41033e|    ",
+                "key": "4240503_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4240521,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|esi|0x631e20|    |mov|rdi|rax|    |call|0x4161ab|    ",
+                "key": "4240521_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4240542,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4240542_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_13349_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "translate_section_init"
+}

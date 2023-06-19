@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4315590_0",
+                "src": "4315481_root"
+            },
+            {
+                "dst": "4315624_0",
+                "src": "4315590_0"
+            },
+            {
+                "dst": "4315649_0",
+                "src": "4315624_0"
+            },
+            {
+                "dst": "4316367_0",
+                "src": "4315649_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4316367_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4315481,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|rbx|    |sub|rsp|0x38|    |mov|qword|ptr|rbp|-|0x38|rdi|    |mov|rax|qword|ptr|rip|+|0x214ff3|    |and|eax|0x200|    |test|rax|rax|    |je|target_0|    ",
+                "key": "4315481_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4315590,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x214f93|    |and|eax|0x40000|    |test|rax|rax|    |je|0x41d9e8|    ",
+                "key": "4315590_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4315624,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x214f89|    |mov|edx|0x42aaa0|    |mov|rsi|rax|    |mov|edi|1|    |call|0x40fc70|    ",
+                "key": "4315624_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4315649,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|1|    |jmp|0x41dccf|    ",
+                "key": "4315649_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4316367,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "add|rsp|0x38|    |pop|rbx|    |pop|rbp|    |ret|    ",
+                "key": "4316367_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 0x1>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "handle_starttls"
+}

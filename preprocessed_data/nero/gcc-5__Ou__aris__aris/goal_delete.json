@@ -1,0 +1,57 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4252865_0",
+                "src": "4252822_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4252865_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4252822,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x30|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|qword|ptr|rbp|-|0x28|rdx|    |mov|rax|qword|ptr|rbp|-|0x28|    |mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|    |mov|rdi|rax|    |call|0x405180|    ",
+                "key": "4252822_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4252865,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_20_13653_64, 0xfffffffffff80000)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|1|    |leave|    |ret|    ",
+                "key": "4252865_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 0x1>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "goal_delete"
+}

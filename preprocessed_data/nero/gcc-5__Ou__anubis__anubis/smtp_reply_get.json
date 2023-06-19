@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4259368_0",
+                "src": "4259299_root"
+            },
+            {
+                "dst": "4259389_0",
+                "src": "4259368_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4259389_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4259299,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x40|    |mov|dword|ptr|rbp|-|0x24|edi|    |mov|qword|ptr|rbp|-|0x30|rsi|    |mov|qword|ptr|rbp|-|0x38|rdx|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|eax|dword|ptr|rbp|-|0x24|    |mov|dword|ptr|rbp|-|0x20|eax|    |mov|rax|qword|ptr|rbp|-|0x30|    |mov|qword|ptr|rbp|-|0x18|rax|    |lea|rdx|rbp|-|0x20|    |mov|rax|qword|ptr|rbp|-|0x38|    |mov|esi|0x40fda6|    |mov|rdi|rax|    |call|0x42204b|    ",
+                "key": "4259299_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4259368,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |mov|rax|qword|ptr|rbp|-|8|    |xor|rax|qword|ptr|fs:0x28|    |je|0x40fe3d|    ",
+                "key": "4259368_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4259389,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4259389_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "smtp_reply_get"
+}

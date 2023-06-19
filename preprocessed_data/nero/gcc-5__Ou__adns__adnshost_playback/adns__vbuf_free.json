@@ -1,0 +1,73 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4263506_0",
+                "src": "4263478_root"
+            },
+            {
+                "dst": "4263518_0",
+                "src": "4263506_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4263518_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4263478,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|8|    |mov|rdi|rax|    |call|0x406ffb|    ",
+                "key": "4263478_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4263506,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_5992_64, 0x8), 0xfffffffffffffffc)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x410c46|    ",
+                "key": "4263506_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4263518,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4263518_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_5996_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "adns__vbuf_free"
+}

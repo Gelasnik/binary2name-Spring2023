@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4238090_0",
+                "src": "4238058_root"
+            },
+            {
+                "dst": "4238080_1",
+                "src": "4238058_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4238090_0"
+            },
+            {
+                "dst": "4238090_1",
+                "src": "4238080_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4238090_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4238058,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|dword|ptr|rbp|-|0xc|esi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|eax|dword|ptr|rax|+|0x18|    |test|eax|eax|    |jne|target_0|    ",
+                "key": "4238058_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4238090,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_10232_64, 0x18), 0xffffffffffffffff)>",
+                            "<Bool __ne__(Concat(mem_0_10235_24, mem_ffffffffffffffff_10234_8), 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |pop|rbp|    |ret|    ",
+                "key": "4238090_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Concat(mem_0_10235_24, mem_ffffffffffffffff_10234_8)>"
+                        ]
+                    ],
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, reg_48_10232_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4238080,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_10232_64, 0x18), 0xffffffffffffffff)>",
+                            "<Bool __eq__(Concat(mem_0_10235_24, mem_ffffffffffffffff_10234_8), 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|edx|dword|ptr|rbp|-|0xc|    |mov|dword|ptr|rax|+|0x18|edx|    |nop|    |pop|rbp|    |ret|    ",
+                "key": "4238080_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4238090,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |pop|rbp|    |ret|    ",
+                "key": "4238090_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "saveerr"
+}

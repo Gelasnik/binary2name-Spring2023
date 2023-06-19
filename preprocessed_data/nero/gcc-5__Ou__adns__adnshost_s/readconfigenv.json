@@ -1,0 +1,232 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4243543_0",
+                "src": "4243473_root"
+            },
+            {
+                "dst": "4243502_1",
+                "src": "4243473_root"
+            },
+            {
+                "dst": "4243543_2",
+                "src": "4243473_root"
+            },
+            {
+                "dst": "4243562_0",
+                "src": "4243543_0"
+            },
+            {
+                "dst": "4243597_0",
+                "src": "4243562_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4243597_0"
+            },
+            {
+                "dst": "4243541_1",
+                "src": "4243502_1"
+            },
+            {
+                "dst": "4243597_1",
+                "src": "4243541_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4243597_1"
+            },
+            {
+                "dst": "4243562_2",
+                "src": "4243543_2"
+            },
+            {
+                "dst": "4243573_2",
+                "src": "4243562_2"
+            },
+            {
+                "dst": "4243597_2",
+                "src": "4243573_2"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4243597_2"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4243473,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|eax|dword|ptr|rax|    |and|eax|1|    |test|eax|eax|    |je|target_0|    ",
+                "key": "4243473_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4243543,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_737_64, 0xfffffffffffff800)>",
+                            "<Bool __eq__(__and__(Extract(7, 0, mem_fffffffffffff800_739_32), 1), 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rbp|-|0x20|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x40be5f|    ",
+                "key": "4243543_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4243562,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |cmp|qword|ptr|rbp|-|8|0|    |je|0x40c08d|    ",
+                "key": "4243562_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4243597,
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(fake_ret_value_740_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4243597_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_740_64)>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_741_64)>"
+                        ]
+                    ],
+                    [
+                        5,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_742_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4243502,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_737_64, 0xfffffffffffff800)>",
+                            "<Bool __ne__(__and__(Extract(7, 0, mem_fffffffffffff800_739_32), 1), 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rbp|-|0x20|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|r8|rdx|    |mov|ecx|0x416df8|    |mov|edx|0|    |mov|esi|0xffffffff|    |mov|rdi|rax|    |mov|eax|0|    |call|0x409d92|    ",
+                "key": "4243502_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4243541,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x40c08d|    ",
+                "key": "4243541_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4243597,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4243597_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4243543,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_737_64, 0xfffffffffffff800)>",
+                            "<Bool __eq__(__and__(Extract(7, 0, mem_fffffffffffff800_739_32), 1), 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rbp|-|0x20|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x40be5f|    ",
+                "key": "4243543_2",
+                "path_num": 2
+            },
+            {
+                "block_addr": 4243562,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |cmp|qword|ptr|rbp|-|8|0|    |je|0x40c08d|    ",
+                "key": "4243562_2",
+                "path_num": 2
+            },
+            {
+                "block_addr": 4243573,
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __ne__(fake_ret_value_740_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rcx|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|edx|1|    |mov|rsi|rcx|    |mov|rdi|rax|    |call|0x40bee3|    ",
+                "key": "4243573_2",
+                "path_num": 2
+            },
+            {
+                "block_addr": 4243597,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4243597_2",
+                "path_num": 2
+            }
+        ]
+    },
+    "func_name": "readconfigenv"
+}

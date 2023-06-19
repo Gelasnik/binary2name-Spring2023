@@ -1,0 +1,133 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4269979_0",
+                "src": "4269941_root"
+            },
+            {
+                "dst": "4269971_1",
+                "src": "4269941_root"
+            },
+            {
+                "dst": "4270064_0",
+                "src": "4269979_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4270064_0"
+            },
+            {
+                "dst": "4269979_1",
+                "src": "4269971_1"
+            },
+            {
+                "dst": "4270064_1",
+                "src": "4269979_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4270064_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4269941,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|dword|ptr|rbp|-|0xc|esi|    |mov|qword|ptr|rbp|-|0x18|rdx|    |mov|qword|ptr|rbp|-|0x20|rcx|    |cmp|qword|ptr|rbp|-|8|0|    |jne|target_0|    ",
+                "key": "4269941_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4269979,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __ne__(reg_48_25705_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rip|+|0x2202bf|    |test|eax|eax|    |je|0x4127f0|    ",
+                "key": "4269979_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4270064,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |nop|    |leave|    |ret|    ",
+                "key": "4270064_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4269971,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_25705_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|0x428bb0|    |mov|eax|dword|ptr|rip|+|0x2202bf|    |test|eax|eax|    |je|0x4127f0|    ",
+                "key": "4269971_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4269979,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rip|+|0x2202bf|    |test|eax|eax|    |je|0x4127f0|    ",
+                "key": "4269979_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4270064,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |nop|    |leave|    |ret|    ",
+                "key": "4270064_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "yydestruct"
+}

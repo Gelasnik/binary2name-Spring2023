@@ -1,0 +1,56 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4335259_0",
+                "src": "4335235_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4335259_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4335235,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|8|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x42230b|    ",
+                "key": "4335235_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4335259,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|    |leave|    |ret|    ",
+                "key": "4335259_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(reg_48_18579_64, 0xffffffffff800000)>",
+                            "<BV32 Extract(31, 0, mem_ffffffffff800000_18581_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "smtp_reply_string"
+}

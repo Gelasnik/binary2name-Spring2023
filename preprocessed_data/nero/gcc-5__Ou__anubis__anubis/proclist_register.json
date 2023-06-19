@@ -1,0 +1,122 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4260119_0",
+                "src": "4260096_root"
+            },
+            {
+                "dst": "4260124_0",
+                "src": "4260119_0"
+            },
+            {
+                "dst": "4260131_0",
+                "src": "4260124_0"
+            },
+            {
+                "dst": "4260141_0",
+                "src": "4260131_0"
+            },
+            {
+                "dst": "4260187_0",
+                "src": "4260141_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4260187_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4260096,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|dword|ptr|rbp|-|0x14|edi|    |mov|rax|qword|ptr|rip|+|0x2225fe|    |test|rax|rax|    |jne|target_0|    ",
+                "key": "4260096_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4260119,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "call|0x41fe47|    ",
+                "key": "4260119_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4260124,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rip|+|0x2225ed|rax|    |mov|edi|0xc|    |call|0x424536|    ",
+                "key": "4260124_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4260131,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edi|0xc|    |call|0x424536|    ",
+                "key": "4260131_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4260141,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|edx|dword|ptr|rbp|-|0x14|    |mov|dword|ptr|rax|edx|    |mov|rax|qword|ptr|rbp|-|8|    |mov|dword|ptr|rax|+|4|1|    |mov|rax|qword|ptr|rip|+|0x2225c4|    |mov|rdx|qword|ptr|rbp|-|8|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x4202d2|    ",
+                "key": "4260141_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4260187,
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<Bool __eq__(fake_ret_value_22698_64, 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(fake_ret_value_22698_64, 0x4), 0x3)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4260187_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        6,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_22699_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "proclist_register"
+}

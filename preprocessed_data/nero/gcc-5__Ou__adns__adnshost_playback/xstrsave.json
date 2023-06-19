@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4200723_0",
+                "src": "4200699_root"
+            },
+            {
+                "dst": "4200735_0",
+                "src": "4200723_0"
+            },
+            {
+                "dst": "4200758_0",
+                "src": "4200735_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4200758_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4200699,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rdi|rax|    |call|0x401350|    ",
+                "key": "4200699_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4200723,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "add|rax|1|    |mov|rdi|rax|    |call|0x4018c2|    ",
+                "key": "4200723_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4200735,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rdx|qword|ptr|rbp|-|0x18|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x4012c0|    ",
+                "key": "4200735_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4200758,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |leave|    |ret|    ",
+                "key": "4200758_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_285_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "xstrsave"
+}

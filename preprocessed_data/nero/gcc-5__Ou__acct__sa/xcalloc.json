@@ -1,0 +1,133 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4222026_0",
+                "src": "4221991_root"
+            },
+            {
+                "dst": "4222026_1",
+                "src": "4221991_root"
+            },
+            {
+                "dst": "4222042_0",
+                "src": "4222026_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4222042_0"
+            },
+            {
+                "dst": "4222037_1",
+                "src": "4222026_1"
+            },
+            {
+                "dst": "4222042_1",
+                "src": "4222037_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4222042_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4221991,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|rdx|qword|ptr|rbp|-|0x20|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x401270|    ",
+                "key": "4221991_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4222026,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |cmp|qword|ptr|rbp|-|8|0|    |jne|0x406c5a|    ",
+                "key": "4222026_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4222042,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __ne__(fake_ret_value_1526_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |leave|    |ret|    ",
+                "key": "4222042_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_1526_64)>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_1526_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4222026,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |cmp|qword|ptr|rbp|-|8|0|    |jne|0x406c5a|    ",
+                "key": "4222026_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4222037,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(fake_ret_value_1526_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "call|0x406cc1|    ",
+                "key": "4222037_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4222042,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |leave|    |ret|    ",
+                "key": "4222042_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "xcalloc"
+}

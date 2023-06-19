@@ -1,0 +1,133 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4211989_0",
+                "src": "4211960_root"
+            },
+            {
+                "dst": "4211989_1",
+                "src": "4211960_root"
+            },
+            {
+                "dst": "4211998_0",
+                "src": "4211989_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4211998_0"
+            },
+            {
+                "dst": "4211993_1",
+                "src": "4211989_1"
+            },
+            {
+                "dst": "4211998_1",
+                "src": "4211993_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4211998_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4211960,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rsi|rax|    |mov|edi|0x61b3c0|    |call|0x40e6db|    ",
+                "key": "4211960_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4211989,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "test|eax|eax|    |jne|0x40451e|    ",
+                "key": "4211989_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4211998,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __ne__(Extract(31, 0, fake_ret_value_2989_64), 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4211998_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_2989_64)>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_2990_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4211989,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "test|eax|eax|    |jne|0x40451e|    ",
+                "key": "4211989_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4211993,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(Extract(31, 0, fake_ret_value_2989_64), 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "call|0x40470c|    ",
+                "key": "4211993_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4211998,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4211998_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "Tvba"
+}

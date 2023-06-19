@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4198659_0",
+                "src": "4198630_root"
+            },
+            {
+                "dst": "4198664_0",
+                "src": "4198659_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4198664_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4198630,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|rax|qword|ptr|rip|+|0x2031cf|    |mov|rsi|rax|    |mov|edi|0x403068|    |mov|eax|0|    |call|0x400e50|    ",
+                "key": "4198630_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4198659,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "call|0x40143f|    ",
+                "key": "4198659_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4198664,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |pop|rbp|    |ret|    ",
+                "key": "4198664_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_31_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "give_usage"
+}

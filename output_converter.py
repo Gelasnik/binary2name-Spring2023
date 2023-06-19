@@ -554,10 +554,8 @@ class OutputConvertor:
     def find_num_paths(self, nodes: List) -> int:
         max_path = -math.inf
         for node in nodes:
-            for constraint in node['constraints']:
-                path_num = constraint[0]
-                if path_num > max_path:
-                    max_path = path_num
+            if node['path_num'] > max_path:
+                max_path = node['path_num']
         return int(max_path + 1)
 
     def create_paths_to_remove_list(self, nodes: List):

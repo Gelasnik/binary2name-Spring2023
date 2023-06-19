@@ -1,0 +1,56 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4257821_0",
+                "src": "4257800_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4257821_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4257800,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|dword|ptr|rbp|-|0x14|edi|    |mov|eax|dword|ptr|rbp|-|0x14|    |mov|edi|eax|    |call|0x40f7b7|    ",
+                "key": "4257800_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4257821,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|8|    |leave|    |ret|    ",
+                "key": "4257821_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(fake_ret_value_5381_64, 0x8), 0x9)>",
+                            "<BV32 Extract(31, 0, mem_9_5382_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "adns_errabbrev"
+}

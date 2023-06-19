@@ -1,0 +1,89 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4306810_0",
+                "src": "4306784_root"
+            },
+            {
+                "dst": "4306822_0",
+                "src": "4306810_0"
+            },
+            {
+                "dst": "4306840_0",
+                "src": "4306822_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4306840_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4306784,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|eax|dword|ptr|rax|+|8|    |mov|edi|eax|    |call|0x41b6c7|    ",
+                "key": "4306784_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4306810,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_8070_64, 0x8), 0x9)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x41bd38|    ",
+                "key": "4306810_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4306822,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rsi|rax|    |mov|edi|0x42a889|    |mov|eax|0|    |call|0x403f80|    ",
+                "key": "4306822_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4306840,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4306840_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_8074_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "anubis_regex_print"
+}

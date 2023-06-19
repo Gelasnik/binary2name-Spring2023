@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4208729_0",
+                "src": "4208698_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4208729_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4208698,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|dword|ptr|rbp|-|4|edi|    |mov|eax|dword|ptr|rbp|-|4|    |mov|edx|eax|    |mov|esi|0x100|    |mov|edi|0x180|    |call|0x4029fa|    ",
+                "key": "4208698_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4208729,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rip|+|0x202bc8|rax|    |nop|    |leave|    |ret|    ",
+                "key": "4208729_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_208_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "utmp_init"
+}

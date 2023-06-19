@@ -1,0 +1,111 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4202878_0",
+                "src": "4202831_root"
+            },
+            {
+                "dst": "4202891_0",
+                "src": "4202878_0"
+            },
+            {
+                "dst": "4202907_0",
+                "src": "4202891_0"
+            },
+            {
+                "dst": "4203123_0",
+                "src": "4202907_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4203123_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4202831,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x30|    |mov|qword|ptr|rbp|-|0x28|rdi|    |mov|rax|qword|ptr|rbp|-|0x28|    |mov|rax|qword|ptr|rax|+|0x38|    |mov|rax|qword|ptr|rax|+|0x10|    |mov|rax|qword|ptr|rax|+|0x30|    |mov|rax|qword|ptr|rax|    |mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rbp|-|0x10|    |mov|rdi|rax|    |call|0x4013c0|    ",
+                "key": "4202831_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4202878,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_858_64, 0x38), 0xffffffffffffffc0)>",
+                            "<Bool __eq__(__add__(mem_ffffffffffffffc0_859_64, 0x10), 0xfffffffffffffff0)>",
+                            "<Bool __eq__(__add__(mem_fffffffffffffff0_860_64, 0x30), 0xfffffffffffffa00)>",
+                            "<Bool __eq__(mem_fffffffffffffa00_861_64, 0xffffff0000000000)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|dword|ptr|rbp|-|0x18|eax|    |mov|eax|dword|ptr|rip|+|0x219111|    |test|eax|eax|    |jne|0x4021c2|    ",
+                "key": "4202878_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4202891,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x28|    |mov|rax|qword|ptr|rax|+|0x10|    |mov|rdi|rax|    |call|0x4048d7|    ",
+                "key": "4202891_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4202907,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x28|    |mov|qword|ptr|rax|+|0x10|0|    |mov|rax|qword|ptr|rbp|-|0x28|    |mov|rdx|qword|ptr|rbp|-|0x10|    |mov|qword|ptr|rax|+|0x18|rdx|    |mov|rax|qword|ptr|rbp|-|0x28|    |mov|edx|dword|ptr|rbp|-|0x18|    |mov|dword|ptr|rax|+|0x20|edx|    |jmp|0x402273|    ",
+                "key": "4202907_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4203123,
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<Bool __eq__(__add__(reg_48_858_64, 0x18), 0xffffffffffffffa0)>",
+                            "<Bool __eq__(__add__(reg_48_858_64, 0x20), 0xffffffffffffffa8)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4203123_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 Extract(31, 0, reg_48_858_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "replacetextwithname"
+}

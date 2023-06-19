@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4310643_0",
+                "src": "4310627_root"
+            },
+            {
+                "dst": "4310648_0",
+                "src": "4310643_0"
+            },
+            {
+                "dst": "4310657_0",
+                "src": "4310648_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4310657_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4310627,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|rax|qword|ptr|rip|+|0x21627a|    |test|rax|rax|    |jne|target_0|    ",
+                "key": "4310627_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4310643,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "call|0x40f1c4|    ",
+                "key": "4310643_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4310648,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x41c681|    ",
+                "key": "4310648_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4310657,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4310657_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_9665_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "get_ehlo_domain"
+}

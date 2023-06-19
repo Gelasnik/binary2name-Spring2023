@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4196968_0",
+                "src": "4196939_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4196968_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4196939,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|rax|qword|ptr|rip|+|0x2016fa|    |mov|rsi|rax|    |mov|edi|0x400f68|    |mov|eax|0|    |call|0x400870|    ",
+                "key": "4196939_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4196968,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |pop|rbp|    |ret|    ",
+                "key": "4196968_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_44_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "give_usage"
+}

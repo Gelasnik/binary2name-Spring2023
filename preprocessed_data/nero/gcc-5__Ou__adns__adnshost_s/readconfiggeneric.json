@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4242948_0",
+                "src": "4242295_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4242948_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4242295,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x830|    |mov|qword|ptr|rbp|-|0x818|rdi|    |mov|qword|ptr|rbp|-|0x820|rsi|    |mov|qword|ptr|rbp|-|0x828|rdx|    |mov|qword|ptr|rbp|-|0x830|rcx|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|dword|ptr|rbp|-|0x804|1|    |jmp|target_0|    ",
+                "key": "4242295_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4242948,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "lea|r8|rbp|-|0x7e0|    |mov|ecx|dword|ptr|rbp|-|0x804|    |mov|rdx|qword|ptr|rbp|-|0x820|    |lea|rsi|rbp|-|0x830|    |mov|rdi|qword|ptr|rbp|-|0x818|    |mov|rax|qword|ptr|rbp|-|0x828|    |mov|r9d|0x7d0|    |call|rax|    ",
+                "key": "4242948_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_639_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "readconfiggeneric"
+}

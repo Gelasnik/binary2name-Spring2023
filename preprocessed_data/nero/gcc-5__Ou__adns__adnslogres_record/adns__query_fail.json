@@ -1,0 +1,74 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4242481_0",
+                "src": "4242454_root"
+            },
+            {
+                "dst": "4242509_0",
+                "src": "4242481_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4242509_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4242454,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|dword|ptr|rbp|-|0xc|esi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x40b2f1|    ",
+                "key": "4242454_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4242481,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x90|    |mov|edx|dword|ptr|rbp|-|0xc|    |mov|dword|ptr|rax|edx|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x40b8e7|    ",
+                "key": "4242481_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4242509,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(reg_48_3306_64, 0x90), 0xfffffffffffff070)>",
+                            "<Bool __eq__(mem_fffffffffffff070_3309_64, 0xffffffffffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4242509_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_3310_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "adns__query_fail"
+}

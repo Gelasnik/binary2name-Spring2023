@@ -1,0 +1,188 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4246933_0",
+                "src": "4246905_root"
+            },
+            {
+                "dst": "4246949_0",
+                "src": "4246933_0"
+            },
+            {
+                "dst": "4246965_0",
+                "src": "4246949_0"
+            },
+            {
+                "dst": "4246981_0",
+                "src": "4246965_0"
+            },
+            {
+                "dst": "4246997_0",
+                "src": "4246981_0"
+            },
+            {
+                "dst": "4247019_0",
+                "src": "4246997_0"
+            },
+            {
+                "dst": "4247031_0",
+                "src": "4247019_0"
+            },
+            {
+                "dst": "4247036_0",
+                "src": "4247031_0"
+            },
+            {
+                "dst": "4247052_0",
+                "src": "4247036_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4247052_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4246905,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |add|rax|0x10|    |mov|rdi|rax|    |call|0x40e73c|    ",
+                "key": "4246905_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4246933,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |add|rax|0x18|    |mov|rdi|rax|    |call|0x40e73c|    ",
+                "key": "4246933_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4246949,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |add|rax|0x20|    |mov|rdi|rax|    |call|0x40e681|    ",
+                "key": "4246949_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4246965,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x28|    |mov|rdi|rax|    |call|0x404460|    ",
+                "key": "4246965_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4246981,
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<Bool __eq__(__add__(reg_48_16541_64, 0x28), 0xffffffffffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x30|    |mov|rdi|rax|    |call|0x404460|    ",
+                "key": "4246981_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4246997,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|edx|0x38|    |mov|esi|0|    |mov|rdi|rax|    |call|0x403f90|    ",
+                "key": "4246997_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4247019,
+                "constraints": [
+                    [
+                        6,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x40cb13|    ",
+                "key": "4247019_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4247031,
+                "constraints": [
+                    [
+                        7,
+                        []
+                    ]
+                ],
+                "instructions": "call|0x41fe47|    ",
+                "key": "4247031_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4247036,
+                "constraints": [
+                    [
+                        8,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|+|0x18|rdx|    |call|0x41fe47|    ",
+                "key": "4247036_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4247052,
+                "constraints": [
+                    [
+                        9,
+                        [
+                            "<Bool __eq__(__add__(reg_48_16541_64, 0x18), 0xffffffffffffffef)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|+|0x10|rdx|    |nop|    |leave|    |ret|    ",
+                "key": "4247052_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        10,
+                        [
+                            "<Bool __eq__(__add__(reg_48_16541_64, 0x10), 0xffffffffffffffe7)>",
+                            "<BV32 Extract(31, 0, reg_48_16541_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "message_reset"
+}

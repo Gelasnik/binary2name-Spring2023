@@ -1,0 +1,74 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4267432_0",
+                "src": "4267414_root"
+            },
+            {
+                "dst": "4267475_0",
+                "src": "4267432_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4267475_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4267414,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|edi|0x427e10|    |call|0x41033e|    ",
+                "key": "4267414_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4267432,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|dword|ptr|rax|+|0xc|1|    |mov|rax|qword|ptr|rbp|-|8|    |mov|dword|ptr|rax|+|8|2|    |mov|rax|qword|ptr|rbp|-|8|    |mov|esi|0x6325a0|    |mov|rdi|rax|    |call|0x4161ab|    ",
+                "key": "4267432_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4267475,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(fake_ret_value_24721_64, 0xc), 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(fake_ret_value_24721_64, 0x8), 0xfffffffffffffffb)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4267475_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_24722_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "smtp_rule_section_init"
+}

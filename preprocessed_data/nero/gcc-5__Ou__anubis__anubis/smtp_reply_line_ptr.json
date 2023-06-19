@@ -1,0 +1,121 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4334247_0",
+                "src": "4334187_root"
+            },
+            {
+                "dst": "4334213_1",
+                "src": "4334187_root"
+            },
+            {
+                "dst": "4334252_0",
+                "src": "4334247_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4334252_0"
+            },
+            {
+                "dst": "4334252_1",
+                "src": "4334213_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4334252_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4334187,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x18|    |cmp|rax|qword|ptr|rbp|-|0x10|    |jbe|target_0|    ",
+                "key": "4334187_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4334247,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_17923_64, 0x18), 0xfffffffffffffff8)>",
+                            "<Bool __le__(mem_fffffffffffffff8_17925_64, reg_40_17924_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4334247_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4334252,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4334252_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ],
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, __add__(mem_fffffffffc000010_17928_64, mem_ffffffffffffffe0_17926_64))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4334213,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_17923_64, 0x18), 0xfffffffffffffff8)>",
+                            "<Bool __gt__(mem_fffffffffffffff8_17925_64, reg_40_17924_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rdx|qword|ptr|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x28|    |mov|rcx|qword|ptr|rbp|-|0x10|    |shl|rcx|4|    |add|rax|rcx|    |mov|rax|qword|ptr|rax|    |add|rax|rdx|    |jmp|0x4222ac|    ",
+                "key": "4334213_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4334252,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(mem_8_17927_64, __lshift__(reg_40_17924_64, 0x4)), 0xfffffffffc000010)>"
+                        ]
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4334252_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "smtp_reply_line_ptr"
+}

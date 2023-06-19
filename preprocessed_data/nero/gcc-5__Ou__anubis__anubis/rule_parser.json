@@ -1,0 +1,137 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4266649_0",
+                "src": "4266614_root"
+            },
+            {
+                "dst": "4266670_0",
+                "src": "4266649_0"
+            },
+            {
+                "dst": "4266909_0",
+                "src": "4266670_0"
+            },
+            {
+                "dst": "4266919_0",
+                "src": "4266909_0"
+            },
+            {
+                "dst": "4266964_0",
+                "src": "4266919_0"
+            },
+            {
+                "dst": "4266967_0",
+                "src": "4266964_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4266967_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4266614,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x40|    |mov|qword|ptr|rbp|-|0x28|rdi|    |mov|dword|ptr|rbp|-|0x2c|esi|    |mov|qword|ptr|rbp|-|0x38|rdx|    |mov|qword|ptr|rbp|-|0x40|rcx|    |mov|rax|qword|ptr|rbp|-|0x28|    |mov|rdi|rax|    |call|0x4164c5|    ",
+                "key": "4266614_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4266649,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|0x18|rax|    |mov|rax|qword|ptr|rbp|-|0x38|    |mov|esi|0|    |mov|rdi|rax|    |call|0x420205|    ",
+                "key": "4266649_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4266670,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|0x10|rax|    |cmp|dword|ptr|rbp|-|0x2c|5|    |ja|0x411b9d|    ",
+                "key": "4266670_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4266909,
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __gt__(Extract(31, 0, reg_40_24484_64), 0x5)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|edi|0x427a58|    |call|0x404300|    ",
+                "key": "4266909_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4266919,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rsi|rax|    |mov|edx|dword|ptr|rbp|-|0x2c|    |mov|rax|qword|ptr|rbp|-|0x28|    |mov|r9d|edx|    |mov|r8d|0x37b|    |mov|ecx|0x427a91|    |mov|rdx|rsi|    |mov|rsi|rax|    |mov|edi|2|    |mov|eax|0|    |call|0x4164e9|    ",
+                "key": "4266919_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4266964,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x411bd7|    ",
+                "key": "4266964_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4266967,
+                "constraints": [
+                    [
+                        6,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4266967_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        7,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_24490_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "rule_parser"
+}

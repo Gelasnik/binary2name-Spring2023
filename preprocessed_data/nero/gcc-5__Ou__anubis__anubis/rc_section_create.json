@@ -1,0 +1,74 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4281093_0",
+                "src": "4281063_root"
+            },
+            {
+                "dst": "4281116_0",
+                "src": "4281093_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4281116_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4281063,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x30|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|qword|ptr|rbp|-|0x28|rdx|    |mov|edi|0x30|    |call|0x424536|    ",
+                "key": "4281063_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4281093,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdx|qword|ptr|rbp|-|0x20|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x41527d|    ",
+                "key": "4281093_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4281116,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|+|0x18|0|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdx|qword|ptr|rbp|-|0x18|    |mov|qword|ptr|rax|+|0x20|rdx|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdx|qword|ptr|rbp|-|0x28|    |mov|qword|ptr|rax|+|0x28|rdx|    |mov|rax|qword|ptr|rbp|-|8|    |leave|    |ret|    ",
+                "key": "4281116_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(__add__(fake_ret_value_26949_64, 0x18), 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(fake_ret_value_26949_64, 0x20), 0x7)>",
+                            "<Bool __eq__(__add__(fake_ret_value_26949_64, 0x28), 0xf)>",
+                            "<BV32 Extract(31, 0, fake_ret_value_26949_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "rc_section_create"
+}

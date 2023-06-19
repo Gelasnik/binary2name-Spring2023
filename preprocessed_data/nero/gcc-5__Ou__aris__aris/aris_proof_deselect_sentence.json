@@ -1,0 +1,57 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4248745_0",
+                "src": "4248703_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4248745_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4248703,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0xe8|    |mov|rdx|qword|ptr|rbp|-|0x10|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x4179c2|    ",
+                "key": "4248703_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4248745,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_12002_64, 0xe8), 0xe9)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |leave|    |ret|    ",
+                "key": "4248745_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "aris_proof_deselect_sentence"
+}

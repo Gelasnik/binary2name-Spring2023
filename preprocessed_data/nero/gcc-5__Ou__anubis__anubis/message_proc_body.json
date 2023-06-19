@@ -1,0 +1,40 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": "4251633_root"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4251633,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x40|    |mov|qword|ptr|rbp|-|0x28|rdi|    |mov|qword|ptr|rbp|-|0x30|rsi|    |mov|qword|ptr|rbp|-|0x38|rdx|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|rax|qword|ptr|rbp|-|0x28|    |mov|rsi|qword|ptr|rax|+|0x28|    |mov|rdx|qword|ptr|rbp|-|0x38|    |lea|rcx|rbp|-|0x10|    |mov|rax|qword|ptr|rbp|-|0x30|    |mov|rdi|rcx|    |call|rax|    ",
+                "key": "4251633_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_18710_64, 0x28), 0xffffffffffffffff)>",
+                            "<BV32 Extract(31, 0, fake_ret_value_18715_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "message_proc_body"
+}

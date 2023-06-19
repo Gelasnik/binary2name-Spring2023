@@ -1,0 +1,121 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4254072_0",
+                "src": "4254028_root"
+            },
+            {
+                "dst": "4254065_1",
+                "src": "4254028_root"
+            },
+            {
+                "dst": "4254101_0",
+                "src": "4254072_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4254101_0"
+            },
+            {
+                "dst": "4254101_1",
+                "src": "4254065_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4254101_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4254028,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|dword|ptr|rbp|-|0x1c|esi|    |mov|dword|ptr|rbp|-|0x20|edx|    |mov|qword|ptr|rbp|-|0x28|rcx|    |mov|rax|qword|ptr|rbp|-|0x28|    |mov|qword|ptr|rbp|-|8|rax|    |mov|eax|dword|ptr|rbp|-|0x20|    |sub|eax|dword|ptr|rbp|-|0x1c|    |cmp|eax|4|    |je|target_0|    ",
+                "key": "4254028_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4254072,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__sub__(Extract(31, 0, reg_20_6900_64), Extract(31, 0, reg_40_6899_64)), 0x4)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x18|    |mov|rdx|qword|ptr|rax|+|0x18|    |mov|eax|dword|ptr|rbp|-|0x1c|    |cdqe|    |add|rax|rdx|    |mov|edx|dword|ptr|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|dword|ptr|rax|edx|    |mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4254072_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4254101,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(reg_48_6898_64, 0x18), 0xfffffffffffffffc)>",
+                            "<Bool __eq__(__add__(SignExt(32, Extract(31, 0, reg_40_6899_64)), Concat(mem_0_6903_32, mem_fffffffffffffffc_6902_32)), 0x5a000001)>",
+                            "<Bool __eq__(reg_18_6901_64, 0xffffffffffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4254101_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ],
+                    [
+                        3,
+                        [
+                            "<BV32 0x68>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4254065,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __ne__(__sub__(Extract(31, 0, reg_20_6900_64), Extract(31, 0, reg_40_6899_64)), 0x4)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0x68|    |jmp|0x40e995|    ",
+                "key": "4254065_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4254101,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4254101_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "pa_inaddr"
+}

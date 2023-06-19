@@ -1,0 +1,89 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4282889_0",
+                "src": "4282862_root"
+            },
+            {
+                "dst": "4282905_0",
+                "src": "4282889_0"
+            },
+            {
+                "dst": "4282921_0",
+                "src": "4282905_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4282921_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4282862,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|    |mov|rdi|rax|    |call|0x41575f|    ",
+                "key": "4282862_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4282889,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_28061_64, 0xfffffffffff80000)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|8|    |mov|rdi|rax|    |call|0x415cf8|    ",
+                "key": "4282889_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4282905,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x10|    |mov|rdi|rax|    |call|0x415cf8|    ",
+                "key": "4282905_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4282921,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4282921_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_28067_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "rc_cond_destroy"
+}

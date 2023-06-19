@@ -1,0 +1,91 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4209110_0",
+                "src": "4209079_root"
+            },
+            {
+                "dst": "4209129_0",
+                "src": "4209110_0"
+            },
+            {
+                "dst": "4209152_0",
+                "src": "4209129_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4209152_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4209079,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rax|qword|ptr|rax|    |mov|rdi|rax|    |call|0x405794|    ",
+                "key": "4209079_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4209110,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_6044_64, 0xffffffffc0000000)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rbp|-|0x20|    |mov|rax|qword|ptr|rax|    |mov|rdi|rax|    |call|0x405794|    ",
+                "key": "4209110_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4209129,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(reg_40_6045_64, 0xc000000000000000)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rdx|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rbp|-|0x10|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x403297|    ",
+                "key": "4209129_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4209152,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4209152_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_6050_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "compare_user_entry"
+}

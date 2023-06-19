@@ -1,0 +1,73 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4259491_0",
+                "src": "4259464_root"
+            },
+            {
+                "dst": "4259542_0",
+                "src": "4259491_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4259542_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4259464,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|dword|ptr|rbp|-|0xc|esi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x422d67|    ",
+                "key": "4259464_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4259491,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|0xc|    |cdqe|    |mov|rsi|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|    |sub|rsp|8|    |push|0|    |mov|r9d|0|    |mov|r8d|0|    |mov|ecx|0|    |mov|edx|0|    |mov|rdi|rax|    |call|0x422d8a|    ",
+                "key": "4259491_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4259542,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(reg_48_22297_64, 0x8000000000000000)>"
+                        ]
+                    ]
+                ],
+                "instructions": "add|rsp|0x10|    |nop|    |leave|    |ret|    ",
+                "key": "4259542_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_22301_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "net_create_stream"
+}

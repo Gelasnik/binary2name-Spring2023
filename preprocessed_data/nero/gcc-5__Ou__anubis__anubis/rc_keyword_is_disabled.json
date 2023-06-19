@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4285576_0",
+                "src": "4285387_root"
+            },
+            {
+                "dst": "4285599_0",
+                "src": "4285576_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4285599_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4285387,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x30|    |mov|dword|ptr|rbp|-|0x24|edi|    |mov|qword|ptr|rbp|-|0x30|rsi|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|dword|ptr|rbp|-|0x1c|0|    |mov|rax|qword|ptr|rip|+|0x21c479|    |test|rax|rax|    |je|target_0|    ",
+                "key": "4285387_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4285576,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|0x1c|    |mov|rcx|qword|ptr|rbp|-|8|    |xor|rcx|qword|ptr|fs:0x28|    |je|0x41649f|    ",
+                "key": "4285576_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4285599,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4285599_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "rc_keyword_is_disabled"
+}

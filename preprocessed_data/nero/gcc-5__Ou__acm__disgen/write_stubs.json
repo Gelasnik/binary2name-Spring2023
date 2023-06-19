@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4197980_0",
+                "src": "4197942_root"
+            },
+            {
+                "dst": "4198010_0",
+                "src": "4197980_0"
+            },
+            {
+                "dst": "4198075_0",
+                "src": "4198010_0"
+            },
+            {
+                "dst": "4198082_0",
+                "src": "4198075_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4198082_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4197942,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|rax|qword|ptr|rip|+|0x209edb|    |mov|rcx|rax|    |mov|edx|0x3b|    |mov|esi|1|    |mov|edi|0x407818|    |call|0x400cf0|    ",
+                "key": "4197942_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4197980,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x209ebd|    |mov|edx|0x19|    |mov|esi|0x407858|    |mov|rdi|rax|    |mov|eax|0|    |call|0x400c60|    ",
+                "key": "4197980_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4198010,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x209eb7|    |mov|qword|ptr|rbp|-|0x10|rax|    |jmp|0x400ebb|    ",
+                "key": "4198010_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4198075,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "cmp|qword|ptr|rbp|-|0x10|0|    |jne|0x400e87|    ",
+                "key": "4198075_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4198082,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4198082_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "write_stubs"
+}

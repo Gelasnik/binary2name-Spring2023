@@ -1,0 +1,96 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4214297_0",
+                "src": "4214225_root"
+            },
+            {
+                "dst": "4214401_0",
+                "src": "4214297_0"
+            },
+            {
+                "dst": "4214456_0",
+                "src": "4214401_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4214456_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4214225,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0xd0|    |mov|qword|ptr|rbp|-|0xc8|rdi|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|rax|qword|ptr|rbp|-|0xc8|    |mov|dword|ptr|rax|+|8|4|    |lea|rax|rbp|-|0xc0|    |mov|esi|4|    |mov|rdi|rax|    |mov|eax|0|    |call|0x404eba|    ",
+                "key": "4214225_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4214297,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_120_64, 0x8), 0xffffffffffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rbp|-|0x28|    |mov|rax|qword|ptr|rbp|-|0xc8|    |mov|qword|ptr|rax|rdx|    |mov|rdx|qword|ptr|rbp|-|0xc0|    |mov|rax|qword|ptr|rbp|-|0xc8|    |mov|qword|ptr|rax|+|0x10|rdx|    |mov|rdx|qword|ptr|rbp|-|0xb8|    |mov|rax|qword|ptr|rbp|-|0xc8|    |mov|qword|ptr|rax|+|0x18|rdx|    |mov|edx|dword|ptr|rbp|-|0xb0|    |mov|rax|qword|ptr|rbp|-|0xc8|    |mov|dword|ptr|rax|+|0x20|edx|    |mov|rax|qword|ptr|rbp|-|0xc8|    |add|rax|0x24|    |lea|rdx|rbp|-|0xc0|    |lea|rcx|rdx|+|0x14|    |mov|edx|0x80|    |mov|rsi|rcx|    |mov|rdi|rax|    |call|0x400b70|    ",
+                "key": "4214297_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4214401,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(reg_48_120_64, 0x10), 0x7)>",
+                            "<Bool __eq__(__add__(reg_48_120_64, 0x18), 0xf)>",
+                            "<Bool __eq__(__add__(reg_48_120_64, 0x20), 0x17)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|edx|dword|ptr|rbp|-|0x20|    |mov|rax|qword|ptr|rbp|-|0xc8|    |mov|dword|ptr|rax|+|0xa4|edx|    |mov|rdx|qword|ptr|rbp|-|0x18|    |mov|rax|qword|ptr|rbp|-|0xc8|    |mov|qword|ptr|rax|+|0xa8|rdx|    |nop|    |mov|rax|qword|ptr|rbp|-|8|    |xor|rax|qword|ptr|fs:0x28|    |je|0x404eb8|    ",
+                "key": "4214401_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4214456,
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(__add__(reg_48_120_64, 0xa4), 0x9b)>",
+                            "<Bool __eq__(__add__(reg_48_120_64, 0xa8), 0x9f)>"
+                        ]
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4214456_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "def_typedef"
+}

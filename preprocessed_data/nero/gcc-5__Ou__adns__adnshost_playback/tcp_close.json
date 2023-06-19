@@ -1,0 +1,60 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4237890_0",
+                "src": "4237851_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4237890_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4237851,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|eax|dword|ptr|rax|+|0xa8|    |mov|dword|ptr|rbp|-|4|eax|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|eax|dword|ptr|rax|+|0x70|    |mov|edi|eax|    |call|0x40591f|    ",
+                "key": "4237851_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4237890,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_358_64, 0xa8), 0xfffffffffffffffe)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x18|    |mov|dword|ptr|rax|+|0x70|0xffffffff|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|dword|ptr|rax|+|0x78|0|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|edx|dword|ptr|rax|+|0x78|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|dword|ptr|rax|+|0xac|edx|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|edx|dword|ptr|rax|+|0xac|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|dword|ptr|rax|+|0x88|edx|    |nop|    |leave|    |ret|    ",
+                "key": "4237890_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(reg_48_358_64, 0x78), 0xffffffffffffffce)>",
+                            "<Bool __eq__(__add__(reg_48_358_64, 0xac), 0x2)>",
+                            "<Bool __eq__(__add__(reg_48_358_64, 0x88), 0xffffffffffffffde)>",
+                            "<BV32 Extract(31, 0, reg_48_358_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "tcp_close"
+}

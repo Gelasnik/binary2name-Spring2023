@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4214035_0",
+                "src": "4214001_root"
+            },
+            {
+                "dst": "4214055_0",
+                "src": "4214035_0"
+            },
+            {
+                "dst": "4214075_0",
+                "src": "4214055_0"
+            },
+            {
+                "dst": "4214080_0",
+                "src": "4214075_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4214080_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4214001,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|dword|ptr|rbp|-|4|edi|    |mov|dword|ptr|rbp|-|8|esi|    |mov|dword|ptr|rip|+|0x217a57|0|    |mov|edi|0x415cad|    |call|0x40527e|    ",
+                "key": "4214001_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4214035,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|4|    |mov|esi|eax|    |mov|edi|0x415c42|    |mov|eax|0|    |call|0x40533c|    ",
+                "key": "4214035_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4214055,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rbp|-|8|    |mov|esi|eax|    |mov|edi|0x415cb4|    |mov|eax|0|    |call|0x40533c|    ",
+                "key": "4214055_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4214075,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "call|0x402e78|    ",
+                "key": "4214075_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4214080,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4214080_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_7206_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "Qlisten"
+}

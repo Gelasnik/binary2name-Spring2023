@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4222526_0",
+                "src": "4222512_root"
+            },
+            {
+                "dst": "4222527_0",
+                "src": "4222526_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4222527_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4222512,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|edi|0x4199cc|    |call|0x406dec|    ",
+                "key": "4222512_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4222526,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |pop|rbp|    |ret|    ",
+                "key": "4222526_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4222527,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4222527_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_11078_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "Tnomem"
+}

@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4261076_0",
+                "src": "4260977_root"
+            },
+            {
+                "dst": "4261087_0",
+                "src": "4261076_0"
+            },
+            {
+                "dst": "4261092_0",
+                "src": "4261087_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4261092_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4260977,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|dword|ptr|rbp|-|4|0|    |jmp|target_0|    ",
+                "key": "4260977_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4261076,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rip|+|0x222356|    |cmp|dword|ptr|rbp|-|4|eax|    |jl|0x410486|    ",
+                "key": "4261076_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4261087,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |leave|    |ret|    ",
+                "key": "4261087_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4261092,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4261092_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "anubis_find_section"
+}

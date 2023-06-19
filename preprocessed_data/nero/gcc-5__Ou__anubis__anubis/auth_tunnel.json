@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4261650_0",
+                "src": "4261624_root"
+            },
+            {
+                "dst": "4261671_0",
+                "src": "4261650_0"
+            },
+            {
+                "dst": "4261681_0",
+                "src": "4261671_0"
+            },
+            {
+                "dst": "4261691_0",
+                "src": "4261681_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4261691_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4261624,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|rbx|    |sub|rsp|8|    |mov|rbx|qword|ptr|rip|+|0x2222f0|    |mov|edi|0x4276ca|    |call|0x404300|    ",
+                "key": "4261624_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4261650,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|rbx|    |mov|rsi|rax|    |mov|edi|1|    |mov|eax|0|    |call|0x40a542|    ",
+                "key": "4261650_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4261671,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edi|1|    |call|0x410743|    ",
+                "key": "4261671_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4261681,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edi|1|    |call|0x4109a6|    ",
+                "key": "4261681_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4261691,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |add|rsp|8|    |pop|rbx|    |pop|rbp|    |ret|    ",
+                "key": "4261691_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_23696_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "auth_tunnel"
+}

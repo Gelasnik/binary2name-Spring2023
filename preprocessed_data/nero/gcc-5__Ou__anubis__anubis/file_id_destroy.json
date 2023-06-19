@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4261621_0",
+                "src": "4261597_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4261621_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4261597,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|edx|0|    |mov|esi|0x40e639|    |mov|edi|0x632838|    |call|0x41fe96|    ",
+                "key": "4261597_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4261621,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |pop|rbp|    |ret|    ",
+                "key": "4261621_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_23618_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "file_id_destroy"
+}

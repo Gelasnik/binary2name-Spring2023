@@ -1,0 +1,133 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4208266_0",
+                "src": "4208232_root"
+            },
+            {
+                "dst": "4208266_1",
+                "src": "4208232_root"
+            },
+            {
+                "dst": "4208276_0",
+                "src": "4208266_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4208276_0"
+            },
+            {
+                "dst": "4208271_1",
+                "src": "4208266_1"
+            },
+            {
+                "dst": "4208276_1",
+                "src": "4208271_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4208276_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4208232,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rsi|rax|    |mov|edi|0x417566|    |mov|eax|0|    |call|0x401500|    ",
+                "key": "4208232_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4208266,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "cmp|eax|-1|    |jne|0x403694|    ",
+                "key": "4208266_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4208276,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __ne__(Extract(31, 0, fake_ret_value_1801_64), 0xffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4208276_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_1801_64)>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_1802_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4208266,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "cmp|eax|-1|    |jne|0x403694|    ",
+                "key": "4208266_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4208271,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(Extract(31, 0, fake_ret_value_1801_64), 0xffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "call|0x401a8b|    ",
+                "key": "4208271_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4208276,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4208276_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "print_withspace"
+}

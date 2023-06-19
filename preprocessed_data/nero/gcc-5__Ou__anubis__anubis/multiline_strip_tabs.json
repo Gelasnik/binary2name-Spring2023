@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4305371_0",
+                "src": "4305335_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4305371_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4305335,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|eax|dword|ptr|rip|+|0x21770b|    |test|eax|eax|    |je|target_0|    ",
+                "key": "4305335_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4305371,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |pop|rbp|    |ret|    ",
+                "key": "4305371_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, reg_48_7373_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "multiline_strip_tabs"
+}
