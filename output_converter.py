@@ -269,7 +269,7 @@ def get_constraint_ast(constraint: str, curr_depth: int, max_depth: int) -> Cons
 
 
 class OutputConvertor:
-    def __init__(self, dataset_name: str, sample_path: int, sample_constraint: int):
+    def __init__(self, dataset_name: str, sample_path: float, sample_constraint: int):
         self.filenames = []
         self.converted_filenames = []
         self.src = dataset_name
@@ -561,7 +561,8 @@ class OutputConvertor:
     def create_paths_to_remove_list(self, nodes: List):
         lst = list(range(self.find_num_paths(nodes)))
         str_lst = [str(x) for x in lst]
-        self.paths_to_remove = random.sample(str_lst, max(0, len(str_lst) - self.sample_path))
+        self.paths_to_remove = random.sample(str_lst,
+                                             max(0, min(len(str_lst), math.ceil(len(str_lst)*(1-self.sample_path)))))
 
     def convert_json(self, filename: str):
         filesize = os.path.getsize(filename)
@@ -727,13 +728,13 @@ def main():
     parser.add_argument('--train', type=int, default=70, help='percent of functions in the train file')
     parser.add_argument('--test', type=int, default=20, help='percent of functions in the test file')
     parser.add_argument('--val', type=int, default=10, help='percent of functions in the validate file')
-    parser.add_argument('--sample_path', type=int, default=1, help='select sample_path paths from the constraints of each block')
+    parser.add_argument('--sample_path', type=float, default=0.6, help='select sample_path paths from the constraints of each block')
     parser.add_argument('--sample_constraint', type=int, default=10, help='select sample_constraint constraints from each path constraints of each block')
     parser.add_argument('--only_collect', dest='only_collect', action='store_true')
     parser.add_argument('--only_style', dest='only_style', action='store_true')
     args = parser.parse_args()
 
-    print(f"Convert with sample_path={args.sample_path}, sample_constraint={args.sample_constraint}.")
+    print(f"Convert with =sample_path{args.sample_path*100}%, sample_constraint={args.sample_constraint}.")
     out_convertor = OutputConvertor(args.dataset_name, args.sample_path, args.sample_constraint)
     os.chdir('preprocessed_data')
     if not args.only_collect:
