@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4207907_0",
+                "src": "4207741_root"
+            },
+            {
+                "dst": "4207908_0",
+                "src": "4207907_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4207908_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4207741,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|rbx|    |sub|rsp|0x28|    |mov|eax|edi|    |mov|byte|ptr|rbp|-|0x24|al|    |movzx|eax|byte|ptr|rip|+|0x209f5f|    |xor|eax|1|    |test|al|al|    |jne|target_0|    ",
+                "key": "4207741_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4207907,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |add|rsp|0x28|    |pop|rbx|    |pop|rbp|    |ret|    ",
+                "key": "4207907_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207908,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "add|rsp|0x28|    |pop|rbx|    |pop|rbp|    |ret|    ",
+                "key": "4207908_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x1>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "delete_all_files"
+}

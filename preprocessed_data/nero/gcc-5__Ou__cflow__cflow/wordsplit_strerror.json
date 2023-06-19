@@ -1,0 +1,121 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4264519_0",
+                "src": "4264491_root"
+            },
+            {
+                "dst": "4264541_1",
+                "src": "4264491_root"
+            },
+            {
+                "dst": "4264546_0",
+                "src": "4264519_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4264546_0"
+            },
+            {
+                "dst": "4264546_1",
+                "src": "4264541_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4264546_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4264491,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|edx|dword|ptr|rax|+|0x88|    |mov|eax|dword|ptr|rip|+|0x214ddd|    |cmp|edx|eax|    |jge|target_0|    ",
+                "key": "4264491_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4264519,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_5061_64, 0x88), 0xffffffffffffff00)>",
+                            "<Bool SLT(mem_ffffffffffffff00_5062_32, 0x8)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|eax|dword|ptr|rax|+|0x88|    |cdqe|    |mov|rax|qword|ptr|rax*8|+|0x625fe0|    |jmp|0x411262|    ",
+                "key": "4264519_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4264546,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(__lshift__(SignExt(32, mem_ffffffffffffff00_5062_32), 0x3), 0x625fe0), 0x3dfe8)>"
+                        ]
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4264546_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, mem_3dfe8_5063_64)>"
+                        ]
+                    ],
+                    [
+                        3,
+                        [
+                            "<BV32 0x41f4dc>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4264541,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_5061_64, 0x88), 0xffffffffffffff00)>",
+                            "<Bool SGE(mem_ffffffffffffff00_5062_32, 0x8)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0x41f4dc|    |pop|rbp|    |ret|    ",
+                "key": "4264541_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4264546,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4264546_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "wordsplit_strerror"
+}

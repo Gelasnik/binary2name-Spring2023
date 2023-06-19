@@ -1,0 +1,41 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": "4226492_root"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4226492,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rbp|-|0x20|    |mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|0x10|    |mov|rdx|qword|ptr|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|    |cmp|rdx|rax|    |sete|al|    |pop|rbp|    |ret|    ",
+                "key": "4226492_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_148_64, 0xffffffffff000000)>",
+                            "<Bool __eq__(reg_40_149_64, 0xffffe00000000000)>",
+                            "<BV32 Concat(Extract(31, 8, mem_ffffe00000000000_151_64), 0, If(__eq__(mem_ffffffffff000000_150_64, mem_ffffe00000000000_151_64), 1, 0))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "LCO_compare"
+}

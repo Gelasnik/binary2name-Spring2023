@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4214749_0",
+                "src": "4214688_root"
+            },
+            {
+                "dst": "4214760_0",
+                "src": "4214749_0"
+            },
+            {
+                "dst": "4214814_0",
+                "src": "4214760_0"
+            },
+            {
+                "dst": "4214847_0",
+                "src": "4214814_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4214847_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4214688,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|rax|qword|ptr|rip|+|0x20c311|    |mov|qword|ptr|rbp|-|8|rax|    |mov|dword|ptr|rbp|-|0xc|1|    |jmp|target_0|    ",
+                "key": "4214688_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4214749,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rip|+|0x20c2bd|    |cmp|dword|ptr|rbp|-|0xc|eax|    |jb|0x404fbc|    ",
+                "key": "4214749_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4214760,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|8|    |cmp|rax|0x611400|    |je|0x40501e|    ",
+                "key": "4214760_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4214814,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "cmp|qword|ptr|rbp|-|8|0x6112b0|    |je|0x40503f|    ",
+                "key": "4214814_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4214847,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|dword|ptr|rip|+|0x20c257|1|    |nop|    |leave|    |ret|    ",
+                "key": "4214847_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 0x611400>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "quotearg_free"
+}

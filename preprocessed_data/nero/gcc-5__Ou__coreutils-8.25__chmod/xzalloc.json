@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4219182_0",
+                "src": "4219158_root"
+            },
+            {
+                "dst": "4219205_0",
+                "src": "4219182_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4219205_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4219158,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x406056|    ",
+                "key": "4219158_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4219182,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rcx|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdx|rax|    |mov|esi|0|    |mov|rdi|rcx|    |call|0x4017a0|    ",
+                "key": "4219182_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4219205,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4219205_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_5712_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "xzalloc"
+}

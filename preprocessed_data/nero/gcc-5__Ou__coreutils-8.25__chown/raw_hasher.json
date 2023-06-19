@@ -1,0 +1,56 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4237132_0",
+                "src": "4237099_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4237132_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4237099,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|esi|3|    |mov|rdi|rax|    |call|0x40c86e|    ",
+                "key": "4237099_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4237132,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|edx|0|    |div|qword|ptr|rbp|-|0x20|    |mov|rax|rdx|    |leave|    |ret|    ",
+                "key": "4237132_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __ne__(reg_40_5620_64, 0x0)>",
+                            "<BV32 Extract(31, 0, __mod__(Concat(0x0, fake_ret_value_5621_64), Concat(0x0, reg_40_5620_64)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "raw_hasher"
+}

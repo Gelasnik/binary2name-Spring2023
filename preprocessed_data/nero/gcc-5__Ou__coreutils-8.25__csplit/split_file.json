@@ -1,0 +1,119 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4207208_0",
+                "src": "4206878_root"
+            },
+            {
+                "dst": "4207225_0",
+                "src": "4207208_0"
+            },
+            {
+                "dst": "4207230_0",
+                "src": "4207225_0"
+            },
+            {
+                "dst": "4207235_0",
+                "src": "4207230_0"
+            },
+            {
+                "dst": "4207240_0",
+                "src": "4207235_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4207240_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4206878,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|0x10|0|    |jmp|target_0|    ",
+                "key": "4206878_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4207208,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x20a191|    |cmp|qword|ptr|rbp|-|0x10|rax|    |jb|0x403133|    ",
+                "key": "4207208_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207225,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "call|0x40333c|    ",
+                "key": "4207225_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207230,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "call|0x402b6a|    ",
+                "key": "4207230_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207235,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "call|0x40352b|    ",
+                "key": "4207235_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207240,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4207240_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        6,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_9940_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "split_file"
+}

@@ -1,0 +1,117 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4207600_0",
+                "src": "4207544_root"
+            },
+            {
+                "dst": "4207566_1",
+                "src": "4207544_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4207600_0"
+            },
+            {
+                "dst": "4207578_1",
+                "src": "4207566_1"
+            },
+            {
+                "dst": "4207600_1",
+                "src": "4207578_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4207600_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4207544,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|dword|ptr|rbp|-|0xc|esi|    |cmp|qword|ptr|rbp|-|8|0|    |je|target_0|    ",
+                "key": "4207544_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4207600,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_3520_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4207600_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 reg_10_3524_32>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_3523_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207566,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __ne__(reg_48_3520_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x401670|    ",
+                "key": "4207566_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4207578,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edi|eax|    |mov|eax|dword|ptr|rbp|-|0xc|    |mov|ecx|eax|    |mov|edx|0|    |mov|esi|0|    |call|0x403387|    ",
+                "key": "4207578_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4207600,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4207600_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "fadvise"
+}

@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4285066_0",
+                "src": "4285044_root"
+            },
+            {
+                "dst": "4285075_0",
+                "src": "4285066_0"
+            },
+            {
+                "dst": "4285100_0",
+                "src": "4285075_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4285100_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4285044,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |movzx|eax|byte|ptr|rip|+|0x2119b5|    |xor|eax|1|    |test|al|al|    |je|target_0|    ",
+                "key": "4285044_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4285066,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|byte|ptr|rbp|-|1|0|    |call|0x403030|    ",
+                "key": "4285066_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4285075,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "test|eax|eax|    |sete|al|    |mov|byte|ptr|rbp|-|1|al|    |movzx|eax|byte|ptr|rbp|-|1|    |mov|byte|ptr|rip|+|0x211994|al|    |mov|byte|ptr|rip|+|0x21198c|1|    |movzx|eax|byte|ptr|rip|+|0x211986|    |leave|    |ret|    ",
+                "key": "4285075_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4285100,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "movzx|eax|byte|ptr|rip|+|0x211986|    |leave|    |ret|    ",
+                "key": "4285100_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, Concat(0x0, If(__eq__(Extract(31, 0, fake_ret_value_3651_64), 0x0), 1, 0)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "can_write_any_file"
+}

@@ -1,0 +1,117 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4244584_0",
+                "src": "4244566_root"
+            },
+            {
+                "dst": "4244591_1",
+                "src": "4244566_root"
+            },
+            {
+                "dst": "4244596_0",
+                "src": "4244584_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4244596_0"
+            },
+            {
+                "dst": "4244596_1",
+                "src": "4244591_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4244596_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4244566,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|dword|ptr|rbp|-|4|edi|    |mov|eax|dword|ptr|rbp|-|4|    |sub|eax|0x21|    |cmp|eax|0x5d|    |ja|target_0|    ",
+                "key": "4244566_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4244584,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __le__(__sub__(Extract(31, 0, reg_48_10775_64), 0x21), 0x5d)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|1|    |jmp|0x40c474|    ",
+                "key": "4244584_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4244596,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4244596_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x1>"
+                        ]
+                    ],
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4244591,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __gt__(__sub__(Extract(31, 0, reg_48_10775_64), 0x21), 0x5d)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4244591_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4244596,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4244596_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "c_isgraph"
+}

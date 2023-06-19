@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4203083_0",
+                "src": "4203072_root"
+            },
+            {
+                "dst": "4202976_0",
+                "src": "4203083_0"
+            },
+            {
+                "dst": "4203032_0",
+                "src": "4202976_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4203032_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4203072,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edi|0x611e10|    |cmp|qword|ptr|rdi|0|    |jne|target_0|    ",
+                "key": "4203072_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4203083,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x4021e0|    ",
+                "key": "4203083_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4202976,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|esi|0x612378|    |push|rbp|    |sub|rsi|0x612378|    |sar|rsi|3|    |mov|rbp|rsp|    |mov|rax|rsi|    |shr|rax|0x3f|    |add|rsi|rax|    |sar|rsi|1|    |je|0x402218|    ",
+                "key": "4202976_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4203032,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4203032_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "frame_dummy"
+}

@@ -1,0 +1,133 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4302484_0",
+                "src": "4302443_root"
+            },
+            {
+                "dst": "4302467_1",
+                "src": "4302443_root"
+            },
+            {
+                "dst": "4302501_0",
+                "src": "4302484_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4302501_0"
+            },
+            {
+                "dst": "4302482_1",
+                "src": "4302467_1"
+            },
+            {
+                "dst": "4302501_1",
+                "src": "4302482_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4302501_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4302443,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|dword|ptr|rbp|-|0xc|esi|    |mov|dword|ptr|rbp|-|0x10|edx|    |cmp|dword|ptr|rbp|-|0xc|-1|    |je|target_0|    ",
+                "key": "4302443_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4302484,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(Extract(31, 0, reg_40_11999_64), 0xffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|edx|dword|ptr|rbp|-|0x10|    |mov|rax|qword|ptr|rbp|-|8|    |mov|esi|edx|    |mov|rdi|rax|    |call|0x403410|    ",
+                "key": "4302484_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4302501,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4302501_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_12001_64)>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_12002_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4302467,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __ne__(Extract(31, 0, reg_40_11999_64), 0xffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|edx|dword|ptr|rbp|-|0x10|    |mov|eax|dword|ptr|rbp|-|0xc|    |mov|esi|edx|    |mov|edi|eax|    |call|0x4033f0|    ",
+                "key": "4302467_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4302482,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x41a6a5|    ",
+                "key": "4302482_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4302501,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4302501_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "chmod_or_fchmod"
+}

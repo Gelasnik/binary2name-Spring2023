@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4216724_0",
+                "src": "4216683_root"
+            },
+            {
+                "dst": "4216734_0",
+                "src": "4216724_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4216734_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4216683,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rip|+|0x220922|    |mov|rdx|qword|ptr|rbp|-|8|    |mov|esi|0x41cf2f|    |mov|rdi|rax|    |mov|eax|0|    |call|0x401b00|    ",
+                "key": "4216683_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4216724,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edi|2|    |call|0x401cb0|    ",
+                "key": "4216724_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4216734,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|eax|dword|ptr|rip|+|0x21faf8|    |pop|rbp|    |ret|    ",
+                "key": "4216734_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x1>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "yy_fatal_error"
+}

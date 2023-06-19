@@ -1,0 +1,133 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4224779_0",
+                "src": "4224738_root"
+            },
+            {
+                "dst": "4224762_1",
+                "src": "4224738_root"
+            },
+            {
+                "dst": "4224796_0",
+                "src": "4224779_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4224796_0"
+            },
+            {
+                "dst": "4224777_1",
+                "src": "4224762_1"
+            },
+            {
+                "dst": "4224796_1",
+                "src": "4224777_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4224796_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4224738,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|dword|ptr|rbp|-|4|edi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |mov|dword|ptr|rbp|-|8|edx|    |cmp|dword|ptr|rbp|-|4|0|    |js|target_0|    ",
+                "key": "4224738_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4224779,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __ne__(Extract(0, 0, LShR(ZeroExt(32, Extract(31, 0, reg_48_5852_64)), 0x1f)), 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|edx|dword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rbp|-|0x10|    |mov|esi|edx|    |mov|rdi|rax|    |call|0x403410|    ",
+                "key": "4224779_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4224796,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4224796_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_5855_64)>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_5856_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4224762,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(Extract(0, 0, LShR(ZeroExt(32, Extract(31, 0, reg_48_5852_64)), 0x1f)), 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|edx|dword|ptr|rbp|-|8|    |mov|eax|dword|ptr|rbp|-|4|    |mov|esi|edx|    |mov|edi|eax|    |call|0x4033f0|    ",
+                "key": "4224762_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4224777,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x40771c|    ",
+                "key": "4224777_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4224796,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4224796_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "fchmod_or_lchmod"
+}

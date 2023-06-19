@@ -1,0 +1,89 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4202080_0",
+                "src": "4202061_root"
+            },
+            {
+                "dst": "4202088_0",
+                "src": "4202080_0"
+            },
+            {
+                "dst": "4202131_0",
+                "src": "4202088_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4202131_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4202061,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|rbx|    |sub|rsp|0x18|    |mov|edi|0x405d40|    |call|0x400e50|    ",
+                "key": "4202061_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4202080,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rbx|rax|    |call|0x400dc0|    ",
+                "key": "4202080_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4202088,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rax|    |mov|dword|ptr|rbp|-|0x20|0x47|    |mov|dword|ptr|rbp|-|0x1c|eax|    |mov|qword|ptr|rbp|-|0x18|rbx|    |mov|rdx|qword|ptr|rbp|-|0x18|    |mov|esi|dword|ptr|rbp|-|0x1c|    |mov|eax|dword|ptr|rbp|-|0x20|    |mov|ecx|0x405d80|    |mov|edi|eax|    |mov|eax|0|    |call|0x400f90|    ",
+                "key": "4202088_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4202131,
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(fake_ret_value_987_64, 0xfffffff800000000)>"
+                        ]
+                    ]
+                ],
+                "instructions": "nop|    |add|rsp|0x18|    |pop|rbx|    |pop|rbp|    |ret|    ",
+                "key": "4202131_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_989_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "memory_obstack_alloc_failed"
+}

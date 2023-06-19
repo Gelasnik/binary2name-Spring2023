@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4210518_0",
+                "src": "4210476_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4210518_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4210476,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|dword|ptr|rbp|-|4|edi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |mov|qword|ptr|rbp|-|0x18|rdx|    |mov|rdx|qword|ptr|rbp|-|0x18|    |mov|rsi|qword|ptr|rbp|-|0x10|    |mov|eax|dword|ptr|rbp|-|4|    |mov|ecx|0x609240|    |mov|edi|eax|    |call|0x40378d|    ",
+                "key": "4210476_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4210518,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4210518_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_3034_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "quote_n_mem"
+}

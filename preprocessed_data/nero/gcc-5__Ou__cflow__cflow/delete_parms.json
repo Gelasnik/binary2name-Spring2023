@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4249115_0",
+                "src": "4249082_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4249115_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4249082,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|dword|ptr|rbp|-|4|edi|    |lea|rax|rbp|-|4|    |mov|rdx|rax|    |mov|esi|0x40d576|    |mov|edi|0x6262e0|    |call|0x407072|    ",
+                "key": "4249082_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4249115,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4249115_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_13474_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "delete_parms"
+}

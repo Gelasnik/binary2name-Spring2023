@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4219340_0",
+                "src": "4219316_root"
+            },
+            {
+                "dst": "4219359_0",
+                "src": "4219340_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4219359_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4219316,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x4016e0|    ",
+                "key": "4219316_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4219340,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "lea|rdx|rax|+|1|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x406180|    ",
+                "key": "4219340_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4219359,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4219359_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_5927_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "xstrdup"
+}

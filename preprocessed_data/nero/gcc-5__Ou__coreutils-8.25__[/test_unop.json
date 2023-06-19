@@ -1,0 +1,137 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4207883_0",
+                "src": "4207864_root"
+            },
+            {
+                "dst": "4207890_1",
+                "src": "4207864_root"
+            },
+            {
+                "dst": "4207936_0",
+                "src": "4207883_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4207936_0"
+            },
+            {
+                "dst": "4207931_1",
+                "src": "4207890_1"
+            },
+            {
+                "dst": "4207936_1",
+                "src": "4207931_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4207936_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4207864,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |movzx|eax|byte|ptr|rax|    |cmp|al|0x2d|    |je|target_0|    ",
+                "key": "4207864_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4207883,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_2035_64, 0xfffffffffffffe00)>",
+                            "<Bool __ne__(mem_fffffffffffffe00_2036_8, 45)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |jmp|0x403540|    ",
+                "key": "4207883_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207936,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4207936_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207890,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_2035_64, 0xfffffffffffffe00)>",
+                            "<Bool __eq__(mem_fffffffffffffe00_2036_8, 45)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |add|rax|1|    |movzx|eax|byte|ptr|rax|    |movsx|eax|al|    |sub|eax|0x47|    |cmp|eax|0x33|    |ja|0x40353b|    ",
+                "key": "4207890_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4207931,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __gt__(__sub__(SignExt(24, mem_fffffffffffffe01_2037_8), 0x47), 0x33)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |pop|rbp|    |ret|    ",
+                "key": "4207931_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4207936,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4207936_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "test_unop"
+}

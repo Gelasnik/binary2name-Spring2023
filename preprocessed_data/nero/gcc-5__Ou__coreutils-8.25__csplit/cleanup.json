@@ -1,0 +1,119 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4202253_0",
+                "src": "4202222_root"
+            },
+            {
+                "dst": "4202278_0",
+                "src": "4202253_0"
+            },
+            {
+                "dst": "4202288_0",
+                "src": "4202278_0"
+            },
+            {
+                "dst": "4202313_0",
+                "src": "4202288_0"
+            },
+            {
+                "dst": "4202334_0",
+                "src": "4202313_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4202334_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4202222,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x90|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |call|0x40352b|    ",
+                "key": "4202222_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4202253,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "lea|rax|rbp|-|0x90|    |mov|rdx|rax|    |mov|esi|0x60d420|    |mov|edi|0|    |call|0x4016e0|    ",
+                "key": "4202253_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4202278,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edi|0|    |call|0x40347d|    ",
+                "key": "4202278_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4202288,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "lea|rax|rbp|-|0x90|    |mov|edx|0|    |mov|rsi|rax|    |mov|edi|2|    |call|0x4016e0|    ",
+                "key": "4202288_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4202313,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |mov|rax|qword|ptr|rbp|-|8|    |xor|rax|qword|ptr|fs:0x28|    |je|0x401f5e|    ",
+                "key": "4202313_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4202334,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4202334_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        6,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "cleanup"
+}

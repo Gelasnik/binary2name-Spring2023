@@ -1,0 +1,133 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4218198_0",
+                "src": "4218165_root"
+            },
+            {
+                "dst": "4218184_1",
+                "src": "4218165_root"
+            },
+            {
+                "dst": "4218203_0",
+                "src": "4218198_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4218203_0"
+            },
+            {
+                "dst": "4218196_1",
+                "src": "4218184_1"
+            },
+            {
+                "dst": "4218203_1",
+                "src": "4218196_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4218203_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4218165,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |cmp|qword|ptr|rbp|-|8|0|    |je|target_0|    ",
+                "key": "4218165_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4218198,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_3409_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |mov|qword|ptr|rip|+|0x220616|rax|    |nop|    |leave|    |ret|    ",
+                "key": "4218198_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4218203,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rip|+|0x220616|rax|    |nop|    |leave|    |ret|    ",
+                "key": "4218203_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_3410_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4218184,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __ne__(reg_48_3409_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x415395|    ",
+                "key": "4218184_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4218196,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x405d5b|    ",
+                "key": "4218196_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4218203,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rip|+|0x220616|rax|    |nop|    |leave|    |ret|    ",
+                "key": "4218203_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "set_preprocessor"
+}

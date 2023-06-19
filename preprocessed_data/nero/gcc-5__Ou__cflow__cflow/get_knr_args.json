@@ -1,0 +1,119 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4242168_0",
+                "src": "4242128_root"
+            },
+            {
+                "dst": "4242175_0",
+                "src": "4242168_0"
+            },
+            {
+                "dst": "4242476_0",
+                "src": "4242175_0"
+            },
+            {
+                "dst": "4242481_0",
+                "src": "4242476_0"
+            },
+            {
+                "dst": "4242501_0",
+                "src": "4242481_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4242501_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4242128,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x60|    |mov|qword|ptr|rbp|-|0x58|rdi|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|eax|dword|ptr|rip|+|0x21aa4f|    |cmp|eax|0x108|    |je|target_0|    ",
+                "key": "4242128_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4242168,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "cmp|eax|0x10e|    |je|0x40bb0a|    ",
+                "key": "4242168_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4242175,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "cmp|eax|0x104|    |jne|0x40bc2c|    ",
+                "key": "4242175_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4242476,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|0|    |mov|rdx|qword|ptr|rbp|-|8|    |xor|rdx|qword|ptr|fs:0x28|    |je|0x40bc45|    ",
+                "key": "4242476_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4242481,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rbp|-|8|    |xor|rdx|qword|ptr|fs:0x28|    |je|0x40bc45|    ",
+                "key": "4242481_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4242501,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4242501_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        6,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "get_knr_args"
+}

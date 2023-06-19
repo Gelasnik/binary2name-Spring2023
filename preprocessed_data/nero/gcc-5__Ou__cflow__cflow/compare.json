@@ -1,0 +1,60 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4229232_0",
+                "src": "4229167_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4229232_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4229167,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rbp|-|0x20|    |mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|    |mov|rdx|qword|ptr|rax|+|0x20|    |mov|rax|qword|ptr|rbp|-|0x10|    |mov|rax|qword|ptr|rax|    |mov|rax|qword|ptr|rax|+|0x20|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x401af0|    ",
+                "key": "4229167_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4229232,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_40_7058_64, 0xfffffffffffff800)>",
+                            "<Bool __eq__(__add__(mem_fffffffffffff800_7059_64, 0x20), 0xfffffffffffffffc)>",
+                            "<Bool __eq__(reg_48_7057_64, 0xfffffffffffffff0)>",
+                            "<Bool __eq__(__add__(mem_fffffffffffffff0_7062_64, 0x20), 0xffffffffffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4229232_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_7064_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "compare"
+}

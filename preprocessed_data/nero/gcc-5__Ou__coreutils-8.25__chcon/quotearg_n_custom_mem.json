@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4215682_0",
+                "src": "4215540_root"
+            },
+            {
+                "dst": "4215704_0",
+                "src": "4215682_0"
+            },
+            {
+                "dst": "4215724_0",
+                "src": "4215704_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4215724_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4215540,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x70|    |mov|dword|ptr|rbp|-|0x44|edi|    |mov|qword|ptr|rbp|-|0x50|rsi|    |mov|qword|ptr|rbp|-|0x58|rdx|    |mov|qword|ptr|rbp|-|0x60|rcx|    |mov|qword|ptr|rbp|-|0x68|reg|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|rax|qword|ptr|rip|+|0x20d11b|    |mov|qword|ptr|rbp|-|0x40|rax|    |mov|rax|qword|ptr|rip|+|0x20d118|    |mov|qword|ptr|rbp|-|0x38|rax|    |mov|rax|qword|ptr|rip|+|0x20d115|    |mov|qword|ptr|rbp|-|0x30|rax|    |mov|rax|qword|ptr|rip|+|0x20d112|    |mov|qword|ptr|rbp|-|0x28|rax|    |mov|rax|qword|ptr|rip|+|0x20d10f|    |mov|qword|ptr|rbp|-|0x20|rax|    |mov|rax|qword|ptr|rip|+|0x20d10c|    |mov|qword|ptr|rbp|-|0x18|rax|    |mov|rax|qword|ptr|rip|+|0x20d109|    |mov|qword|ptr|rbp|-|0x10|rax|    |mov|rdx|qword|ptr|rbp|-|0x58|    |mov|rcx|qword|ptr|rbp|-|0x50|    |lea|rax|rbp|-|0x40|    |mov|rsi|rcx|    |mov|rdi|rax|    |call|0x403aa4|    ",
+                "key": "4215540_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4215682,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "lea|rcx|rbp|-|0x40|    |mov|rdx|qword|ptr|rbp|-|0x68|    |mov|rsi|qword|ptr|rbp|-|0x60|    |mov|eax|dword|ptr|rbp|-|0x44|    |mov|edi|eax|    |call|0x404c78|    ",
+                "key": "4215682_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4215704,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdi|qword|ptr|rbp|-|8|    |xor|rdi|qword|ptr|fs:0x28|    |je|0x4053ac|    ",
+                "key": "4215704_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4215724,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4215724_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_3213_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "quotearg_n_custom_mem"
+}

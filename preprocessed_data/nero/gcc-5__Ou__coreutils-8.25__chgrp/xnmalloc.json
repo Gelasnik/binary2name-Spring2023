@@ -1,0 +1,213 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4219235_0",
+                "src": "4219184_root"
+            },
+            {
+                "dst": "4219230_1",
+                "src": "4219184_root"
+            },
+            {
+                "dst": "4219254_0",
+                "src": "4219235_0"
+            },
+            {
+                "dst": "4219271_0",
+                "src": "4219254_0"
+            },
+            {
+                "dst": "4219291_0",
+                "src": "4219271_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4219291_0"
+            },
+            {
+                "dst": "4219235_1",
+                "src": "4219230_1"
+            },
+            {
+                "dst": "4219249_1",
+                "src": "4219235_1"
+            },
+            {
+                "dst": "4219254_1",
+                "src": "4219249_1"
+            },
+            {
+                "dst": "4219271_1",
+                "src": "4219254_1"
+            },
+            {
+                "dst": "4219291_1",
+                "src": "4219271_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4219291_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4219184,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|qword|ptr|rbp|-|0x20|rsi|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |mov|ecx|0|    |mov|rax|qword|ptr|rbp|-|0x18|    |mul|qword|ptr|rbp|-|0x20|    |jno|target_0|    ",
+                "key": "4219184_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4219235,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__rshift__(__mul__(reg_48_6368_64, reg_40_6369_64), 0x40), 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|rcx|    |and|eax|1|    |test|al|al|    |je|0x406176|    ",
+                "key": "4219235_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4219254,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x18|    |imul|rax|qword|ptr|rbp|-|0x20|    |mov|rdi|rax|    |call|0x4062e1|    ",
+                "key": "4219254_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4219271,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rbp|-|8|    |xor|rdx|qword|ptr|fs:0x28|    |je|0x40619b|    ",
+                "key": "4219271_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4219291,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4219291_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_6371_64)>"
+                        ]
+                    ],
+                    [
+                        7,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_6373_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4219230,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __ne__(__rshift__(__mul__(reg_48_6368_64, reg_40_6369_64), 0x40), 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|ecx|1|    |mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|rcx|    |and|eax|1|    |test|al|al|    |je|0x406176|    ",
+                "key": "4219230_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4219235,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|rcx|    |and|eax|1|    |test|al|al|    |je|0x406176|    ",
+                "key": "4219235_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4219249,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "call|0x40646c|    ",
+                "key": "4219249_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4219254,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x18|    |imul|rax|qword|ptr|rbp|-|0x20|    |mov|rdi|rax|    |call|0x4062e1|    ",
+                "key": "4219254_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4219271,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rbp|-|8|    |xor|rdx|qword|ptr|fs:0x28|    |je|0x40619b|    ",
+                "key": "4219271_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4219291,
+                "constraints": [
+                    [
+                        6,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4219291_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "xnmalloc"
+}

@@ -1,0 +1,148 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4208977_0",
+                "src": "4208933_root"
+            },
+            {
+                "dst": "4208952_1",
+                "src": "4208933_root"
+            },
+            {
+                "dst": "4209017_0",
+                "src": "4208977_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4209017_0"
+            },
+            {
+                "dst": "4208977_1",
+                "src": "4208952_1"
+            },
+            {
+                "dst": "4209017_1",
+                "src": "4208977_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4209017_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4208933,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |cmp|qword|ptr|rbp|-|8|0|    |jne|target_0|    ",
+                "key": "4208933_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4208977,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __ne__(reg_48_920_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|dword|ptr|rax|0|    |mov|rax|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|+|0x28|0|    |mov|rax|qword|ptr|rbp|-|8|    |mov|byte|ptr|rax|+|4|0|    |mov|edi|8|    |call|0x401d6a|    ",
+                "key": "4208977_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4209017,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(reg_48_920_64, 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(reg_48_920_64, 0x28), 0x27)>",
+                            "<Bool __eq__(__add__(reg_48_920_64, 0x4), 0x3)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|+|0x18|rdx|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|dword|ptr|rax|0xffffffff|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x18|    |add|rax|4|    |mov|dword|ptr|rax|0xffffffff|    |mov|rax|qword|ptr|rbp|-|8|    |mov|dword|ptr|rax|+|0x20|2|    |nop|    |leave|    |ret|    ",
+                "key": "4209017_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(__add__(reg_48_920_64, 0x18), 0x17)>",
+                            "<Bool __eq__(fake_ret_value_922_64, 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(fake_ret_value_922_64, 0x4), 0x3)>",
+                            "<Bool __eq__(__add__(reg_48_920_64, 0x20), 0x1f)>",
+                            "<BV32 Extract(31, 0, reg_48_920_64)>"
+                        ]
+                    ],
+                    [
+                        4,
+                        [
+                            "<Bool __eq__(__add__(reg_48_920_64, 0x18), 0x18)>",
+                            "<Bool __eq__(fake_ret_value_923_64, 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(fake_ret_value_923_64, 0x4), 0x3)>",
+                            "<Bool __eq__(__add__(reg_48_920_64, 0x20), 0x20)>",
+                            "<BV32 Extract(31, 0, reg_48_920_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4208952,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_920_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|ecx|0x406290|    |mov|edx|0x1d3|    |mov|esi|0x405fa8|    |mov|edi|0x406250|    |call|0x400eb0|    ",
+                "key": "4208952_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4208977,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|dword|ptr|rax|0|    |mov|rax|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|+|0x28|0|    |mov|rax|qword|ptr|rbp|-|8|    |mov|byte|ptr|rax|+|4|0|    |mov|edi|8|    |call|0x401d6a|    ",
+                "key": "4208977_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4209017,
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(__add__(reg_48_920_64, 0x28), 0x28)>",
+                            "<Bool __eq__(__add__(reg_48_920_64, 0x4), 0x4)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rdx|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|+|0x18|rdx|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x18|    |mov|dword|ptr|rax|0xffffffff|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rax|qword|ptr|rax|+|0x18|    |add|rax|4|    |mov|dword|ptr|rax|0xffffffff|    |mov|rax|qword|ptr|rbp|-|8|    |mov|dword|ptr|rax|+|0x20|2|    |nop|    |leave|    |ret|    ",
+                "key": "4209017_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "ccd_TRACK_init"
+}

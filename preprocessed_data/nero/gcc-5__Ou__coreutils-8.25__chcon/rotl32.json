@@ -1,0 +1,39 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": "4246482_root"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4246482,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|dword|ptr|rbp|-|4|edi|    |mov|dword|ptr|rbp|-|8|esi|    |mov|eax|dword|ptr|rbp|-|8|    |mov|edx|dword|ptr|rbp|-|4|    |mov|ecx|eax|    |rol|edx|cl|    |mov|eax|edx|    |pop|rbp|    |ret|    ",
+                "key": "4246482_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<BV32 __or__(__lshift__(Extract(31, 0, reg_48_10107_64), Concat(0x0, Extract(4, 0, reg_40_10108_64))), LShR(Extract(31, 0, reg_48_10107_64), Concat(0x0, __add__(32, __mul__(255, Concat(0, Extract(4, 0, reg_40_10108_64)))))))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "rotl32"
+}

@@ -1,0 +1,135 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4216838_0",
+                "src": "4216819_root"
+            },
+            {
+                "dst": "4216856_0",
+                "src": "4216838_0"
+            },
+            {
+                "dst": "4216866_0",
+                "src": "4216856_0"
+            },
+            {
+                "dst": "4216889_0",
+                "src": "4216866_0"
+            },
+            {
+                "dst": "4216906_0",
+                "src": "4216889_0"
+            },
+            {
+                "dst": "4216917_0",
+                "src": "4216906_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4216917_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4216819,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |push|rbx|    |sub|rsp|8|    |mov|edi|0x408040|    |call|0x401530|    ",
+                "key": "4216819_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4216838,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|esi|0x408055|    |mov|rdi|rax|    |mov|eax|0|    |call|0x401550|    ",
+                "key": "4216838_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4216856,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edi|0x40806b|    |call|0x401530|    ",
+                "key": "4216856_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4216866,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|edx|0x408080|    |mov|esi|0x4080a7|    |mov|rdi|rax|    |mov|eax|0|    |call|0x401550|    ",
+                "key": "4216866_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4216889,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rbx|qword|ptr|rip|+|0x204a68|    |mov|edi|0x4080b8|    |call|0x401530|    ",
+                "key": "4216889_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4216906,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rsi|rbx|    |mov|rdi|rax|    |call|0x401600|    ",
+                "key": "4216906_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4216917,
+                "constraints": [
+                    [
+                        6,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |add|rsp|8|    |pop|rbx|    |pop|rbp|    |ret|    ",
+                "key": "4216917_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        7,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_848_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "emit_bug_reporting_address"
+}

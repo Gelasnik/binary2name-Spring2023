@@ -1,0 +1,169 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4255536_0",
+                "src": "4255512_root"
+            },
+            {
+                "dst": "4255536_1",
+                "src": "4255512_root"
+            },
+            {
+                "dst": "4255559_0",
+                "src": "4255536_0"
+            },
+            {
+                "dst": "4255571_0",
+                "src": "4255559_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4255571_0"
+            },
+            {
+                "dst": "4255551_1",
+                "src": "4255536_1"
+            },
+            {
+                "dst": "4255559_1",
+                "src": "4255551_1"
+            },
+            {
+                "dst": "4255571_1",
+                "src": "4255559_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4255571_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4255512,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x30|    |mov|qword|ptr|rbp|-|0x28|rdi|    |mov|rax|qword|ptr|rbp|-|0x28|    |mov|rdi|rax|    |call|0x40ee61|    ",
+                "key": "4255512_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4255536,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rbp|-|0x10|    |movzx|eax|byte|ptr|rax|    |test|al|al|    |jne|0x40ef47|    ",
+                "key": "4255536_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4255559,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(fake_ret_value_12842_64, 0xc000000000000000)>",
+                            "<Bool __ne__(mem_c000000000000000_12843_8, 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x10|    |mov|rdi|rax|    |call|0x40eeca|    ",
+                "key": "4255559_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4255571,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|rax|    |mov|rax|qword|ptr|rbp|-|0x10|    |add|rax|rdx|    |mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |movzx|eax|byte|ptr|rax|    |test|al|al|    |setne|al|    |mov|byte|ptr|rbp|-|0x11|al|    |mov|rax|qword|ptr|rbp|-|8|    |mov|byte|ptr|rax|0|    |movzx|eax|byte|ptr|rbp|-|0x11|    |leave|    |ret|    ",
+                "key": "4255571_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<Bool __eq__(__add__(fake_ret_value_12842_64, fake_ret_value_12844_64), 0xffffffffe0000000)>",
+                            "<BV32 Extract(31, 0, Concat(0x0, If(__eq__(mem_ffffffffe0000000_12846_8, 0), 0, 1)))>"
+                        ]
+                    ],
+                    [
+                        5,
+                        [
+                            "<Bool __eq__(__add__(reg_48_12841_64, fake_ret_value_12845_64), 0xfffffffffffffffd)>",
+                            "<BV32 Extract(31, 0, Concat(0x0, If(__eq__(mem_fffffffffffffffd_12847_8, 0), 0, 1)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4255536,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rbp|-|0x10|    |movzx|eax|byte|ptr|rax|    |test|al|al|    |jne|0x40ef47|    ",
+                "key": "4255536_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4255551,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(fake_ret_value_12842_64, 0xc000000000000000)>",
+                            "<Bool __eq__(mem_c000000000000000_12843_8, 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x28|    |mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rbp|-|0x10|    |mov|rdi|rax|    |call|0x40eeca|    ",
+                "key": "4255551_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4255559,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x10|    |mov|rdi|rax|    |call|0x40eeca|    ",
+                "key": "4255559_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4255571,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|rax|    |mov|rax|qword|ptr|rbp|-|0x10|    |add|rax|rdx|    |mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |movzx|eax|byte|ptr|rax|    |test|al|al|    |setne|al|    |mov|byte|ptr|rbp|-|0x11|al|    |mov|rax|qword|ptr|rbp|-|8|    |mov|byte|ptr|rax|0|    |movzx|eax|byte|ptr|rbp|-|0x11|    |leave|    |ret|    ",
+                "key": "4255571_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "strip_trailing_slashes"
+}

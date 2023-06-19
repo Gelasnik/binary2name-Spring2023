@@ -1,0 +1,197 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4237833_0",
+                "src": "4237808_root"
+            },
+            {
+                "dst": "4237833_1",
+                "src": "4237808_root"
+            },
+            {
+                "dst": "4237856_0",
+                "src": "4237833_0"
+            },
+            {
+                "dst": "4237873_0",
+                "src": "4237856_0"
+            },
+            {
+                "dst": "4237886_0",
+                "src": "4237873_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4237886_0"
+            },
+            {
+                "dst": "4237837_1",
+                "src": "4237833_1"
+            },
+            {
+                "dst": "4237854_1",
+                "src": "4237837_1"
+            },
+            {
+                "dst": "4237873_1",
+                "src": "4237854_1"
+            },
+            {
+                "dst": "4237886_1",
+                "src": "4237873_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4237886_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4237808,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|dword|ptr|rbp|-|0xc|esi|    |mov|eax|0|    |call|0x40a8df|    ",
+                "key": "4237808_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4237833,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "test|eax|eax|    |je|0x40aa20|    ",
+                "key": "4237833_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4237856,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(Extract(31, 0, fake_ret_value_10050_64), 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|edx|dword|ptr|rbp|-|0xc|    |mov|rax|qword|ptr|rbp|-|8|    |mov|esi|edx|    |mov|rdi|rax|    |call|0x40ae4f|    ",
+                "key": "4237856_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4237873,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rip|+|0x21bba5|    |mov|edi|eax|    |call|0x40d5fa|    ",
+                "key": "4237873_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4237886,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4237886_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_10053_64)>"
+                        ]
+                    ],
+                    [
+                        6,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_10054_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4237833,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "test|eax|eax|    |je|0x40aa20|    ",
+                "key": "4237833_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4237837,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __ne__(Extract(31, 0, fake_ret_value_10050_64), 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|edx|dword|ptr|rbp|-|0xc|    |mov|rax|qword|ptr|rbp|-|8|    |mov|esi|edx|    |mov|rdi|rax|    |call|0x40abcd|    ",
+                "key": "4237837_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4237854,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|0x40aa31|    ",
+                "key": "4237854_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4237873,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|eax|dword|ptr|rip|+|0x21bba5|    |mov|edi|eax|    |call|0x40d5fa|    ",
+                "key": "4237873_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4237886,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4237886_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "parse_declaration"
+}

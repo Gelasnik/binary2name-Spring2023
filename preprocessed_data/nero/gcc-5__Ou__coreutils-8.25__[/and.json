@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4207621_0",
+                "src": "4207609_root"
+            },
+            {
+                "dst": "4207626_0",
+                "src": "4207621_0"
+            },
+            {
+                "dst": "4207702_0",
+                "src": "4207626_0"
+            },
+            {
+                "dst": "4207720_0",
+                "src": "4207702_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4207720_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4207609,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|byte|ptr|rbp|-|1|1|    |call|0x401e0a|    ",
+                "key": "4207609_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4207621,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "call|0x401e0a|    ",
+                "key": "4207621_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207626,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "movzx|edx|byte|ptr|rbp|-|1|    |movzx|eax|al|    |and|eax|edx|    |test|eax|eax|    |setne|al|    |mov|byte|ptr|rbp|-|1|al|    |mov|edx|dword|ptr|rip|+|0x208eaf|    |mov|eax|dword|ptr|rip|+|0x208ead|    |cmp|edx|eax|    |jge|0x403456|    ",
+                "key": "4207626_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207702,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "movzx|eax|byte|ptr|rbp|-|1|    |jmp|0x403468|    ",
+                "key": "4207702_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4207720,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4207720_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<BV32 Extract(31, 0, Concat(0x0, If(__eq__(Extract(0, 0, fake_ret_value_1839_64), 0), 0, 1)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "and"
+}

@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4200896_0",
+                "src": "4246672_root"
+            },
+            {
+                "dst": "7340304_0",
+                "src": "4200896_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "7340304_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4246672,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "mov|regd|ecx|    |mov|rcx|rdx|    |mov|rdx|rsi|    |mov|esi|edi|    |mov|edi|1|    |jmp|target_0|    ",
+                "key": "4246672_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4200896,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|qword|ptr|rip|+|0x210732|    ",
+                "key": "4200896_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 7340304,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    ",
+                "key": "7340304_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, unconstrained_ret___fxstatat_11809_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "fstatat"
+}

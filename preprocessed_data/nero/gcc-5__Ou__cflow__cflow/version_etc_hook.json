@@ -1,0 +1,55 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4271391_0",
+                "src": "4271336_root"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4271391_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4271336,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |mov|rdx|qword|ptr|rip|+|0x213611|    |mov|rsi|qword|ptr|rip|+|0x213602|    |mov|rax|qword|ptr|rbp|-|8|    |mov|reg|rdx|    |mov|ecx|0x41f8b5|    |mov|edx|0x41f8b9|    |mov|rdi|rax|    |call|0x414e33|    ",
+                "key": "4271336_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4271391,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4271391_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_6730_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "version_etc_hook"
+}

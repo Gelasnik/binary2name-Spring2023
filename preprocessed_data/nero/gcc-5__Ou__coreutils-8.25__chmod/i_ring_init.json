@@ -1,0 +1,88 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4238679_0",
+                "src": "4238609_root"
+            },
+            {
+                "dst": "4238659_0",
+                "src": "4238679_0"
+            },
+            {
+                "dst": "4238679_0",
+                "src": "4238659_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4238659_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4238609,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|dword|ptr|rbp|-|0x1c|esi|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|byte|ptr|rax|+|0x1c|1|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|dword|ptr|rax|+|0x14|0|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|dword|ptr|rax|+|0x18|0|    |mov|dword|ptr|rbp|-|4|0|    |jmp|target_0|    ",
+                "key": "4238609_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4238679,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(__add__(reg_48_6013_64, 0x1c), 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(reg_48_6013_64, 0x14), 0xfffffffffffffff7)>",
+                            "<Bool __eq__(__add__(reg_48_6013_64, 0x18), 0xfffffffffffffffb)>"
+                        ]
+                    ],
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "cmp|dword|ptr|rbp|-|4|3|    |jle|0x40ad43|    ",
+                "key": "4238679_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4238659,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ],
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x18|    |mov|edx|dword|ptr|rbp|-|4|    |movsxd|rdx|edx|    |mov|ecx|dword|ptr|rbp|-|0x1c|    |mov|dword|ptr|rax|+|rdx*4|ecx|    |add|dword|ptr|rbp|-|4|1|    |cmp|dword|ptr|rbp|-|4|3|    |jle|0x40ad43|    ",
+                "key": "4238659_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        5,
+                        [
+                            "<Bool __eq__(__add__(reg_48_6013_64, 0x4), 0xffffffffffffffe7)>",
+                            "<BV32 Extract(31, 0, reg_48_6013_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "i_ring_init"
+}

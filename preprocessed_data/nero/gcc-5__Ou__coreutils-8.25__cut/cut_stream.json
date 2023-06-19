@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4203651_0",
+                "src": "4203614_root"
+            },
+            {
+                "dst": "4203663_0",
+                "src": "4203651_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4203663_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4203614,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|eax|dword|ptr|rip|+|0x208ed8|    |cmp|eax|1|    |jne|target_0|    ",
+                "key": "4203614_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4203651,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x401fe6|    ",
+                "key": "4203651_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4203663,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |leave|    |ret|    ",
+                "key": "4203663_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_1475_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "cut_stream"
+}

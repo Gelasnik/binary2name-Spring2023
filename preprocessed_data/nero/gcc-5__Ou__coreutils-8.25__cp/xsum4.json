@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4314825_0",
+                "src": "4314782_root"
+            },
+            {
+                "dst": "4314843_0",
+                "src": "4314825_0"
+            },
+            {
+                "dst": "4314861_0",
+                "src": "4314843_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4314861_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4314782,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x20|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|qword|ptr|rbp|-|0x10|rsi|    |mov|qword|ptr|rbp|-|0x18|rdx|    |mov|qword|ptr|rbp|-|0x20|rcx|    |mov|rdx|qword|ptr|rbp|-|0x10|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x41d62f|    ",
+                "key": "4314782_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4314825,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|rax|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|rsi|rax|    |mov|rdi|rdx|    |call|0x41d62f|    ",
+                "key": "4314825_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4314843,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|rax|    |mov|rax|qword|ptr|rbp|-|0x20|    |mov|rsi|rax|    |mov|rdi|rdx|    |call|0x41d62f|    ",
+                "key": "4314843_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4314861,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4314861_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_17743_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "xsum4"
+}

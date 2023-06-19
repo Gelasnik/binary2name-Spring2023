@@ -1,0 +1,39 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": "4231397_root"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4231397,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|8|rdi|    |mov|rax|qword|ptr|rbp|-|8|    |sub|rax|1|    |and|rax|qword|ptr|rbp|-|8|    |test|rax|rax|    |sete|al|    |pop|rbp|    |ret|    ",
+                "key": "4231397_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<BV32 Concat(Extract(31, 8, __invert__(__or__(__invert__(__add__(0xffffffffffffffff, reg_48_2663_64)), __invert__(reg_48_2663_64)))), 0, If(__eq__(__invert__(__or__(__invert__(__add__(0xffffffffffffffff, reg_48_2663_64)), __invert__(reg_48_2663_64))), 0x0), 1, 0))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "is_zero_or_power_of_two"
+}

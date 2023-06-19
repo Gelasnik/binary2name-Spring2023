@@ -1,0 +1,126 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4247831_0",
+                "src": "4247719_root"
+            },
+            {
+                "dst": "4247759_0",
+                "src": "4247831_0"
+            },
+            {
+                "dst": "4247781_0",
+                "src": "4247759_0"
+            },
+            {
+                "dst": "4247802_0",
+                "src": "4247781_0"
+            },
+            {
+                "dst": "4247838_0",
+                "src": "4247802_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4247838_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4247719,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|0x28|rdi|    |mov|qword|ptr|rbp|-|0x18|0|    |mov|rax|qword|ptr|rbp|-|0x28|    |mov|rax|qword|ptr|rax|    |mov|qword|ptr|rbp|-|0x10|rax|    |mov|rax|qword|ptr|rbp|-|0x10|    |mov|rax|qword|ptr|rax|    |mov|qword|ptr|rbp|-|0x20|rax|    |jmp|target_0|    ",
+                "key": "4247719_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4247831,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __eq__(reg_48_12725_64, 0xfffffffff8000000)>",
+                            "<Bool __eq__(mem_fffffffff8000000_12726_64, 0xfffffffff8000000)>"
+                        ]
+                    ]
+                ],
+                "instructions": "cmp|qword|ptr|rbp|-|0x20|0|    |jne|0x40d0cf|    ",
+                "key": "4247831_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4247759,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __ne__(mem_fffffffff8000000_12726_64, 0x0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x20|    |mov|rax|qword|ptr|rax|+|8|    |mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|0x20|    |cmp|rax|qword|ptr|rbp|-|0x28|    |jne|0x40d107|    ",
+                "key": "4247759_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4247781,
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(mem_fffffffff8000000_12726_64, reg_48_12725_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "cmp|qword|ptr|rbp|-|0x18|0|    |je|0x40d0fa|    ",
+                "key": "4247781_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4247802,
+                "constraints": [
+                    [
+                        4,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x10|    |mov|rdx|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|rdx|    |jmp|0x40d11e|    ",
+                "key": "4247802_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4247838,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x28|    |mov|qword|ptr|rax|0|    |nop|    |pop|rbp|    |ret|    ",
+                "key": "4247838_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        6,
+                        [
+                            "<BV32 Extract(31, 0, reg_48_12725_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "unlink_symbol"
+}

@@ -1,0 +1,184 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4201615_0",
+                "src": "4201550_root"
+            },
+            {
+                "dst": "4201615_1",
+                "src": "4201550_root"
+            },
+            {
+                "dst": "4201664_0",
+                "src": "4201615_0"
+            },
+            {
+                "dst": "4201691_0",
+                "src": "4201664_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4201691_0"
+            },
+            {
+                "dst": "4201635_1",
+                "src": "4201615_1"
+            },
+            {
+                "dst": "4201650_1",
+                "src": "4201635_1"
+            },
+            {
+                "dst": "4201664_1",
+                "src": "4201650_1"
+            },
+            {
+                "dst": "4201691_1",
+                "src": "4201664_1"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4201691_1"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4201550,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0xc0|    |mov|qword|ptr|rbp|-|0xb8|rdi|    |mov|qword|ptr|rbp|-|0xc0|rsi|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rbp|-|8|rax|    |xor|eax|eax|    |lea|rdx|rbp|-|0xa0|    |mov|rax|qword|ptr|rbp|-|0xb8|    |mov|rsi|rdx|    |mov|rdi|rax|    |call|0x407ec0|    ",
+                "key": "4201550_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4201615,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "test|eax|eax|    |sete|al|    |mov|byte|ptr|rbp|-|0xa1|al|    |cmp|byte|ptr|rbp|-|0xa1|0|    |je|0x401cc0|    ",
+                "key": "4201615_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4201664,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(Concat(0, If(__eq__(Extract(31, 0, fake_ret_value_1171_64), 0x0), 1, 0)), 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "movzx|eax|byte|ptr|rbp|-|0xa1|    |mov|rdx|qword|ptr|rbp|-|8|    |xor|rdx|qword|ptr|fs:0x28|    |je|0x401cdb|    ",
+                "key": "4201664_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4201691,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4201691_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, Concat(0x0, If(__eq__(Extract(31, 0, fake_ret_value_1171_64), 0x0), 1, 0)))>"
+                        ]
+                    ],
+                    [
+                        6,
+                        [
+                            "<BV32 Extract(31, 0, Concat(0x0, If(__eq__(Extract(31, 0, fake_ret_value_1171_64), 0x0), 1, 0)))>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4201615,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "test|eax|eax|    |sete|al|    |mov|byte|ptr|rbp|-|0xa1|al|    |cmp|byte|ptr|rbp|-|0xa1|0|    |je|0x401cc0|    ",
+                "key": "4201615_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4201635,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __ne__(Concat(0, If(__eq__(Extract(31, 0, fake_ret_value_1171_64), 0x0), 1, 0)), 0)>"
+                        ]
+                    ]
+                ],
+                "instructions": "lea|rax|rbp|-|0xa0|    |mov|rdi|rax|    |call|0x405c09|    ",
+                "key": "4201635_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4201650,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rcx|qword|ptr|rbp|-|0xc0|    |mov|qword|ptr|rcx|rax|    |mov|qword|ptr|rcx|+|8|rdx|    |movzx|eax|byte|ptr|rbp|-|0xa1|    |mov|rdx|qword|ptr|rbp|-|8|    |xor|rdx|qword|ptr|fs:0x28|    |je|0x401cdb|    ",
+                "key": "4201650_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4201664,
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<Bool __eq__(reg_40_1170_64, 0xffffffffffffffff)>",
+                            "<Bool __eq__(__add__(reg_40_1170_64, 0x8), 0x7)>"
+                        ]
+                    ]
+                ],
+                "instructions": "movzx|eax|byte|ptr|rbp|-|0xa1|    |mov|rdx|qword|ptr|rbp|-|8|    |xor|rdx|qword|ptr|fs:0x28|    |je|0x401cdb|    ",
+                "key": "4201664_1",
+                "path_num": 1
+            },
+            {
+                "block_addr": 4201691,
+                "constraints": [
+                    [
+                        5,
+                        []
+                    ]
+                ],
+                "instructions": "leave|    |ret|    ",
+                "key": "4201691_1",
+                "path_num": 1
+            }
+        ]
+    },
+    "func_name": "get_mtime"
+}

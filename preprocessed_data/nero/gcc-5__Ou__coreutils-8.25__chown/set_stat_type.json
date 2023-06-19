@@ -1,0 +1,74 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4229360_0",
+                "src": "4229267_root"
+            },
+            {
+                "dst": "4229367_0",
+                "src": "4229360_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4229367_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4229267,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|qword|ptr|rbp|-|0x18|rdi|    |mov|dword|ptr|rbp|-|0x1c|esi|    |cmp|dword|ptr|rbp|-|0x1c|0xc|    |ja|target_0|    ",
+                "key": "4229267_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4229360,
+                "constraints": [
+                    [
+                        1,
+                        [
+                            "<Bool __gt__(Extract(31, 0, reg_40_1013_64), 0xc)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|dword|ptr|rbp|-|4|0|    |mov|rax|qword|ptr|rbp|-|0x18|    |mov|edx|dword|ptr|rbp|-|4|    |mov|dword|ptr|rax|+|0x18|edx|    |nop|    |pop|rbp|    |ret|    ",
+                "key": "4229360_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4229367,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|0x18|    |mov|edx|dword|ptr|rbp|-|4|    |mov|dword|ptr|rax|+|0x18|edx|    |nop|    |pop|rbp|    |ret|    ",
+                "key": "4229367_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<Bool __eq__(__add__(reg_48_1012_64, 0x18), 0xffffffffffffffff)>",
+                            "<BV32 Extract(31, 0, reg_48_1012_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "set_stat_type"
+}

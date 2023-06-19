@@ -1,0 +1,73 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4202704_0",
+                "src": "4202686_root"
+            },
+            {
+                "dst": "4202735_0",
+                "src": "4202704_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4202735_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4202686,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |sub|rsp|0x10|    |mov|edi|0x520|    |call|0x4072ee|    ",
+                "key": "4202686_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4202704,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|qword|ptr|rbp|-|8|rax|    |mov|rax|qword|ptr|rbp|-|8|    |mov|qword|ptr|rax|+|0x518|0|    |mov|rax|qword|ptr|rbp|-|8|    |mov|rdi|rax|    |call|0x402090|    ",
+                "key": "4202704_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4202735,
+                "constraints": [
+                    [
+                        2,
+                        [
+                            "<Bool __eq__(__add__(fake_ret_value_1053_64, 0x518), 0xffffffffffffffff)>"
+                        ]
+                    ]
+                ],
+                "instructions": "mov|rax|qword|ptr|rbp|-|8|    |leave|    |ret|    ",
+                "key": "4202735_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 Extract(31, 0, fake_ret_value_1053_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "new_line_control"
+}

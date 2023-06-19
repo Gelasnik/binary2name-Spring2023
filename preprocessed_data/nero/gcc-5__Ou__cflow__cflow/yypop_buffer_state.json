@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4215872_0",
+                "src": "4215652_root"
+            },
+            {
+                "dst": "4215873_0",
+                "src": "4215872_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "4215873_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4215652,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "push|rbp|    |mov|rbp|rsp|    |mov|rax|qword|ptr|rip|+|0x220d61|    |test|rax|rax|    |je|target_0|    ",
+                "key": "4215652_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4215872,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "nop|    |pop|rbp|    |ret|    ",
+                "key": "4215872_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4215873,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "pop|rbp|    |ret|    ",
+                "key": "4215873_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        3,
+                        [
+                            "<BV32 0x0>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "yypop_buffer_state"
+}

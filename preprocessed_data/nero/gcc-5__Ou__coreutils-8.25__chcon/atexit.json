@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "4247548_0",
+                "src": "4247536_root"
+            },
+            {
+                "dst": "4202688_0",
+                "src": "4247548_0"
+            },
+            {
+                "dst": "7340688_0",
+                "src": "4202688_0"
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": "7340688_0"
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4247536,
+                "constraints": [
+                    [
+                        0,
+                        []
+                    ]
+                ],
+                "instructions": "lea|rax|rip|+|0x2052f1|    |test|rax|rax|    |je|target_0|    ",
+                "key": "4247536_root",
+                "path_num": -1
+            },
+            {
+                "block_addr": 4247548,
+                "constraints": [
+                    [
+                        1,
+                        []
+                    ]
+                ],
+                "instructions": "mov|rdx|qword|ptr|rax|    |xor|esi|esi|    |jmp|0x4020c0|    ",
+                "key": "4247548_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 4202688,
+                "constraints": [
+                    [
+                        2,
+                        []
+                    ]
+                ],
+                "instructions": "jmp|qword|ptr|rip|+|0x2101b2|    ",
+                "key": "4202688_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": 7340688,
+                "constraints": [
+                    [
+                        3,
+                        []
+                    ]
+                ],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    ",
+                "key": "7340688_0",
+                "path_num": 0
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    [
+                        4,
+                        [
+                            "<BV32 Extract(31, 0, unconstrained_ret___cxa_atexit_11546_64)>"
+                        ]
+                    ]
+                ],
+                "instructions": "no_instructions",
+                "key": "loopSeerDum",
+                "path_num": 0
+            }
+        ]
+    },
+    "func_name": "atexit"
+}
