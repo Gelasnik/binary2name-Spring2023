@@ -51,22 +51,30 @@ class SymGraph:  # TODO: sanity check, when graph is done, vertices.keys() lengt
         self.path_len_limit = path_len_limit
         self.vertices = {}
         self.edges = {}
+        self.id_to_addr = {}
         self.addVertex(root)
         self.func_name = func_name
 
     # --------------------- TAL'S CODE START---------------------#
+    def getChildrenIds(self, vertex: Vertex):
+        edges_from_vertex = self.edges[vertex.id]
+        children = [edge.dest for edge in edges_from_vertex]
+        return children
+
+    def getVertex(self, id: int):
+        return self.vertices[id]
+
     def addVertex(self, vertex: Vertex):
         vertex.constraint = list(filter(None, vertex.constraint))
-
         # We do not want to save excessively long constraints or long paths
         if vertex.path_len > self.path_len_limit:
-            return False
+            return
 
         sum_c = 0
         for c in vertex.constraint:
             sum_c = sum_c + len(c)
         if sum_c > self.path_constraints_len_limit:
-            return False
+            return
         len_and_constraint = [vertex.path_len, vertex.constraint]
 
         if vertex.id in self.vertices:
@@ -74,11 +82,10 @@ class SymGraph:  # TODO: sanity check, when graph is done, vertices.keys() lengt
         else:
             self.vertices[vertex.id] = vertex
             self.vertices[vertex.id].constraint = [len_and_constraint]
-            self.vertices[vertex.id].id = vertex.id
-
-        if (vertex.id not in self.edges.keys()):
+            self.id_to_addr[vertex.id] = vertex.baddr
+        if vertex.id not in self.edges.keys():
             self.edges[vertex.id] = []
-        return True
+
     # --------------------- TAL'S CODE END---------------------#
 
     def addEdge(self, edge: Edge):
@@ -109,7 +116,7 @@ class SymGraph:  # TODO: sanity check, when graph is done, vertices.keys() lengt
         assert (edge.source in self.vertices.keys() and edge.source in self.edges.keys())
         assert (edge.dest in self.vertices.keys() and edge.dest in self.edges.keys())
 
-        if (edge not in self.edges[edge.source]):
+        if edge not in self.edges[edge.source]:
             self.edges[edge.source].append(edge)
 
     # TODO: redo the printing!
@@ -125,5 +132,3 @@ class SymGraph:  # TODO: sanity check, when graph is done, vertices.keys() lengt
 
         res += f' ] }} }}'
         return res
-
-

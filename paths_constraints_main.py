@@ -272,8 +272,8 @@ def analyze_binary(analyzed_funcs: Set[str], binary_name: str, output_dir: str,
 
 def analyze_binary_func(args):
     (test_func_name, test_func_addr), binary_name, output_dir = args
-    # if test_func_name != "memcpy_uppcase":
-    #     return
+    if test_func_name != "memcpy_uppcase":
+        return
     binary_name_base = os.path.basename(binary_name)  # Make the output directory for this binary
     binary_output_dir = os.path.join(output_dir, f"{binary_name_base}")
     os.makedirs(binary_output_dir, exist_ok=True)
@@ -355,7 +355,6 @@ def address_to_content(proj: Project, baddr: int):
 
 
 def sm_to_graph(sm: SimulationManager, output_file, func_name):
-
     proj = sm._project
     final_states_lists = filter(None, sm.stashes.values())
 
@@ -363,11 +362,12 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
     final_states = [item for sublist in final_states_lists for item in sublist]
     assert (final_states is not [])  # assert that final states list is not empty else we dont have what to work with
     # compose all routs backtracking from final to initial
+    num_paths = len(final_states)
     all_paths = []
     eax_val = []
 
-    states_id_key = {}
-    states_node_key = {}
+    # states_id_key = {}
+    # states_node_key = {}
 
     total_states_num = 0
     for state in final_states:
@@ -376,17 +376,17 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
         state_path = [("loopSeerDum", current_node.recent_constraints)]
 
         while current_node.addr is not None:
-            if current_node not in states_node_key:
-                current_state_num = total_states_num
-                states_id_key[total_states_num] = current_node
-                states_node_key[current_node] = total_states_num
-                total_states_num += 1
-            else:
-                current_state_num = states_node_key[current_node]
+            # if current_node not in states_node_key:
+            #     current_state_num = total_states_num
+            #     states_id_key[total_states_num] = current_node
+            #     states_node_key[current_node] = total_states_num
+            #     total_states_num += 1
+            # else:
+            #     current_state_num = states_node_key[current_node]
 
             state_path.insert(0,
                               [
-                                  current_state_num,
+                                  current_node.addr,
                                   (current_node.parent.recent_constraints if current_node.parent else [])
                               ]
                               )
@@ -394,73 +394,84 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
         all_paths.append(state_path)
 
     # find the root and assert it is equal for all
-    if all_paths:
-        initial_node = all_paths[0][0]
-        initial_node_id = initial_node[0]
-    else:
-        print(f"{func_name} does not have paths")
-        return
+    initial_node = all_paths[0][0]
+    initial_node_addr = initial_node[0]
+    # if all_paths:
+    #     initial_node = all_paths[0][0]
+    #     initial_node_id = initial_node[0]
+    # else:
+    #     print(f"{func_name} does not have paths")
+    #     return
 
     for path in all_paths:
-
-        if path[0][0] != initial_node_id:
-            path[0][0] = initial_node_id
-            # print("<###################>")
-            # print(f"initial_node_id = {initial_node_id}, path[0][0] = {path[0][0]}")
-            # for path in all_paths:
-            #     for node in path:
-            #         print(node[0], end=" "),
-            #     print("")
-
-        # assert (path[0][0] == initial_node_id)  # WARNING: very redundent, only checking address
+        assert (path[0][0] == initial_node_addr)  # WARNING: very redundent, only checking address
         assert (path[0][1] == [])  # assert all root's contain no constraints as expected
-    root_node_addr = states_id_key[initial_node_id].addr
+        #     if path[0][0] != initial_node_id:
+        #         path[0][0] = initial_node_id
+        # print("<###################>")
+        # print(f"initial_node_id = {initial_node_id}, path[0][0] = {path[0][0]}")
+        # for path in all_paths:
+        #     for node in path:
+        #         print(node[0], end=" "),
+        #     print("")
+
+    root_node_addr = initial_node_addr
+    next_vertex_id = 0
     root = Vertex(
         root_node_addr,
         address_to_content(proj, root_node_addr),
         0,
-        -1,
-        initial_node_id,
+        num_paths,
+        next_vertex_id,
         [])
     # --------------------- TAL'S CODE START---------------------#
     sym_graph = SymGraph(root, func_name, 5000, 100)  # added number of paths limit for each vertex in the graph
     # --------------------- TAL'S CODE END---------------------#
-
+    next_vertex_id += 1
     # In each iteration, add a new constrainted vertex to the graph and connect it to the previous vertex.
     # In the SymGraph, vertex addition handles multiple constraint options and adds an OR relation.
 
     for path_num, path in enumerate(all_paths):
         prev = root
-        for i in range(1, len(path)):
-            constraint_list = varify_constraints_raw(path[i][1])
-            ith_node_id = path[i][0]
+        for current_place_in_path in range(1, len(path)):
+            constraint_list = varify_constraints_raw(path[current_place_in_path][1])
+            ith_node_addr = path[current_place_in_path][0]
             # addr_path_key = "_".join([str(ith_node_id), str(path_num)])
-            if type(ith_node_id) == str:  # This is "loopSeerDum"
+            if type(ith_node_addr) == str:  # This is "loopSeerDum"
                 # --------------------- TAL'S CODE START---------------------#
-                # dst = Vertex(path[i][0], "no_instructions", i, ["|".join(constraint_list)]) # added path length as third param
-                dst = Vertex(ith_node_id,
+                # dst = Vertex(path[current_place_in_path][0], "no_instructions", current_place_in_path, ["|".join(constraint_list)]) # added path length as third param
+                dst = Vertex(ith_node_addr,
                              "no_instructions",
-                             i,
-                             path_num,
+                             current_place_in_path,
+                             num_paths,
                              "loopSeerDum",
                              constraint_list + [constraint_to_str(eax_val[path_num])]
                              )  # added path length as third param
                 # --------------------- TAL'S CODE END---------------------#
             else:
                 # --------------------- TAL'S CODE START---------------------#
-                # dst = Vertex(path[i][0], address_to_content_raw(proj, path[i][0]), i, ["|".join(constraint_list)]) # added path length as third param
-                node_addr = states_id_key[ith_node_id].addr
-                dst = Vertex(node_addr,
-                             address_to_content_raw(proj, node_addr),
-                             i,
+                # dst = Vertex(path[current_place_in_path][0], address_to_content_raw(proj, path[current_place_in_path][0]), current_place_in_path, ["|".join(constraint_list)]) # added path length as third param
+                # find last common vertex
+                children_ids = sym_graph.getChildrenIds(prev)
+                state_exists = False
+                for child_id in children_ids:
+                    child_addr = sym_graph.id_to_addr[child_id]
+                    if ith_node_addr == child_addr:
+                        prev = sym_graph.getVertex(child_id)
+                        state_exists = True
+                        break
+                if state_exists:
+                    continue
+                # found last common vertex, create new branch from it
+                dst = Vertex(ith_node_addr,
+                             address_to_content_raw(proj, ith_node_addr),
+                             current_place_in_path,
                              path_num,
-                             ith_node_id,
-                             constraint_list)  # added path length as third param
+                             next_vertex_id,
+                             constraint_list)
+                next_vertex_id += 1
                 # --------------------- TAL'S CODE END---------------------#
-            success = sym_graph.addVertex(dst)
-            if not success:
-                # Paths in the function are too long
-                return
+            sym_graph.addVertex(dst)
             edge = Edge(prev.id, dst.id)
             sym_graph.addEdge(edge)
             prev = dst
