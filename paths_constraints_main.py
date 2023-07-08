@@ -272,8 +272,8 @@ def analyze_binary(analyzed_funcs: Set[str], binary_name: str, output_dir: str,
 
 def analyze_binary_func(args):
     (test_func_name, test_func_addr), binary_name, output_dir = args
-    if test_func_name != "memcpy_uppcase":
-        return
+    # if test_func_name != "memcpy_uppcase":
+    #     return
     binary_name_base = os.path.basename(binary_name)  # Make the output directory for this binary
     binary_output_dir = os.path.join(output_dir, f"{binary_name_base}")
     os.makedirs(binary_output_dir, exist_ok=True)
