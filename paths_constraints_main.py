@@ -30,6 +30,16 @@ bases_dict = dict()
 replacement_dict = dict()
 start_time = 0
 
+DEBUG = True
+
+
+def dp(src, info=None):
+    if DEBUG:
+        if info is None:
+            print(f"{src}")
+        else:
+            print(f"{src} => {info}")
+
 
 # REPR = representation
 
@@ -41,6 +51,7 @@ def time_limit_check(simulation_manager):
         print("stopped exploration")
     return should_stop
 
+
 # Analyze a specific function with angr
 # proj is the project object, cfg IS THE ACTUAL CONTROL-FLOW GRAPH
 def analyze_func(proj, bin_func_name, bin_func_addr, cfg):
@@ -48,7 +59,8 @@ def analyze_func(proj, bin_func_name, bin_func_addr, cfg):
     call_state = proj.factory.call_state(bin_func_addr, add_options={
         'CALLLESS': True, 'NO_SYMBOLIC_SYSCALL_RESOLUTION': True
     })
-    sm = proj.factory.simulation_manager(call_state)  # Creates a simulation manager, ready to start from the specific function
+    sm = proj.factory.simulation_manager(
+        call_state)  # Creates a simulation manager, ready to start from the specific function
     sm.use_technique(LoopSeer(cfg=cfg, bound=1))
     # sm.use_technique(LengthLimiter(100))
 
@@ -73,7 +85,7 @@ def block_to_ins(block: Block):
     for ins in block.capstone.insns:
         op_str = ins.op_str
         operands = op_str.strip(" ").split(",")
-        operands = [i.strip().replace("[","").replace("]", "") for i in operands if i != ""]
+        operands = [i.strip().replace("[", "").replace("]", "") for i in operands if i != ""]
         parsed_ins = [ins.mnemonic] + list(filter(None, operands))
         result.append("|".join(parsed_ins).replace(" ", "|") + "|    ")
     return "|".join(result)
@@ -92,7 +104,7 @@ def remove_consecutive_pipes(s1):
 
 #     return remove_consecutive_pipes(repr) + "    "
 
-def constraint_to_str(constraint: ast.Base, max_depth: int=100) -> str:
+def constraint_to_str(constraint: ast.Base, max_depth: int = 100) -> str:
     return constraint.shallow_repr(max_depth=max_depth, details=constraint.MID_REPR).replace('{UNINITIALIZED}', '')
 
 
@@ -104,7 +116,7 @@ def gen_new_name(old_name):
     if re.match(r"reg", old_name):
         return re.sub("(_[0-9]+)+", '', old_name)
     if re.match(r"unconstrained_ret", old_name):
-        return re.sub("(_[0-9]+)+", '', old_name[len("unconstrained_ret_") : ])
+        return re.sub("(_[0-9]+)+", '', old_name[len("unconstrained_ret_"):])
     return old_name
 
 
@@ -113,7 +125,7 @@ def varify_constraints(constraints, variable_map=None, counters=None, max_depth=
     abstract away constants from the constraints
     @param constraints is raw constraints from angr (eg. node.recent_constraints)
     """
-    #counters = {'mem': itertools.count(), 'ret': itertools.count()} if counters is None else counters
+    # counters = {'mem': itertools.count(), 'ret': itertools.count()} if counters is None else counters
     variable_map = {} if variable_map is None else variable_map  # Variable map contains a mapping between old and new variable names
     new_constraints = []  # constraints after name changed and simplified
     variable_map['Extract'] = ""
@@ -123,14 +135,15 @@ def varify_constraints(constraints, variable_map=None, counters=None, max_depth=
         if constraint.concrete:  # need to figure out what concrete means.
             continue
         for variable in constraint.leaf_asts():  # returns iterator over the leaves of the AST
-            if variable.op in { 'BVS', 'BoolS', 'FPS' }:  # Generate new name if variable op needs it
+            if variable.op in {'BVS', 'BoolS', 'FPS'}:  # Generate new name if variable op needs it
                 new_name = gen_new_name(variable.args[0])
                 if re.match(r"mem", new_name):
-                    if m is None :
+                    if m is None:
                         m = int(new_name.split('_')[1])
                     else:
-                        m = min(m,int(new_name.split('_')[1]))
-                variable_map[variable.cache_key] = variable._rename(new_name)  # preparing variable_map for name swapping in the line 123
+                        m = min(m, int(new_name.split('_')[1]))
+                variable_map[variable.cache_key] = variable._rename(
+                    new_name)  # preparing variable_map for name swapping in the line 123
         '''
             converting constraint to string after renaming all the necessary vars with the variable_map we build along the way.
             look into constraint_to_str to understand further simplifying done in there too.
@@ -140,12 +153,12 @@ def varify_constraints(constraints, variable_map=None, counters=None, max_depth=
 
     final_constraints = []  # initializing new list of even further simplified constraints.
     if m is not None:  # meaning we found a variable inside a constraint that accessed memory
-        for constraint in new_constraints :  # iterate over already simplified constraints
+        for constraint in new_constraints:  # iterate over already simplified constraints
             split = constraint.split("|")  # split to tokens
-            for i,s in enumerate(split):  # enumerating tokens (WHY?)
+            for i, s in enumerate(split):  # enumerating tokens (WHY?)
                 if re.match(r"mem", s):
-                    new_s = 'mem_%d' % (int(s.split('_')[1]) -m)
-                    constraint = constraint.replace(s,new_s)
+                    new_s = 'mem_%d' % (int(s.split('_')[1]) - m)
+                    constraint = constraint.replace(s, new_s)
             final_constraints.append(constraint)
     # basically we iterate over all the constraints including the phrase mem_%NUM% and normalize the number to start from 0.
     else:
@@ -164,7 +177,6 @@ def varify_constraints(constraints, variable_map=None, counters=None, max_depth=
 def tokenize_function_name(function_name):
     name = "".join([i for i in function_name if not i.isdigit()])
     return "|".join(name.split("_"))
-
 
 
 def generate_dataset(train_binary: str, output_dir: str, dataset_name: str, no_usables_file: bool):
@@ -199,14 +211,14 @@ def generate_dataset(train_binary: str, output_dir: str, dataset_name: str, no_u
     analyze_binary(analyzed_funcs, train_binary, output_dir, is_function_usable)
 
 
-
-def analyze_binaryOLD(analyzed_funcs: Set[str], binary_name: str, output_dir: str, is_function_usable: Callable[[str], bool]):
+def analyze_binaryOLD(analyzed_funcs: Set[str], binary_name: str, output_dir: str,
+                      is_function_usable: Callable[[str], bool]):
     excluded = {'main', 'usage', 'exit'}.union(analyzed_funcs)
 
-    proj = Project(binary_name, auto_load_libs=False) # Load angr project and calculate CFG
+    proj = Project(binary_name, auto_load_libs=False)  # Load angr project and calculate CFG
     cfg = proj.analyses.CFGFast()  # cfg is the ACTUAL control-flow graph
 
-    binary_name_base = os.path.basename(binary_name) # Make the output directory for this binary
+    binary_name_base = os.path.basename(binary_name)  # Make the output directory for this binary
     binary_output_dir = os.path.join(output_dir, f"{binary_name_base}")
     os.makedirs(binary_output_dir, exist_ok=True)
 
@@ -214,32 +226,36 @@ def analyze_binaryOLD(analyzed_funcs: Set[str], binary_name: str, output_dir: st
 
     print(f"{binary_name_base} have {len(funcs)} funcs")
     for test_func_name, test_func_addr in funcs:
-        if (test_func_name in analyzed_funcs) or not is_function_usable(tokenize_function_name(test_func_name)): # Skip unusable/computed functions
+        if (test_func_name in analyzed_funcs) or not is_function_usable(
+                tokenize_function_name(test_func_name)):  # Skip unusable/computed functions
             print(f"skipping {tokenize_function_name(test_func_name)}")
             continue
         if os.path.isfile(os.path.join(binary_output_dir, f"{test_func_name}.json")):
             print(f"skipping {tokenize_function_name(test_func_name)} already analysed.")
-            continue            # file already exists no need to analyse again
+            continue  # file already exists no need to analyse again
         print(f"analyzing {binary_name_base}/{test_func_name}")
 
         analyzed_funcs.add(test_func_name)
         try:
-            sm = analyze_func(proj, test_func_name, test_func_addr, cfg) # Perform Carol's angr analysis
+            sm = analyze_func(proj, test_func_name, test_func_addr, cfg)  # Perform Carol's angr analysis
             with open(os.path.join(binary_output_dir, f"{test_func_name}.json"), "w") as output:
-                sm_to_graph(sm, output, test_func_name) # calculate the constraint-full CFG
+                sm_to_graph(sm, output, test_func_name)  # calculate the constraint-full CFG
         except Exception as e:
-            open(os.path.join(binary_output_dir, f"{test_func_name}.json"), "w").close() #create an empty file so that the next time we will not analyse this function
+            open(os.path.join(binary_output_dir, f"{test_func_name}.json"),
+                 "w").close()  # create an empty file so that the next time we will not analyse this function
             logging.error(str(e))
             logging.error(f"got an error while analyzing {test_func_name}")
     return True
 
-def analyze_binary(analyzed_funcs: Set[str], binary_name: str, output_dir: str, is_function_usable: Callable[[str], bool]):
+
+def analyze_binary(analyzed_funcs: Set[str], binary_name: str, output_dir: str,
+                   is_function_usable: Callable[[str], bool]):
     excluded = {'main', 'usage', 'exit'}.union(analyzed_funcs)
 
-    proj = Project(binary_name, auto_load_libs=False) # Load angr project and calculate CFG
+    proj = Project(binary_name, auto_load_libs=False)  # Load angr project and calculate CFG
     cfg = proj.analyses.CFGFast()  # cfg is the ACTUAL control-flow graph
 
-    binary_name_base = os.path.basename(binary_name) # Make the output directory for this binary
+    binary_name_base = os.path.basename(binary_name)  # Make the output directory for this binary
     binary_output_dir = os.path.join(output_dir, f"{binary_name_base}")
     os.makedirs(binary_output_dir, exist_ok=True)
 
@@ -253,33 +269,39 @@ def analyze_binary(analyzed_funcs: Set[str], binary_name: str, output_dir: str, 
     # for test_func_name, test_func_addr in funcs:
     return True
 
+
 def analyze_binary_func(args):
     (test_func_name, test_func_addr), binary_name, output_dir = args
-    binary_name_base = os.path.basename(binary_name) # Make the output directory for this binary
+    # if test_func_name != "memcpy_uppcase":
+    #     return
+    binary_name_base = os.path.basename(binary_name)  # Make the output directory for this binary
     binary_output_dir = os.path.join(output_dir, f"{binary_name_base}")
     os.makedirs(binary_output_dir, exist_ok=True)
     if os.path.isfile(os.path.join(binary_output_dir, f"{test_func_name}.json")):
         print(f"skipping {tokenize_function_name(test_func_name)} already analysed.")
-        return            # file already exists no need to analyse again
+        return  # file already exists no need to analyse again
     print(f"analyzing {binary_name_base}/{test_func_name}")
-    proj = Project(binary_name, auto_load_libs=False) # Load angr project and calculate CFG
+    proj = Project(binary_name, auto_load_libs=False)  # Load angr project and calculate CFG
     cfg = proj.analyses.CFGFast()  # cfg is the ACTUAL control-flow graph
 
     try:
-        sm = analyze_func(proj, test_func_name, test_func_addr, cfg) # Perform Carol's angr analysis
+        sm = analyze_func(proj, test_func_name, test_func_addr, cfg)  # Perform Carol's angr analysis
         with open(os.path.join(binary_output_dir, f"{test_func_name}.json"), "w") as output:
-            sm_to_graph(sm, output, test_func_name) # calculate the constraint-full CFG
+            sm_to_graph(sm, output, test_func_name)  # calculate the constraint-full CFG
     except Exception as e:
-        open(os.path.join(binary_output_dir, f"{test_func_name}.json"), "w").close() #create an empty file so that the next time we will not analyse this function
+        open(os.path.join(binary_output_dir, f"{test_func_name}.json"),
+             "w").close()  # create an empty file so that the next time we will not analyse this function
         logging.error(traceback.format_exc())
         logging.error(f"got an error while analyzing {test_func_name}")
+
 
 def get_analyzed_funcs(dataset_path: str) -> Set[str]:
     binaries = os.scandir(dataset_path)
     analyzed_funcs = set()
     for entry in binaries:
         funcs = glob(f"{entry.path}/*")
-        analyzed_funcs.update(map(lambda x: x[:-len(".pkl")] if x.endswith(".pkl") else x, map(os.path.basename, funcs)))
+        analyzed_funcs.update(
+            map(lambda x: x[:-len(".pkl")] if x.endswith(".pkl") else x, map(os.path.basename, funcs)))
 
     return analyzed_funcs
 
@@ -288,18 +310,20 @@ def find_target_constants(line):
     targets_mapper = {}
     targets_counter = itertools.count()
 
-    found_targets = set(re.findall(r"jmp\|0[xX][0-9a-fA-F]+|jnb\|0[xX][0-9a-fA-F]+|jnbe\|0[xX][0-9a-fA-F]+|jnc\|0[xX][0-9a-fA-F]+|jne\|0[xX][0-9a-fA-F]+|jng\|0[xX][0-9a-fA-F]+|jnge\|0[xX][0-9a-fA-F]+|jnl\|0[xX][0-9a-fA-F]+|jnle\|0[xX][0-9a-fA-F]+|jno\|0[xX][0-9a-fA-F]+|jnp\|0[xX][0-9a-fA-F]+|jns\|0[xX][0-9a-fA-F]+|jnz\|0[xX][0-9a-fA-F]+|jo\|0[xX][0-9a-fA-F]+|jp\|0[xX][0-9a-fA-F]+|jpe\|0[xX][0-9a-fA-F]+|jpo\|0[xX][0-9a-fA-F]+|js\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+|ja\|0[xX][0-9a-fA-F]+|jae\|0[xX][0-9a-fA-F]+|jb\|0[xX][0-9a-fA-F]+|jbe\|0[xX][0-9a-fA-F]+|jc\|0[xX][0-9a-fA-F]+|je\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+|jg\|0[xX][0-9a-fA-F]+|jge\|0[xX][0-9a-fA-F]+|jl\|0[xX][0-9a-fA-F]+|jle\|0[xX][0-9a-fA-F]+|jna\|0[xX][0-9a-fA-F]+|jnae\|0[xX][0-9a-fA-F]+|jnb\|0[xX][0-9a-fA-F]+|jnbe\|0[xX][0-9a-fA-F]+|jnc\|0[xX][0-9a-fA-F]+|jne\|0[xX][0-9a-fA-F]+|jng\|0[xX][0-9a-fA-F]+|jnge\|0[xX][0-9a-fA-F]+|jnl\|0[xX][0-9a-fA-F]+|jnle\|0[xX][0-9a-fA-F]+|jno\|0[xX][0-9a-fA-F]+|jnp\|0[xX][0-9a-fA-F]+|jns\|0[xX][0-9a-fA-F]+|jnz\|0[xX][0-9a-fA-F]+|jo\|0[xX][0-9a-fA-F]+|jp\|0[xX][0-9a-fA-F]+|jpe\|0[xX][0-9a-fA-F]+|jpo\|0[xX][0-9a-fA-F]+|js\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+ ", line))
+    found_targets = set(re.findall(
+        r"jmp\|0[xX][0-9a-fA-F]+|jnb\|0[xX][0-9a-fA-F]+|jnbe\|0[xX][0-9a-fA-F]+|jnc\|0[xX][0-9a-fA-F]+|jne\|0[xX][0-9a-fA-F]+|jng\|0[xX][0-9a-fA-F]+|jnge\|0[xX][0-9a-fA-F]+|jnl\|0[xX][0-9a-fA-F]+|jnle\|0[xX][0-9a-fA-F]+|jno\|0[xX][0-9a-fA-F]+|jnp\|0[xX][0-9a-fA-F]+|jns\|0[xX][0-9a-fA-F]+|jnz\|0[xX][0-9a-fA-F]+|jo\|0[xX][0-9a-fA-F]+|jp\|0[xX][0-9a-fA-F]+|jpe\|0[xX][0-9a-fA-F]+|jpo\|0[xX][0-9a-fA-F]+|js\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+|ja\|0[xX][0-9a-fA-F]+|jae\|0[xX][0-9a-fA-F]+|jb\|0[xX][0-9a-fA-F]+|jbe\|0[xX][0-9a-fA-F]+|jc\|0[xX][0-9a-fA-F]+|je\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+|jg\|0[xX][0-9a-fA-F]+|jge\|0[xX][0-9a-fA-F]+|jl\|0[xX][0-9a-fA-F]+|jle\|0[xX][0-9a-fA-F]+|jna\|0[xX][0-9a-fA-F]+|jnae\|0[xX][0-9a-fA-F]+|jnb\|0[xX][0-9a-fA-F]+|jnbe\|0[xX][0-9a-fA-F]+|jnc\|0[xX][0-9a-fA-F]+|jne\|0[xX][0-9a-fA-F]+|jng\|0[xX][0-9a-fA-F]+|jnge\|0[xX][0-9a-fA-F]+|jnl\|0[xX][0-9a-fA-F]+|jnle\|0[xX][0-9a-fA-F]+|jno\|0[xX][0-9a-fA-F]+|jnp\|0[xX][0-9a-fA-F]+|jns\|0[xX][0-9a-fA-F]+|jnz\|0[xX][0-9a-fA-F]+|jo\|0[xX][0-9a-fA-F]+|jp\|0[xX][0-9a-fA-F]+|jpe\|0[xX][0-9a-fA-F]+|jpo\|0[xX][0-9a-fA-F]+|js\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+ ",
+        line))
     for target in found_targets:
         print("removing targets")
-        target = re.sub("[a-z]+\|", "" , target)
+        target = re.sub("[a-z]+\|", "", target)
         if target not in targets_mapper:
             targets_mapper[target] = f"target_{next(targets_counter)}"
     for target, replacement in sorted(targets_mapper.items(), key=lambda x: len(x[0]), reverse=True):
-                line = line.replace(target, replacement)
+        line = line.replace(target, replacement)
     return line
 
 
-#--------------------- ITTAY AND ITAMAR'S CODE---------------------#
+# --------------------- ITTAY AND ITAMAR'S CODE---------------------#
 
 
 def varify_constraints_raw(constraints) -> List[str]:
@@ -331,35 +355,75 @@ def address_to_content(proj: Project, baddr: int):
 
 
 def sm_to_graph(sm: SimulationManager, output_file, func_name):
+
     proj = sm._project
     final_states_lists = filter(None, sm.stashes.values())
 
     # TODO: make sure you want to treat the "deadended" and "spinning" states the same way
     final_states = [item for sublist in final_states_lists for item in sublist]
-    assert(final_states is not []) # assert that final states list is not empty else we dont have what to work with
+    assert (final_states is not [])  # assert that final states list is not empty else we dont have what to work with
     # compose all routs backtracking from final to initial
     all_paths = []
     eax_val = []
+
+    states_id_key = {}
+    states_node_key = {}
+
+    total_states_num = 0
     for state in final_states:
         eax_val.append(state.regs.eax)
         current_node = state.history
         state_path = [("loopSeerDum", current_node.recent_constraints)]
 
         while current_node.addr is not None:
-            state_path.insert(0, (current_node.addr, (current_node.parent.recent_constraints if current_node.parent else [])))
+            if current_node not in states_node_key:
+                current_state_num = total_states_num
+                states_id_key[total_states_num] = current_node
+                states_node_key[current_node] = total_states_num
+                total_states_num += 1
+            else:
+                current_state_num = states_node_key[current_node]
+
+            state_path.insert(0,
+                              [
+                                  current_state_num,
+                                  (current_node.parent.recent_constraints if current_node.parent else [])
+                              ]
+                              )
             current_node = current_node.parent
         all_paths.append(state_path)
 
     # find the root and assert it is equal for all
-    initial_node = all_paths[0][0]
-    initial_node_block_addr = initial_node[0]
-    for path in all_paths:
-        assert(path[0][0] == initial_node_block_addr)  # WARNING: very redundent, only checking adress
-        assert(path[0][1] == [])  # assert all root's contain no constraints as expected
+    if all_paths:
+        initial_node = all_paths[0][0]
+        initial_node_id = initial_node[0]
+    else:
+        print(f"{func_name} does not have paths")
+        return
 
-    root = Vertex(initial_node_block_addr, address_to_content(proj, initial_node_block_addr), 0, -1, "_".join([str(initial_node_block_addr), "root"]), [])
+    for path in all_paths:
+
+        if path[0][0] != initial_node_id:
+            path[0][0] = initial_node_id
+            # print("<###################>")
+            # print(f"initial_node_id = {initial_node_id}, path[0][0] = {path[0][0]}")
+            # for path in all_paths:
+            #     for node in path:
+            #         print(node[0], end=" "),
+            #     print("")
+
+        # assert (path[0][0] == initial_node_id)  # WARNING: very redundent, only checking address
+        assert (path[0][1] == [])  # assert all root's contain no constraints as expected
+    root_node_addr = states_id_key[initial_node_id].addr
+    root = Vertex(
+        root_node_addr,
+        address_to_content(proj, root_node_addr),
+        0,
+        -1,
+        initial_node_id,
+        [])
     # --------------------- TAL'S CODE START---------------------#
-    sym_graph = SymGraph(root, func_name, 5000, 100) # added number of paths limit for each vertex in the graph
+    sym_graph = SymGraph(root, func_name, 5000, 100)  # added number of paths limit for each vertex in the graph
     # --------------------- TAL'S CODE END---------------------#
 
     # In each iteration, add a new constrainted vertex to the graph and connect it to the previous vertex.
@@ -369,20 +433,35 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
         prev = root
         for i in range(1, len(path)):
             constraint_list = varify_constraints_raw(path[i][1])
-            ith_node_block_addr = path[i][0]
-            addr_path_key = "_".join([str(ith_node_block_addr), str(path_num)])
-            if type(ith_node_block_addr) == str: #This is "loopSeerDum"
+            ith_node_id = path[i][0]
+            # addr_path_key = "_".join([str(ith_node_id), str(path_num)])
+            if type(ith_node_id) == str:  # This is "loopSeerDum"
                 # --------------------- TAL'S CODE START---------------------#
-                #dst = Vertex(path[i][0], "no_instructions", i, ["|".join(constraint_list)]) # added path length as third param
-                dst = Vertex(ith_node_block_addr, "no_instructions", i, path_num, "loopSeerDum", constraint_list + [constraint_to_str(eax_val[path_num])]) # added path length as third param
+                # dst = Vertex(path[i][0], "no_instructions", i, ["|".join(constraint_list)]) # added path length as third param
+                dst = Vertex(ith_node_id,
+                             "no_instructions",
+                             i,
+                             path_num,
+                             "loopSeerDum",
+                             constraint_list + [constraint_to_str(eax_val[path_num])]
+                             )  # added path length as third param
                 # --------------------- TAL'S CODE END---------------------#
             else:
                 # --------------------- TAL'S CODE START---------------------#
-                #dst = Vertex(path[i][0], address_to_content_raw(proj, path[i][0]), i, ["|".join(constraint_list)]) # added path length as third param
-                dst = Vertex(ith_node_block_addr, address_to_content_raw(proj, ith_node_block_addr), i, path_num, addr_path_key, constraint_list) # added path length as third param
+                # dst = Vertex(path[i][0], address_to_content_raw(proj, path[i][0]), i, ["|".join(constraint_list)]) # added path length as third param
+                node_addr = states_id_key[ith_node_id].addr
+                dst = Vertex(node_addr,
+                             address_to_content_raw(proj, node_addr),
+                             i,
+                             path_num,
+                             ith_node_id,
+                             constraint_list)  # added path length as third param
                 # --------------------- TAL'S CODE END---------------------#
-            sym_graph.addVertex(dst)
-            edge = Edge(prev.key, dst.key)
+            success = sym_graph.addVertex(dst)
+            if not success:
+                # Paths in the function are too long
+                return
+            edge = Edge(prev.id, dst.id)
             sym_graph.addEdge(edge)
             prev = dst
 
@@ -393,11 +472,11 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
     to_write = json.dumps(parsed, indent=4, sort_keys=True)
     output_file.write(to_write)
 
-#--------------------- ITTAY AND ITAMAR'S CODE END---------------------#
+
+# --------------------- ITTAY AND ITAMAR'S CODE END---------------------#
 
 
 def main():
-
     """
     The script first sets the logging level of the angr library to CRITICAL to silence its output.
     It then constructs a list of binary files to analyze, sorted by filename,
@@ -441,8 +520,8 @@ def main():
     generate_dataset(binaries[args.binary_idx], args.output, args.dataset, args.no_usables_file)
     print("Finished!")
 
+
 if __name__ == '__main__':
     main()
-
 
 # python3 paths_constraints_main.py --dataset nero_ds/TRAIN --output nero_train_out --binary_idx 0 --no_usables_file > main_log.txt 2>&1 &

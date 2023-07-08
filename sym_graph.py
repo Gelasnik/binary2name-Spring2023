@@ -4,14 +4,14 @@ from random import sample
 
 class Vertex:
     # --------------------- TAL'S CODE START---------------------#
-    def __init__(self, baddr: int, instructions: str, path_len: int, path_num: int, key: str, constraint: list = []):
+    def __init__(self, baddr, instructions: str, path_len: int, path_num: int, key, constraint: list = []):
         self.baddr = baddr
         self.instructions = instructions
         self.constraint = constraint
         self.paths_constraints = []
         self.path_len = path_len  # added this vertex param to indicate path length to the vertex
         self.path_num = path_num  # added this vertex param to indicate baddr is from deifferent path
-        self.key = key
+        self.id = key
 
     # --------------------- TAL'S CODE END---------------------#
 
@@ -21,11 +21,11 @@ class Vertex:
         return self.baddr == other.baddr
 
     def __str__(self):
-        if self.key == "loopSeerDum":
+        if self.id == "loopSeerDum":
             return f'{{ "block_addr": {self.baddr}, "path_num": {self.path_num}, "instructions": "{self.instructions}",' \
-                   f'"key": {self.key}, "constraints": {self.constraint} }}'
+                   f'"id": {self.id}, "constraints": {self.constraint} }}'
         return f'{{ "block_addr": {self.baddr}, "path_num": {self.path_num}, "instructions": "{self.instructions}",' \
-               f'"key": "{self.key}", "constraints": {self.constraint} }}'
+               f'"id": "{self.id}", "constraints": {self.constraint} }}'
 
 
 class Edge:
@@ -60,40 +60,52 @@ class SymGraph:  # TODO: sanity check, when graph is done, vertices.keys() lengt
 
         # We do not want to save excessively long constraints or long paths
         if vertex.path_len > self.path_len_limit:
-            return
+            return False
 
         sum_c = 0
         for c in vertex.constraint:
             sum_c = sum_c + len(c)
         if sum_c > self.path_constraints_len_limit:
-            return
+            return False
         len_and_constraint = [vertex.path_len, vertex.constraint]
-        # TODO: erase when done
-        # if not (vertex.key not in self.vertices):
-        #     print("&&&&&&&&&&&&&&&&&HERE!@#!!@#!@#%!@$#%!#$%@#$%@$#%&^@#$%@!#$")
-        #     print(f"vertex.key={vertex.key}")
-        #     print(f"vertices={self.vertices}")
-        #
-        # assert (vertex.key not in self.vertices)
-        if vertex.key in self.vertices:
-            self.vertices[vertex.key].constraint.append(len_and_constraint)
+
+        if vertex.id in self.vertices:
+            self.vertices[vertex.id].constraint.append(len_and_constraint)
         else:
-            self.vertices[vertex.key] = vertex
-            self.vertices[vertex.key].constraint = [len_and_constraint]
-            self.vertices[vertex.key].key = vertex.key
+            self.vertices[vertex.id] = vertex
+            self.vertices[vertex.id].constraint = [len_and_constraint]
+            self.vertices[vertex.id].id = vertex.id
 
-        if (vertex.key not in self.edges.keys()):
-            self.edges[vertex.key] = []
-
+        if (vertex.id not in self.edges.keys()):
+            self.edges[vertex.id] = []
+        return True
     # --------------------- TAL'S CODE END---------------------#
 
     def addEdge(self, edge: Edge):
-        if not (edge.source in self.vertices.keys() and edge.source in self.edges.keys()) \
-                or not (edge.dest in self.vertices.keys() and edge.dest in self.edges.keys()):
-            print(f"edge.source={edge.source}")
-            print(f"edge.dest={edge.dest}")
-            print(f"vertices={self.vertices.keys()}")
-            print(f"edges={self.edges.keys()}")
+        # if not (edge.source in self.vertices.keys() and edge.source in self.edges.keys()) \
+        #         or not (edge.dest in self.vertices.keys() and edge.dest in self.edges.keys()):
+        #     # This exists only for debugging purposes
+        #     print(f"edge.source={edge.source}")
+        #     print(f"edge.dest={edge.dest}")
+        #     print(f"vertices={self.vertices.keys()}")
+        #     print(f"edges={self.edges.keys()}")
+
+        if edge.source not in self.vertices.keys():
+            print("<------------------->")
+            print(f"edge.source= {edge.source}, not in self.vertices.keys() = {self.vertices.keys()}")
+
+        if edge.source not in self.edges.keys():
+            print("<------------------->")
+            print(f"edge.source = {edge.source}, not in self.edges.keys() = {self.edges.keys()}")
+
+        if edge.dest not in self.vertices.keys():
+            print("<------------------->")
+            print(f"edge.dest = {edge.dest}, not in self.vertices.keys() = {self.vertices.keys()}")
+
+        if edge.dest not in self.edges.keys():
+            print("<------------------->")
+            print(f"edge.dest= {edge.dest}, not in self.edges.keys() = {self.edges.keys()}")
+
         assert (edge.source in self.vertices.keys() and edge.source in self.edges.keys())
         assert (edge.dest in self.vertices.keys() and edge.dest in self.edges.keys())
 
