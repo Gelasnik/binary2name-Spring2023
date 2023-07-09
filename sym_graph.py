@@ -108,7 +108,6 @@ class SymGraph:  # TODO: sanity check, when graph is done, vertices.keys() lengt
 
         assert (edge.source in self.vertices.keys() and edge.source in self.edges.keys())
         assert (edge.dest in self.vertices.keys() and edge.dest in self.edges.keys())
-
         if (edge not in self.edges[edge.source]):
             self.edges[edge.source].append(edge)
 
