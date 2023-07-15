@@ -366,24 +366,12 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
     all_paths = []
     eax_val = []
 
-    # states_id_key = {}
-    # states_node_key = {}
-
-    total_states_num = 0
     for state in final_states:
         eax_val.append(state.regs.eax)
         current_node = state.history
         state_path = [("loopSeerDum", current_node.recent_constraints)]
 
         while current_node.addr is not None:
-            # if current_node not in states_node_key:
-            #     current_state_num = total_states_num
-            #     states_id_key[total_states_num] = current_node
-            #     states_node_key[current_node] = total_states_num
-            #     total_states_num += 1
-            # else:
-            #     current_state_num = states_node_key[current_node]
-
             state_path.insert(0,
                               [
                                   current_node.addr,
@@ -415,18 +403,19 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
         #         print(node[0], end=" "),
         #     print("")
 
-    root_node_addr = initial_node_addr
     next_vertex_id = 0
     root = Vertex(
-        root_node_addr,
-        address_to_content(proj, root_node_addr),
+        initial_node_addr,
+        address_to_content(proj, initial_node_addr),
         0,
         num_paths,
         next_vertex_id,
         [])
-    # --------------------- TAL'S CODE START---------------------#
-    sym_graph = SymGraph(root, func_name, 5000, 100)  # added number of paths limit for each vertex in the graph
-    # --------------------- TAL'S CODE END---------------------#
+    sym_graph = SymGraph(root=root,
+                         func_name=func_name,
+                         path_constraints_len_limit=5000,
+                         path_len_limit=100,
+                         num_paths=num_paths)
     next_vertex_id += 1
     # In each iteration, add a new constrainted vertex to the graph and connect it to the previous vertex.
     # In the SymGraph, vertex addition handles multiple constraint options and adds an OR relation.
