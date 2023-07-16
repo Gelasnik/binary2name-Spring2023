@@ -105,6 +105,8 @@ class SymGraph:  # TODO: sanity check, when graph is done, vertices.keys() lengt
             self.vertices[vertex.id].constraint = [path_len_and_constraint]
             self.id_to_addr[vertex.id] = vertex.baddr
             self.meta_data.num_vertices += 1
+
+
         if vertex.id not in self.edges.keys():
             self.edges[vertex.id] = []
 
@@ -139,10 +141,12 @@ class SymGraph:  # TODO: sanity check, when graph is done, vertices.keys() lengt
         assert (edge.dest in self.vertices.keys() and edge.dest in self.edges.keys())
 
         if edge not in self.edges[edge.source]:
+            self.meta_data.num_edges += 1
             self.edges[edge.source].append(edge)
 
     # TODO: redo the printing!
     def __str__(self):
+        self.finalize_metadata()
         res = f'{{ "func_name": "{self.func_name}",'
         res += f'"GNN_DATA": {{ '
 
@@ -158,3 +162,10 @@ class SymGraph:  # TODO: sanity check, when graph is done, vertices.keys() lengt
 
         res += f' ] }} }}'
         return res
+
+    def finalize_metadata(self):
+        for vertex in self.vertices:
+            self.meta_data.num_empty_vertices = 0
+            if not self.vertices[vertex.id].constraint[-1]:
+                self.meta_data.num_empty_vertices += 1
+
