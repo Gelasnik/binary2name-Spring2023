@@ -408,7 +408,7 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
         initial_node_addr,
         address_to_content(proj, initial_node_addr),
         0,
-        num_paths,
+        [],
         next_vertex_id,
         [])
     sym_graph = SymGraph(root=root,
@@ -422,6 +422,7 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
 
     for path_num, path in enumerate(all_paths):
         prev = root
+        sym_graph.add_path_len(path_num, len(path))
         for current_place_in_path in range(1, len(path)):
             constraint_list = varify_constraints_raw(path[current_place_in_path][1])
             ith_node_addr = path[current_place_in_path][0]
@@ -432,10 +433,10 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
                 dst = Vertex(ith_node_addr,
                              "no_instructions",
                              current_place_in_path,
-                             num_paths,
+                             [path_num],
                              "loopSeerDum",
                              constraint_list + [constraint_to_str(eax_val[path_num])]
-                             )  # added path length as third param
+                             )
                 # --------------------- TAL'S CODE END---------------------#
             else:
                 # --------------------- TAL'S CODE START---------------------#
@@ -446,6 +447,7 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
                 for child_id in children_ids:
                     child_addr = sym_graph.id_to_addr[child_id]
                     if ith_node_addr == child_addr:
+                        prev.paths.append(path_num)
                         prev = sym_graph.getVertex(child_id)
                         state_exists = True
                         break
@@ -455,7 +457,7 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
                 dst = Vertex(ith_node_addr,
                              address_to_content_raw(proj, ith_node_addr),
                              current_place_in_path,
-                             path_num,
+                             [path_num],
                              next_vertex_id,
                              constraint_list)
                 next_vertex_id += 1
