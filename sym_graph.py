@@ -29,20 +29,19 @@ class MetaData:
 
 class Vertex:
     # --------------------- TAL'S CODE START---------------------#
-    def __init__(self, baddr, instructions: str, path_len: int, paths: list, key, constraint=None):
+    def __init__(self, baddr, instructions: str, path_len: int, paths: list, key, constraints=None):
         """
         :param baddr: block address
         :param instructions: block instructions
         :param path_len: length of the path from root to this vertex
         :param paths: array of paths that pass through this vertex
-        :param constraint: block constraints
+        :param constraints: block constraints
         """
-        if constraint is None:
-            constraint = []
+        if constraints is None:
+            constraints = []
         self.baddr = baddr
         self.instructions = instructions
-        self.constraint = constraint
-        self.paths_constraints = []
+        self.constraints = constraints
         self.path_len = path_len
         self.paths = paths
         self.id = key
@@ -57,9 +56,9 @@ class Vertex:
     def __str__(self):
         if self.id == "loopSeerDum":
             return f'{{ "block_addr": {self.baddr}, "path_num": {self.paths}, "instructions": "{self.instructions}",' \
-                   f'"id": {self.id}, "constraints": {self.constraint} }}'
+                   f'"id": {self.id}, "constraints": {self.constraints} }}'
         return f'{{ "block_addr": {self.baddr}, "path_num": {self.paths}, "instructions": "{self.instructions}",' \
-               f'"id": "{self.id}", "constraints": {self.constraint} }}'
+               f'"id": "{self.id}", "constraints": {self.constraints} }}'
 
 
 class Edge:
@@ -100,13 +99,13 @@ class SymGraph:  # TODO: sanity check, when graph is done, vertices.keys() lengt
         return self.vertices[id]
 
     def addVertex(self, vertex: Vertex):
-        vertex.constraint = list(filter(None, vertex.constraint))
+        vertex.constraints = list(filter(None, vertex.constraints))
         # We do not want to save excessively long constraints or long paths
         if vertex.path_len > self.path_len_limit:
             return
 
         sum_c = 0
-        for c in vertex.constraint:
+        for c in vertex.constraints:
             sum_c = sum_c + len(c)
         if sum_c > self.path_constraints_len_limit:
             return
@@ -115,14 +114,14 @@ class SymGraph:  # TODO: sanity check, when graph is done, vertices.keys() lengt
         if vertex.paths:
             current_path = vertex.paths[-1]
 
-        path_len_and_constraint = [current_path, vertex.path_len, vertex.constraint]
-        self.meta_data.num_constraints += len(vertex.constraint)
+        path_len_and_constraint = [current_path, vertex.path_len, vertex.constraints]
+        self.meta_data.num_constraints += len(vertex.constraints)
         if vertex.id in self.vertices:
-            self.vertices[vertex.id].constraint.append(path_len_and_constraint)
+            self.vertices[vertex.id].constraints.append(path_len_and_constraint)
             self.vertices[vertex.id].paths.extend(vertex.paths)
         else:
             self.vertices[vertex.id] = vertex
-            self.vertices[vertex.id].constraint = [path_len_and_constraint]
+            self.vertices[vertex.id].constraints = [path_len_and_constraint]
             self.id_to_addr[vertex.id] = vertex.baddr
             self.meta_data.num_vertices += 1
 
@@ -183,9 +182,9 @@ class SymGraph:  # TODO: sanity check, when graph is done, vertices.keys() lengt
         return res
 
     def finalize_metadata(self):
+        self.meta_data.num_empty_vertices = 0
         for vertex in self.vertices.values():
-            self.meta_data.num_empty_vertices = 0
-            if not self.vertices[vertex.id].constraint[-1][-1]:
+            if not vertex.constraints[-1][-1]:
                 self.meta_data.num_empty_vertices += 1
 
     def add_path_len(self, path_num: int, path_len: int):
