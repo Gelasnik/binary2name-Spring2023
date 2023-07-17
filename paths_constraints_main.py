@@ -420,9 +420,14 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
     # In each iteration, add a new constrainted vertex to the graph and connect it to the previous vertex.
     # In the SymGraph, vertex addition handles multiple constraint options and adds an OR relation.
 
+    # sym_graph.add_path_len(1, 2)
+
     for path_num, path in enumerate(all_paths):
+
         prev = root
-        sym_graph.add_path_len(path_num, len(path))
+        # sym_graph.add_path_len(path_num, len(path))
+        sym_graph.meta_data.paths_len.append([path_num, len(path)])
+
         for current_place_in_path in range(1, len(path)):
             constraint_list = varify_constraints_raw(path[current_place_in_path][1])
             ith_node_addr = path[current_place_in_path][0]

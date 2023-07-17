@@ -3,10 +3,12 @@ from random import sample
 
 
 class MetaData:
-    def __init__(self, root_id: int = 0, num_paths: int = 0, paths_len: list = [], num_vertices: int = 0,
+    def __init__(self, root_id: int = 0, num_paths: int = 0, paths_len=None, num_vertices: int = 0,
                  num_edges: int = 0,
                  num_constraints: int = 0,
                  num_empty_vertices: int = 0):
+        if paths_len is None:
+            paths_len = []
         self.root_id = root_id
         self.num_paths = num_paths
         self.paths_len = paths_len
@@ -16,15 +18,18 @@ class MetaData:
         self.num_empty_vertices = num_empty_vertices
 
     def __str__(self):
-        return f'{{ "root_id": {self.root_id}, "num_paths": {self.num_paths}, "paths_len": {self.paths_len},' \
-               f'"num_vertices": {self.num_vertices}, "num_edges": {self.num_edges},' \
-               f' "num_constraints": {self.num_constraints}' \
-               f', "num_empty_vertices": {self.num_empty_vertices} }}'
+        return f'{{ "root_id": {self.root_id}, ' \
+               f'"num_paths": {self.num_paths}, ' \
+               f'"paths_len": {self.paths_len}, ' \
+               f'"num_vertices": {self.num_vertices}, ' \
+               f'"num_edges": {self.num_edges}, ' \
+               f'"num_constraints": {self.num_constraints}, ' \
+               f'"num_empty_vertices": {self.num_empty_vertices} }}'
 
 
 class Vertex:
     # --------------------- TAL'S CODE START---------------------#
-    def __init__(self, baddr, instructions: str, path_len: int, paths: list, key, constraint: list = []):
+    def __init__(self, baddr, instructions: str, path_len: int, paths: list, key, constraint=None):
         """
         :param baddr: block address
         :param instructions: block instructions
@@ -32,6 +37,8 @@ class Vertex:
         :param paths: array of paths that pass through this vertex
         :param constraint: block constraints
         """
+        if constraint is None:
+            constraint = []
         self.baddr = baddr
         self.instructions = instructions
         self.constraint = constraint
