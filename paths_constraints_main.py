@@ -408,7 +408,7 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
         initial_node_addr,
         address_to_content(proj, initial_node_addr),
         0,
-        [],
+        [0],  # 0 is initial path for root
         next_vertex_id,
         [])
     sym_graph = SymGraph(root=root,
@@ -425,8 +425,8 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
     for path_num, path in enumerate(all_paths):
 
         prev = root
-        # sym_graph.add_path_len(path_num, len(path))
-        sym_graph.meta_data.paths_len.append([path_num, len(path)])
+        sym_graph.add_path_len(path_num, len(path))
+        # sym_graph.meta_data.paths_len.append([path_num, len(path)])
 
         for current_place_in_path in range(1, len(path)):
             constraint_list = varify_constraints_raw(path[current_place_in_path][1])
