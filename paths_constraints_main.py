@@ -360,7 +360,7 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
 
     # TODO: make sure you want to treat the "deadended" and "spinning" states the same way
     final_states = [item for sublist in final_states_lists for item in sublist]
-    assert (final_states is not [])  # assert that final states list is not empty else we dont have what to work with
+    assert final_states  # assert that final states list is not empty else we dont have what to work with
     # compose all routs backtracking from final to initial
     num_paths = len(final_states)
     all_paths = []
