@@ -275,6 +275,8 @@ def get_constraint_ast(constraint: str, curr_depth: int, max_depth: int) -> Cons
 
 class OutputConvertor:
     def __init__(self, dataset_name: str, sample_path: int, sample_constraint: int):
+        self.selected_paths = []
+        self.relevant_nodes = []
         self.filenames = []
         self.converted_filenames = []
         self.src = dataset_name
@@ -392,8 +394,9 @@ class OutputConvertor:
     def __convert_edges(self, edges: List) -> List:
         converted_edges = []
         for edge in edges:
-            new_edge = (edge['src'], edge['dst'])
-            converted_edges.append(new_edge)
+            if edge['src'] in self.relevant_nodes and edge['dst'] in self.relevant_nodes:
+                new_edge = (edge['src'], edge['dst'])
+                converted_edges.append(new_edge)
         return converted_edges
 
     def __process_constraints_to_asts(self, block_constraints: List[str]) -> List[ConstraintAst]:
@@ -449,7 +452,8 @@ class OutputConvertor:
         """
         converted_block_constraints = []
         filtered_block_constraints = list(
-            filter(lambda c: len(c[1]) > 0, block_constraints))  # filter paths that have zero constraints
+            # filter paths that have zero constraints or not in the selected paths
+            filter(lambda c: len(c[2]) > 0 and c[0] in self.selected_paths, block_constraints))
         if len(filtered_block_constraints) == 0:
             return ['']
         # print("block_constraints", len(block_constraints), block_constraints)
@@ -458,17 +462,17 @@ class OutputConvertor:
 
         # print("paths_len_and_constraints", len(paths_len_and_constraints), paths_len_and_constraints)
         if node_id == 'loopSeerDum':
-            paths_len_and_constraints = random.sample(filtered_block_constraints,
-                                                      min(len(filtered_block_constraints), self.sample_path))
-            for _, path_constraints in paths_len_and_constraints:  # path_len is the length of the execution path (until the current block) that contibuted these
+            # paths_len_and_constraints = random.sample(filtered_block_constraints,
+            #                                           min(len(filtered_block_constraints), self.sample_path))
+            for path_num, path_len, path_constraints in filtered_block_constraints:  # path_len is the length of the execution path (until the current block) that contibuted these
                 selected_path_constraints = random.sample(path_constraints,
                                                           min(len(path_constraints),
                                                               self.sample_constraint))
                 converted_block_constraints.extend(selected_path_constraints)
         else:
-            # TODO assert num paths for each block is 1
-            selected_path_constraints = random.sample(filtered_block_constraints[0][1],
-                                                      min(len(filtered_block_constraints[0][1]),
+            assert len(filtered_block_constraints) == 1, "block has constraints from more than one block"
+            selected_path_constraints = random.sample(filtered_block_constraints[0][2],
+                                                      min(len(filtered_block_constraints[0][2]),
                                                           self.sample_constraint))
             converted_block_constraints.extend(selected_path_constraints)
 
@@ -538,6 +542,8 @@ class OutputConvertor:
             MAX_TOKENS_PER_CONSTRAINT = data['MAX_TOKENS_PER_CONSTRAINT']
         converted_nodes = {}
         for node in nodes:
+            if node['id'] not in self.relevant_nodes:
+                continue
             # reduce the number of constraints
             node['constraints'] = self.__reduce_constraints(node['constraints'], node['id'])
             converted_constraints = []
@@ -592,6 +598,8 @@ class OutputConvertor:
         # converted_data = {'func_name': OUR_API_TYPE + function_name, 'GNN_data': {}, 'exe_name': exe_name, 'package': package_name}
         converted_data = {'func_name': function_name, 'GNN_data': {}, 'exe_name': exe_name, 'package': package_name}
         # try:
+        self.select_paths(initial_data['GNN_DATA']['meta_data'][0])  # 0 is the meta_data dictionary
+        self.find_relevant_nodes(initial_data['GNN_DATA']['nodes'], self.selected_paths)
         converted_data['GNN_data']['edges'] = self.__convert_edges(initial_data['GNN_DATA']['edges'])
         converted_data['GNN_data']['nodes'] = self.__convert_nodes(initial_data['GNN_DATA']['nodes'])
         # except Exception as e:
@@ -665,6 +673,21 @@ class OutputConvertor:
         for _, constraints in nodes.items():
             total_num_constraints = total_num_constraints + len(constraints)
         return total_num_constraints
+
+    def select_paths(self, meta_data):
+        self.selected_paths = self.select_shortest_paths(meta_data['paths_len'])
+
+    def select_shortest_paths(self, paths_len):
+        sorted_paths_len = sorted(paths_len, key=lambda x: x[0])
+        shortest_paths = [x[0] for x in sorted_paths_len[:self.sample_path]]
+        return shortest_paths
+
+    def find_relevant_nodes(self, nodes, selected_paths):
+        for node in nodes:
+            if set(node['path_num']) & set(selected_paths): # intersection
+                self.relevant_nodes.append(node['id'])
+
+
 
 
 class OrganizeOutput:
