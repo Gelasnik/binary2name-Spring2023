@@ -598,7 +598,6 @@ class OutputConvertor:
         # try:
         selected_paths = self.select_paths(initial_data['GNN_DATA']['meta_data'][0])  # 0 is the meta_data dictionary
         relevant_nodes = self.find_relevant_nodes(initial_data['GNN_DATA']['nodes'], selected_paths)
-        print(function_name, selected_paths, relevant_nodes)
         converted_data['GNN_data']['edges'] = self.__convert_edges(initial_data['GNN_DATA']['edges'], relevant_nodes)
         converted_data['GNN_data']['nodes'] = self.__convert_nodes(initial_data['GNN_DATA']['nodes'], relevant_nodes,
                                                                    selected_paths)
