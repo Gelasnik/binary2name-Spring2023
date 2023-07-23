@@ -275,8 +275,6 @@ def get_constraint_ast(constraint: str, curr_depth: int, max_depth: int) -> Cons
 
 class OutputConvertor:
     def __init__(self, dataset_name: str, sample_path: int, sample_constraint: int):
-        self.selected_paths = []
-        self.relevant_nodes = []
         self.filenames = []
         self.converted_filenames = []
         self.src = dataset_name
@@ -391,10 +389,10 @@ class OutputConvertor:
         result["precent_block_constraints"] = num_nodes_with_constraints / num_nodes
         return True, result
 
-    def __convert_edges(self, edges: List) -> List:
+    def __convert_edges(self, edges: List, relevant_nodes) -> List:
         converted_edges = []
         for edge in edges:
-            if edge['src'] in self.relevant_nodes and edge['dst'] in self.relevant_nodes:
+            if edge['src'] in relevant_nodes and edge['dst'] in relevant_nodes:
                 new_edge = (edge['src'], edge['dst'])
                 converted_edges.append(new_edge)
         return converted_edges
@@ -446,14 +444,14 @@ class OutputConvertor:
             converted_block_constraints.append('|'.join(converted_path_constraints))
         return converted_block_constraints
 
-    def __reduce_constraints(self, block_constraints: List[str], node_id) -> List[str]:
+    def __reduce_constraints(self, block_constraints: List[str], node_id, selected_paths) -> List[str]:
         """
         goals: reduce the number of constraints so the model would like more easily
         """
         converted_block_constraints = []
         filtered_block_constraints = list(
             # filter paths that have zero constraints or not in the selected paths
-            filter(lambda c: len(c[2]) > 0 and c[0] in self.selected_paths, block_constraints))
+            filter(lambda c: len(c[2]) > 0 and c[0] in selected_paths, block_constraints))
         if len(filtered_block_constraints) == 0:
             return ['']
         # print("block_constraints", len(block_constraints), block_constraints)
@@ -536,16 +534,16 @@ class OutputConvertor:
                 i += 1
         return constraint_asts
 
-    def __convert_nodes(self, nodes: List) -> Dict:
+    def __convert_nodes(self, nodes: List, relevant_nodes, selected_paths) -> Dict:
         with open('conversion_config.json', 'r') as config_file:
             data = json.load(config_file)
             MAX_TOKENS_PER_CONSTRAINT = data['MAX_TOKENS_PER_CONSTRAINT']
         converted_nodes = {}
         for node in nodes:
-            if node['id'] not in self.relevant_nodes:
+            if node['id'] not in relevant_nodes:
                 continue
             # reduce the number of constraints
-            node['constraints'] = self.__reduce_constraints(node['constraints'], node['id'])
+            node['constraints'] = self.__reduce_constraints(node['constraints'], node['id'], selected_paths)
             converted_constraints = []
             if node['constraints'] != ['']:
                 # Remove "junk symbols"
@@ -598,10 +596,12 @@ class OutputConvertor:
         # converted_data = {'func_name': OUR_API_TYPE + function_name, 'GNN_data': {}, 'exe_name': exe_name, 'package': package_name}
         converted_data = {'func_name': function_name, 'GNN_data': {}, 'exe_name': exe_name, 'package': package_name}
         # try:
-        self.select_paths(initial_data['GNN_DATA']['meta_data'][0])  # 0 is the meta_data dictionary
-        self.find_relevant_nodes(initial_data['GNN_DATA']['nodes'], self.selected_paths)
-        converted_data['GNN_data']['edges'] = self.__convert_edges(initial_data['GNN_DATA']['edges'])
-        converted_data['GNN_data']['nodes'] = self.__convert_nodes(initial_data['GNN_DATA']['nodes'])
+        selected_paths = self.select_paths(initial_data['GNN_DATA']['meta_data'][0])  # 0 is the meta_data dictionary
+        relevant_nodes = self.find_relevant_nodes(initial_data['GNN_DATA']['nodes'], selected_paths)
+        print(function_name, selected_paths, relevant_nodes)
+        converted_data['GNN_data']['edges'] = self.__convert_edges(initial_data['GNN_DATA']['edges'], relevant_nodes)
+        converted_data['GNN_data']['nodes'] = self.__convert_nodes(initial_data['GNN_DATA']['nodes'], relevant_nodes,
+                                                                   selected_paths)
         # except Exception as e:
         #    print("file", filename)
         #    exit(1)
@@ -675,19 +675,19 @@ class OutputConvertor:
         return total_num_constraints
 
     def select_paths(self, meta_data):
-        self.selected_paths = self.select_shortest_paths(meta_data['paths_len'])
+        return self.select_shortest_paths(meta_data['paths_len'])
 
     def select_shortest_paths(self, paths_len):
-        sorted_paths_len = sorted(paths_len, key=lambda x: x[0])
+        sorted_paths_len = sorted(paths_len, key=lambda x: x[1])
         shortest_paths = [x[0] for x in sorted_paths_len[:self.sample_path]]
         return shortest_paths
 
     def find_relevant_nodes(self, nodes, selected_paths):
+        relevant_nodes = []
         for node in nodes:
-            if set(node['path_num']) & set(selected_paths): # intersection
-                self.relevant_nodes.append(node['id'])
-
-
+            if set(node['path_num']) & set(selected_paths):  # intersection
+                relevant_nodes.append(node['id'])
+        return relevant_nodes
 
 
 class OrganizeOutput:
