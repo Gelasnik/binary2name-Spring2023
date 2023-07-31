@@ -275,6 +275,7 @@ def get_constraint_ast(constraint: str, curr_depth: int, max_depth: int) -> Cons
 
 class OutputConvertor:
     def __init__(self, dataset_name: str, sample_path: int, sample_constraint: int):
+        self.num_longest_paths = 1
         self.filenames = []
         self.converted_filenames = []
         self.src = dataset_name
@@ -674,12 +675,21 @@ class OutputConvertor:
         return total_num_constraints
 
     def select_paths(self, meta_data):
-        return self.select_shortest_paths(meta_data['paths_len'])
+        if len(meta_data['paths_len']) <= self.sample_path:
+            return sorted(meta_data['paths_len'], key=lambda x: x[1])
+        if self.sample_path <= self.num_longest_paths: # just dummy check to see user is not stupid
+            return self.select_longest_paths(meta_data['paths_len'])
+        return self.select_shortest_paths(meta_data['paths_len']) + self.select_longest_paths(meta_data['paths_len'])
 
     def select_shortest_paths(self, paths_len):
         sorted_paths_len = sorted(paths_len, key=lambda x: x[1])
-        shortest_paths = [x[0] for x in sorted_paths_len[:self.sample_path]]
+        shortest_paths = [x[0] for x in sorted_paths_len[:self.sample_path - self.num_longest_paths]]
         return shortest_paths
+
+    def select_longest_paths(self, paths_len):
+        sorted_paths_len = sorted(paths_len, key=lambda x: x[1], reverse=True)
+        longest_paths = [x[0] for x in sorted_paths_len[:self.num_longest_paths]]
+        return longest_paths
 
     def find_relevant_nodes(self, nodes, selected_paths):
         relevant_nodes = []
