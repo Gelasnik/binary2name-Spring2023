@@ -676,8 +676,9 @@ class OutputConvertor:
 
     def select_paths(self, meta_data):
         if len(meta_data['paths_len']) <= self.sample_path:
-            return sorted(meta_data['paths_len'], key=lambda x: x[1])
-        if self.sample_path <= self.num_longest_paths: # just dummy check to see user is not stupid
+            sorted_paths_len = sorted(meta_data['paths_len'], key=lambda x: x[1])
+            return [x[0] for x in sorted_paths_len]
+        if self.sample_path <= self.num_longest_paths:  # just dummy check to see user is not stupid
             return self.select_longest_paths(meta_data['paths_len'])
         return self.select_shortest_paths(meta_data['paths_len']) + self.select_longest_paths(meta_data['paths_len'])
 

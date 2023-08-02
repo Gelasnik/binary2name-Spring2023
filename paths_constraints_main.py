@@ -272,7 +272,7 @@ def analyze_binary(analyzed_funcs: Set[str], binary_name: str, output_dir: str,
 
 def analyze_binary_func(args):
     (test_func_name, test_func_addr), binary_name, output_dir = args
-    # if test_func_name != "memcpy_uppcase":
+    # if test_func_name != "secure_memset" and test_func_name != "memcpy_uppcase":
     #     return
     binary_name_base = os.path.basename(binary_name)  # Make the output directory for this binary
     binary_output_dir = os.path.join(output_dir, f"{binary_name_base}")
@@ -360,7 +360,7 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
 
     # TODO: make sure you want to treat the "deadended" and "spinning" states the same way
     final_states = [item for sublist in final_states_lists for item in sublist]
-    assert final_states, "assert that final states list is not empty else we dont have what to work with"
+    assert (final_states is not [])  # assert that final states list is not empty else we dont have what to work with
     # compose all routs backtracking from final to initial
     num_paths = len(final_states)
     all_paths = []
@@ -423,14 +423,19 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
     # sym_graph.add_path_len(1, 2)
 
     for path_num, path in enumerate(all_paths):
-
+        print("for num path, path in all paths")
+        print("pathnum = ", path_num)
+        print("path = ", path)
         prev = root
         sym_graph.add_path_len(path_num, len(path))
         # sym_graph.meta_data.paths_len.append([path_num, len(path)])
 
         for current_place_in_path in range(1, len(path)):
+            print("for current_place_in_path  in path")
+            print("current_place_in_path = ", current_place_in_path)
             constraint_list = varify_constraints_raw(path[current_place_in_path][1])
             ith_node_addr = path[current_place_in_path][0]
+            print("addr = ", ith_node_addr)
             # addr_path_key = "_".join([str(ith_node_id), str(path_num)])
             if type(ith_node_addr) == str:  # This is "loopSeerDum"
                 # --------------------- TAL'S CODE START---------------------#
@@ -449,15 +454,25 @@ def sm_to_graph(sm: SimulationManager, output_file, func_name):
                 # find last common vertex
                 children_ids = sym_graph.getChildrenIds(prev)
                 state_exists = False
+                print("children ids = ", children_ids)
                 for child_id in children_ids:
+                    print("for child_id  in children_ids")
+
                     child_addr = sym_graph.id_to_addr[child_id]
+                    print("child_addr = ", child_addr)
+
                     if ith_node_addr == child_addr:
+                        print(f"adding pathnum {path_num} to {prev.id}")
                         prev.paths.append(path_num)
                         prev = sym_graph.getVertex(child_id)
                         state_exists = True
                         break
                 if state_exists:
+                    print("found state")
                     continue
+                print("did not find state")
+                if path_num not in prev.paths:
+                    prev.paths.append(path_num)
                 # found last common vertex, create new branch from it
                 dst = Vertex(ith_node_addr,
                              address_to_content_raw(proj, ith_node_addr),
