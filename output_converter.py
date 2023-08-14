@@ -275,7 +275,6 @@ def get_constraint_ast(constraint: str, curr_depth: int, max_depth: int) -> Cons
 
 class OutputConvertor:
     def __init__(self, dataset_name: str, sample_path: int, sample_constraint: int):
-        self.num_longest_paths = 1
         self.filenames = []
         self.converted_filenames = []
         self.src = dataset_name
@@ -411,6 +410,7 @@ class OutputConvertor:
                 constraint_ast = get_constraint_ast(constraint, 1,
                                                     3)  # return constraints tree upto a depths of max_depth=3
                 # filter all unwanted functions
+                # TODO don't remove filler nodes?
                 constraint_ast.remove_filler_nodes(OUR_API_TYPE + 'Extract', 3)
                 constraint_ast.remove_filler_nodes(OUR_API_TYPE + 'ZeroExt', 2)
                 # constraint_ast.remove_filler_nodes(OUR_API_TYPE + 'invert', 1)
@@ -436,6 +436,7 @@ class OutputConvertor:
             converted_path_constraints = []
             for constraint in path_constraints.split('|'):
                 # Remove the <Bool ... > prefix and suffix of each constraint.
+                # TODO: leave BOOL AND BV32 on the constraint
                 converted_constraint = constraint.replace('Bool', '').replace('<', '').replace('>', '').replace('BV32 ',
                                                                                                                 '').strip()
                 # Clean the representation of boolean ops: remove the '__' prefix and suffix.
@@ -464,16 +465,10 @@ class OutputConvertor:
             # paths_len_and_constraints = random.sample(filtered_block_constraints,
             #                                           min(len(filtered_block_constraints), self.sample_path))
             for path_num, path_len, path_constraints in filtered_block_constraints:  # path_len is the length of the execution path (until the current block) that contibuted these
-                selected_path_constraints = random.sample(path_constraints,
-                                                          min(len(path_constraints),
-                                                              self.sample_constraint))
-                converted_block_constraints.extend(selected_path_constraints)
+                converted_block_constraints.extend(path_constraints)
         else:
             assert len(filtered_block_constraints) == 1, "block has constraints from more than one block"
-            selected_path_constraints = random.sample(filtered_block_constraints[0][2],
-                                                      min(len(filtered_block_constraints[0][2]),
-                                                          self.sample_constraint))
-            converted_block_constraints.extend(selected_path_constraints)
+            converted_block_constraints.extend(filtered_block_constraints[0][2])
 
         # for path_len, path_constraints in paths_len_and_constraints: # path_len is the length of the execution path (until the current block) that contibuted these
         #     pass
@@ -557,6 +552,7 @@ class OutputConvertor:
                 # Perform per-constraint styling on each node
                 filtered_constraint_asts = self.__process_constraints_to_asts(node['constraints'])
                 # Perform node-wide deduplication
+                # TODO remove deduplicate
                 filtered_constraint_asts = self.__deduplicate_constraints(filtered_constraint_asts)
                 # Convert to the nero format
                 for constraint_ast in filtered_constraint_asts:
@@ -571,6 +567,7 @@ class OutputConvertor:
 
     def convert_json(self, filename: str):
         filesize = os.path.getsize(filename)
+        # TODO play with max_output_to_process
         if filesize == 0 or filesize > SYM_EXE_MAX_OUTPUT_TO_PROCESS:
             # print(f'Warning! file {filename} is empty or larger than {SYM_EXE_MAX_OUTPUT_TO_PROCESS}. Skipping.')
             # raise Exception #This is necessary as that calling function will omit this
@@ -675,22 +672,12 @@ class OutputConvertor:
         return total_num_constraints
 
     def select_paths(self, meta_data):
-        if len(meta_data['paths_len']) <= self.sample_path:
-            sorted_paths_len = sorted(meta_data['paths_len'], key=lambda x: x[1])
-            return [x[0] for x in sorted_paths_len]
-        if self.sample_path <= self.num_longest_paths:  # just dummy check to see user is not stupid
-            return self.select_longest_paths(meta_data['paths_len'])
-        return self.select_shortest_paths(meta_data['paths_len']) + self.select_longest_paths(meta_data['paths_len'])
+        return self.select_shortest_paths(meta_data['paths_len'])
 
     def select_shortest_paths(self, paths_len):
         sorted_paths_len = sorted(paths_len, key=lambda x: x[1])
-        shortest_paths = [x[0] for x in sorted_paths_len[:self.sample_path - self.num_longest_paths]]
+        shortest_paths = [x[0] for x in sorted_paths_len[:self.sample_path]]
         return shortest_paths
-
-    def select_longest_paths(self, paths_len):
-        sorted_paths_len = sorted(paths_len, key=lambda x: x[1], reverse=True)
-        longest_paths = [x[0] for x in sorted_paths_len[:self.num_longest_paths]]
-        return longest_paths
 
     def find_relevant_nodes(self, nodes, selected_paths):
         relevant_nodes = []
