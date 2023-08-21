@@ -273,6 +273,36 @@ def get_constraint_ast(constraint: str, curr_depth: int, max_depth: int) -> Cons
     return constraint_ast
 
 
+class IdentityDict(dict):
+    def __missing__(self, key):
+        return key
+
+
+def create_transition_dict__addr_path(nodes):
+    transition_dict = {}
+    for node in nodes:
+        if node['id'] != "loopSeerDum":
+            new_id = f"{node['block_addr']}_{node['path_num'][0]}"
+        else:
+            new_id = "loopSeerDum"
+        transition_dict[node['id']] = new_id
+    return transition_dict
+
+
+def get_transition_dict(nodes):
+    # To return to original implementation unmute this:
+    # return IdentityDict()
+    return create_transition_dict__addr_path(nodes)
+
+
+def find_relevant_nodes(nodes, selected_paths):
+    relevant_nodes = []
+    for node in nodes:
+        if set(node['path_num']) & set(selected_paths):  # intersection
+            relevant_nodes.append(node['id'])
+    return relevant_nodes
+
+
 class OutputConvertor:
     def __init__(self, dataset_name: str, sample_path: int, sample_constraint: int):
         self.filenames = []
@@ -389,11 +419,12 @@ class OutputConvertor:
         result["precent_block_constraints"] = num_nodes_with_constraints / num_nodes
         return True, result
 
-    def __convert_edges(self, edges: List) -> List:
+    def __convert_edges(self, edges: List, relevant_nodes, transition_dict) -> List:
         converted_edges = []
         for edge in edges:
-            new_edge = (edge['src'], edge['dst'])
-            converted_edges.append(new_edge)
+            if edge['src'] in relevant_nodes and edge['dst'] in relevant_nodes:
+                new_edge = (transition_dict[edge['src']], transition_dict[edge['dst']])
+                converted_edges.append(new_edge)
         return converted_edges
 
     def __process_constraints_to_asts(self, block_constraints: List[str]) -> List[ConstraintAst]:
@@ -443,13 +474,14 @@ class OutputConvertor:
             converted_block_constraints.append('|'.join(converted_path_constraints))
         return converted_block_constraints
 
-    def __reduce_constraints(self, block_constraints: List[str], node_id) -> List[str]:
+    def __reduce_constraints(self, block_constraints: List[str], node_id, selected_paths) -> List[str]:
         """
         goals: reduce the number of constraints so the model would like more easily
         """
         converted_block_constraints = []
         filtered_block_constraints = list(
-            filter(lambda c: len(c[1]) > 0, block_constraints))  # filter paths that have zero constraints
+            # filter paths that have zero constraints or not in the selected paths
+            filter(lambda c: len(c[2]) > 0 and c[0] in selected_paths, block_constraints))
         if len(filtered_block_constraints) == 0:
             return ['']
         # print("block_constraints", len(block_constraints), block_constraints)
@@ -458,17 +490,17 @@ class OutputConvertor:
 
         # print("paths_len_and_constraints", len(paths_len_and_constraints), paths_len_and_constraints)
         if node_id == 'loopSeerDum':
-            paths_len_and_constraints = random.sample(filtered_block_constraints,
-                                                      min(len(filtered_block_constraints), self.sample_path))
-            for _, path_constraints in paths_len_and_constraints:  # path_len is the length of the execution path (until the current block) that contibuted these
+            # paths_len_and_constraints = random.sample(filtered_block_constraints,
+            #                                           min(len(filtered_block_constraints), self.sample_path))
+            for path_num, path_len, path_constraints in filtered_block_constraints:  # path_len is the length of the execution path (until the current block) that contibuted these
                 selected_path_constraints = random.sample(path_constraints,
                                                           min(len(path_constraints),
                                                               self.sample_constraint))
                 converted_block_constraints.extend(selected_path_constraints)
         else:
-            # TODO assert num paths for each block is 1
-            selected_path_constraints = random.sample(filtered_block_constraints[0][1],
-                                                      min(len(filtered_block_constraints[0][1]),
+            assert len(filtered_block_constraints) == 1, "block has constraints from more than one block"
+            selected_path_constraints = random.sample(filtered_block_constraints[0][2],
+                                                      min(len(filtered_block_constraints[0][2]),
                                                           self.sample_constraint))
             converted_block_constraints.extend(selected_path_constraints)
 
@@ -532,14 +564,18 @@ class OutputConvertor:
                 i += 1
         return constraint_asts
 
-    def __convert_nodes(self, nodes: List) -> Dict:
+    def __convert_nodes(self, nodes: List, relevant_nodes, selected_paths, transition_dict) -> Dict:
         with open('conversion_config.json', 'r') as config_file:
             data = json.load(config_file)
             MAX_TOKENS_PER_CONSTRAINT = data['MAX_TOKENS_PER_CONSTRAINT']
         converted_nodes = {}
         for node in nodes:
+            if node['id'] not in relevant_nodes:
+                continue
+
+            node['id'] = transition_dict[node['id']]
             # reduce the number of constraints
-            node['constraints'] = self.__reduce_constraints(node['constraints'], node['id'])
+            node['constraints'] = self.__reduce_constraints(node['constraints'], node['id'], selected_paths)
             converted_constraints = []
             if node['constraints'] != ['']:
                 # Remove "junk symbols"
@@ -592,8 +628,13 @@ class OutputConvertor:
         # converted_data = {'func_name': OUR_API_TYPE + function_name, 'GNN_data': {}, 'exe_name': exe_name, 'package': package_name}
         converted_data = {'func_name': function_name, 'GNN_data': {}, 'exe_name': exe_name, 'package': package_name}
         # try:
-        converted_data['GNN_data']['edges'] = self.__convert_edges(initial_data['GNN_DATA']['edges'])
-        converted_data['GNN_data']['nodes'] = self.__convert_nodes(initial_data['GNN_DATA']['nodes'])
+        selected_paths = self.select_paths(initial_data['GNN_DATA']['meta_data'][0])  # 0 is the meta_data dictionary
+        relevant_nodes = find_relevant_nodes(initial_data['GNN_DATA']['nodes'], selected_paths)
+        transition_dict = get_transition_dict(initial_data['GNN_DATA']['nodes'])
+        converted_data['GNN_data']['edges'] = self.__convert_edges(initial_data['GNN_DATA']['edges'], relevant_nodes,
+                                                                   transition_dict=transition_dict)
+        converted_data['GNN_data']['nodes'] = self.__convert_nodes(initial_data['GNN_DATA']['nodes'], relevant_nodes,
+                                                                   selected_paths, transition_dict=transition_dict)
         # except Exception as e:
         #    print("file", filename)
         #    exit(1)
@@ -665,6 +706,24 @@ class OutputConvertor:
         for _, constraints in nodes.items():
             total_num_constraints = total_num_constraints + len(constraints)
         return total_num_constraints
+
+    def select_paths(self, meta_data):
+        return self.select_shortest_paths(meta_data['paths_len'])
+        # return self.select_random_paths(meta_data['paths_len'])
+        # return self.select_longest_paths(meta_data['paths_len'])
+
+    def select_random_paths(self, paths_len):
+        return [s[0] for s in random.sample(paths_len, min(len(paths_len), self.sample_path))]
+
+    def select_longest_paths(self, paths_len):
+        sorted_paths_len = sorted(paths_len, key=lambda x: x[1], reverse=True)
+        longest_paths = [x[0] for x in sorted_paths_len[:self.sample_path]]
+        return longest_paths
+
+    def select_shortest_paths(self, paths_len):
+        sorted_paths_len = sorted(paths_len, key=lambda x: x[1])
+        shortest_paths = [x[0] for x in sorted_paths_len[:self.sample_path]]
+        return shortest_paths
 
 
 class OrganizeOutput:
