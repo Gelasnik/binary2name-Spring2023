@@ -21,6 +21,7 @@ OUR_API_TYPE = 'F'  # Meaningless - simply here to notify this is not a NORMAL_P
 MEM_DIFF_THRESH = 20
 RET_DIFF_THRESH = 20
 CONVERTED_DS_PREFIX = 'Converted_'
+
 SYM_EXE_MAX_OUTPUT_TO_PROCESS = 1000000
 
 
@@ -392,7 +393,8 @@ class OutputConvertor:
     def get_stats_json(self, filename):
         filesize = os.path.getsize(filename)
         result = {}
-        if filesize == 0 or filesize > SYM_EXE_MAX_OUTPUT_TO_PROCESS:
+        if filesize == 0:
+        # if filesize == 0 or filesize > SYM_EXE_MAX_OUTPUT_TO_PROCESS:
             return False, None
         result["error_parsing_json"] = False
         try:
@@ -493,15 +495,17 @@ class OutputConvertor:
             # paths_len_and_constraints = random.sample(filtered_block_constraints,
             #                                           min(len(filtered_block_constraints), self.sample_path))
             for path_num, path_len, path_constraints in filtered_block_constraints:  # path_len is the length of the execution path (until the current block) that contibuted these
-                selected_path_constraints = random.sample(path_constraints,
-                                                          min(len(path_constraints),
-                                                              self.sample_constraint))
+                # selected_path_constraints = random.sample(path_constraints,
+                                                          # min(len(path_constraints),
+                                                              # self.sample_constraint))
+                selected_path_constraints = path_constraints
                 converted_block_constraints.extend(selected_path_constraints)
         else:
             assert len(filtered_block_constraints) == 1, "block has constraints from more than one block"
-            selected_path_constraints = random.sample(filtered_block_constraints[0][2],
-                                                      min(len(filtered_block_constraints[0][2]),
-                                                          self.sample_constraint))
+            # selected_path_constraints = random.sample(filtered_block_constraints[0][2],
+                                                      # min(len(filtered_block_constraints[0][2]),
+                                                          # self.sample_constraint))
+            selected_path_constraints = filtered_block_constraints[0][2]
             converted_block_constraints.extend(selected_path_constraints)
 
         # for path_len, path_constraints in paths_len_and_constraints: # path_len is the length of the execution path (until the current block) that contibuted these
@@ -602,7 +606,8 @@ class OutputConvertor:
 
     def convert_json(self, filename: str):
         filesize = os.path.getsize(filename)
-        if filesize == 0 or filesize > SYM_EXE_MAX_OUTPUT_TO_PROCESS:
+        if filesize == 0:
+        # if filesize == 0 or filesize > SYM_EXE_MAX_OUTPUT_TO_PROCESS:
             # print(f'Warning! file {filename} is empty or larger than {SYM_EXE_MAX_OUTPUT_TO_PROCESS}. Skipping.')
             # raise Exception #This is necessary as that calling function will omit this
             return False, None
